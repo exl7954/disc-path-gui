@@ -1,0 +1,10 @@
+/home/ericlin/ros/ros-system/build/pathserver/CMakeFiles/uninstall.dir
+/home/ericlin/ros/ros-system/build/pathserver/CMakeFiles/pathserver_uninstall.dir
+/home/ericlin/ros/ros-system/build/pathserver/CMakeFiles/server.dir
+/home/ericlin/ros/ros-system/build/pathserver/CMakeFiles/test.dir
+/home/ericlin/ros/ros-system/build/pathserver/CMakeFiles/edit_cache.dir
+/home/ericlin/ros/ros-system/build/pathserver/CMakeFiles/rebuild_cache.dir
+/home/ericlin/ros/ros-system/build/pathserver/CMakeFiles/list_install_components.dir
+/home/ericlin/ros/ros-system/build/pathserver/CMakeFiles/install.dir
+/home/ericlin/ros/ros-system/build/pathserver/CMakeFiles/install/local.dir
+/home/ericlin/ros/ros-system/build/pathserver/CMakeFiles/install/strip.dir
