@@ -83,17 +83,113 @@ CMakeFiles/server.dir/src/disc.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/src/disc.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp -o CMakeFiles/server.dir/src/disc.cpp.s
 
+CMakeFiles/server.dir/src/Box.cpp.o: CMakeFiles/server.dir/flags.make
+CMakeFiles/server.dir/src/Box.cpp.o: /home/ericlin/ros/ros-system/src/pathserver/src/Box.cpp
+CMakeFiles/server.dir/src/Box.cpp.o: CMakeFiles/server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ericlin/ros/ros-system/build/pathserver/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/server.dir/src/Box.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/server.dir/src/Box.cpp.o -MF CMakeFiles/server.dir/src/Box.cpp.o.d -o CMakeFiles/server.dir/src/Box.cpp.o -c /home/ericlin/ros/ros-system/src/pathserver/src/Box.cpp
+
+CMakeFiles/server.dir/src/Box.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/src/Box.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ericlin/ros/ros-system/src/pathserver/src/Box.cpp > CMakeFiles/server.dir/src/Box.cpp.i
+
+CMakeFiles/server.dir/src/Box.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/src/Box.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ericlin/ros/ros-system/src/pathserver/src/Box.cpp -o CMakeFiles/server.dir/src/Box.cpp.s
+
+CMakeFiles/server.dir/src/QuadTree.cpp.o: CMakeFiles/server.dir/flags.make
+CMakeFiles/server.dir/src/QuadTree.cpp.o: /home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp
+CMakeFiles/server.dir/src/QuadTree.cpp.o: CMakeFiles/server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ericlin/ros/ros-system/build/pathserver/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/server.dir/src/QuadTree.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/server.dir/src/QuadTree.cpp.o -MF CMakeFiles/server.dir/src/QuadTree.cpp.o.d -o CMakeFiles/server.dir/src/QuadTree.cpp.o -c /home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp
+
+CMakeFiles/server.dir/src/QuadTree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/src/QuadTree.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp > CMakeFiles/server.dir/src/QuadTree.cpp.i
+
+CMakeFiles/server.dir/src/QuadTree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/src/QuadTree.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp -o CMakeFiles/server.dir/src/QuadTree.cpp.s
+
+CMakeFiles/server.dir/src/Corner.cpp.o: CMakeFiles/server.dir/flags.make
+CMakeFiles/server.dir/src/Corner.cpp.o: /home/ericlin/ros/ros-system/src/pathserver/src/Corner.cpp
+CMakeFiles/server.dir/src/Corner.cpp.o: CMakeFiles/server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ericlin/ros/ros-system/build/pathserver/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/server.dir/src/Corner.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/server.dir/src/Corner.cpp.o -MF CMakeFiles/server.dir/src/Corner.cpp.o.d -o CMakeFiles/server.dir/src/Corner.cpp.o -c /home/ericlin/ros/ros-system/src/pathserver/src/Corner.cpp
+
+CMakeFiles/server.dir/src/Corner.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/src/Corner.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ericlin/ros/ros-system/src/pathserver/src/Corner.cpp > CMakeFiles/server.dir/src/Corner.cpp.i
+
+CMakeFiles/server.dir/src/Corner.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/src/Corner.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ericlin/ros/ros-system/src/pathserver/src/Corner.cpp -o CMakeFiles/server.dir/src/Corner.cpp.s
+
+CMakeFiles/server.dir/src/fileProcessor.cpp.o: CMakeFiles/server.dir/flags.make
+CMakeFiles/server.dir/src/fileProcessor.cpp.o: /home/ericlin/ros/ros-system/src/pathserver/src/fileProcessor.cpp
+CMakeFiles/server.dir/src/fileProcessor.cpp.o: CMakeFiles/server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ericlin/ros/ros-system/build/pathserver/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/server.dir/src/fileProcessor.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/server.dir/src/fileProcessor.cpp.o -MF CMakeFiles/server.dir/src/fileProcessor.cpp.o.d -o CMakeFiles/server.dir/src/fileProcessor.cpp.o -c /home/ericlin/ros/ros-system/src/pathserver/src/fileProcessor.cpp
+
+CMakeFiles/server.dir/src/fileProcessor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/src/fileProcessor.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ericlin/ros/ros-system/src/pathserver/src/fileProcessor.cpp > CMakeFiles/server.dir/src/fileProcessor.cpp.i
+
+CMakeFiles/server.dir/src/fileProcessor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/src/fileProcessor.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ericlin/ros/ros-system/src/pathserver/src/fileProcessor.cpp -o CMakeFiles/server.dir/src/fileProcessor.cpp.s
+
+CMakeFiles/server.dir/src/Timer.cpp.o: CMakeFiles/server.dir/flags.make
+CMakeFiles/server.dir/src/Timer.cpp.o: /home/ericlin/ros/ros-system/src/pathserver/src/Timer.cpp
+CMakeFiles/server.dir/src/Timer.cpp.o: CMakeFiles/server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ericlin/ros/ros-system/build/pathserver/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/server.dir/src/Timer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/server.dir/src/Timer.cpp.o -MF CMakeFiles/server.dir/src/Timer.cpp.o.d -o CMakeFiles/server.dir/src/Timer.cpp.o -c /home/ericlin/ros/ros-system/src/pathserver/src/Timer.cpp
+
+CMakeFiles/server.dir/src/Timer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/src/Timer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ericlin/ros/ros-system/src/pathserver/src/Timer.cpp > CMakeFiles/server.dir/src/Timer.cpp.i
+
+CMakeFiles/server.dir/src/Timer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/src/Timer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ericlin/ros/ros-system/src/pathserver/src/Timer.cpp -o CMakeFiles/server.dir/src/Timer.cpp.s
+
+CMakeFiles/server.dir/src/Wall.cpp.o: CMakeFiles/server.dir/flags.make
+CMakeFiles/server.dir/src/Wall.cpp.o: /home/ericlin/ros/ros-system/src/pathserver/src/Wall.cpp
+CMakeFiles/server.dir/src/Wall.cpp.o: CMakeFiles/server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ericlin/ros/ros-system/build/pathserver/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/server.dir/src/Wall.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/server.dir/src/Wall.cpp.o -MF CMakeFiles/server.dir/src/Wall.cpp.o.d -o CMakeFiles/server.dir/src/Wall.cpp.o -c /home/ericlin/ros/ros-system/src/pathserver/src/Wall.cpp
+
+CMakeFiles/server.dir/src/Wall.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/src/Wall.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ericlin/ros/ros-system/src/pathserver/src/Wall.cpp > CMakeFiles/server.dir/src/Wall.cpp.i
+
+CMakeFiles/server.dir/src/Wall.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/src/Wall.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ericlin/ros/ros-system/src/pathserver/src/Wall.cpp -o CMakeFiles/server.dir/src/Wall.cpp.s
+
 # Object files for target server
 server_OBJECTS = \
-"CMakeFiles/server.dir/src/disc.cpp.o"
+"CMakeFiles/server.dir/src/disc.cpp.o" \
+"CMakeFiles/server.dir/src/Box.cpp.o" \
+"CMakeFiles/server.dir/src/QuadTree.cpp.o" \
+"CMakeFiles/server.dir/src/Corner.cpp.o" \
+"CMakeFiles/server.dir/src/fileProcessor.cpp.o" \
+"CMakeFiles/server.dir/src/Timer.cpp.o" \
+"CMakeFiles/server.dir/src/Wall.cpp.o"
 
 # External object files for target server
 server_EXTERNAL_OBJECTS =
 
 server: CMakeFiles/server.dir/src/disc.cpp.o
+server: CMakeFiles/server.dir/src/Box.cpp.o
+server: CMakeFiles/server.dir/src/QuadTree.cpp.o
+server: CMakeFiles/server.dir/src/Corner.cpp.o
+server: CMakeFiles/server.dir/src/fileProcessor.cpp.o
+server: CMakeFiles/server.dir/src/Timer.cpp.o
+server: CMakeFiles/server.dir/src/Wall.cpp.o
 server: CMakeFiles/server.dir/build.make
 server: CMakeFiles/server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ericlin/ros/ros-system/build/pathserver/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ericlin/ros/ros-system/build/pathserver/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable server"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

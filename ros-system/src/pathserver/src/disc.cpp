@@ -54,6 +54,7 @@
 #include <string>
 #include "Graph.h"
 #include "Timer.h"
+#include "Box.h"
 
 #ifdef __CYGWIN32__
 #include "glui.h"
@@ -75,7 +76,7 @@ QuadTree* QT;
 // GLOBAL INPUT Parameters ========================================
 //
 	double alpha[2] = {10, 360};		// start configuration
-	double goal[2] = {500, 20};		// goal configuration
+	double bta[2] = {500, 20};		// goal configuration
 	double epsilon = 1;			// resolution parameter
 	Box* boxA;				// start box (containing alpha)
 	Box* boxB;				// goal box (containing beta)
@@ -247,8 +248,8 @@ int main(int argc, char* argv[])
 	if (argc > 1) interactive = atoi(argv[1]);	// Interactive (0) or no (>0)
 	if (argc > 2) alpha[0] = atof(argv[2]);		// start x
 	if (argc > 3) alpha[1] = atof(argv[3]);		// start y
-	if (argc > 4) goal[0] = atof(argv[4]);		// goal x
-	if (argc > 5) goal[1] = atof(argv[5]);		// goal y
+	if (argc > 4) bta[0] = atof(argv[4]);		// goal x
+	if (argc > 5) bta[1] = atof(argv[5]);		// goal y
 	if (argc > 6) epsilon = atof(argv[6]);		// epsilon (resolution)
 	if (argc > 7) R0      = atof(argv[7]);		// robot radius
 	if (argc > 8) fileName = argv[8]; 		// Input file name
@@ -416,7 +417,7 @@ cout<<"inside run:  Qtype= " << QType << "\n";
 			boxA = QT->getBox(boxA, alpha[0], alpha[1]);
 		}
 
-		boxB = QT->getBox(goal[0], goal[1]);
+		boxB = QT->getBox(bta[0], bta[1]);
 		while (!noPath && boxB && !boxB->isFree())
 		{
 			
@@ -426,7 +427,7 @@ cout<<"inside run:  Qtype= " << QType << "\n";
 				break;
 			}
 			++ct;
-			boxB = QT->getBox(boxB, goal[0], goal[1]);
+			boxB = QT->getBox(boxB, bta[0], bta[1]);
 		}
 		// similar to findPath (for QType 2) -- so it is a duplicated logic
 		while(!noPath && !QT->isConnect(boxA, boxB)) {
@@ -451,7 +452,7 @@ cout<<"inside run:  Qtype= " << QType << "\n";
 			boxA = QT->getBox(boxA, alpha[0], alpha[1]);
 		}
 
-		boxB = QT->getBox(goal[0], goal[1]);
+		boxB = QT->getBox(bta[0], bta[1]);
 		// split until the box containing B is free (or, NOPATH)
 		while (!noPath && boxB && !boxB->isFree())
 		{
@@ -460,7 +461,7 @@ cout<<"inside run:  Qtype= " << QType << "\n";
 				noPath = true;
 				break;
 			}
-			boxB = QT->getBox(boxB, goal[0], goal[1]);
+			boxB = QT->getBox(boxB, bta[0], bta[1]);
 		}
 
 		// findPath will split until exists path from boxA to boxB (or, NOPATH)

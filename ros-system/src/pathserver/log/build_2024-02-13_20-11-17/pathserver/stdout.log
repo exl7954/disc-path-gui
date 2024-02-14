@@ -1,0 +1,7 @@
+-- Found ament_cmake: 1.3.7 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ericlin/ros/ros-system/src/pathserver/build/pathserver
+[35m[1mConsolidate compiler generated dependencies of target server[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/server.dir/src/Box.cpp.o[0m
+[ 66%] [32m[1mLinking CXX executable server[0m

@@ -11,7 +11,7 @@ find_package(ament_cmake REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-add_executable(server src/disc.cpp)
+add_executable(server src/disc.cpp src/Box.cpp src/QuadTree.cpp src/Corner.cpp src/fileProcessor.cpp src/Timer.cpp src/Wall.cpp)
 ament_target_dependencies(server)
 
 install(TARGETS

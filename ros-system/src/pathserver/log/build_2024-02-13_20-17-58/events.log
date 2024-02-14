@@ -1,0 +1,304 @@
+[0.000000] (-) TimerEvent: {}
+[0.001348] (pathserver) JobQueued: {'identifier': 'pathserver', 'dependencies': OrderedDict()}
+[0.001396] (pathserver) JobStarted: {'identifier': 'pathserver'}
+[0.036251] (pathserver) JobProgress: {'identifier': 'pathserver', 'progress': 'cmake'}
+[0.036636] (pathserver) JobProgress: {'identifier': 'pathserver', 'progress': 'build'}
+[0.037465] (pathserver) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/ericlin/ros/ros-system/src/pathserver/build/pathserver', '--', '-j12', '-l12'], 'cwd': '/home/ericlin/ros/ros-system/src/pathserver/build/pathserver', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ericlin'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'update-motd'), ('HOME', '/home/ericlin'), ('OLDPWD', '/home/ericlin/ros/ros-system/src'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'ericlin'), ('NAME', 'DESKTOP-TA4944K'), ('WSL_INTEROP', '/run/WSL/364_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu_2204.3.49.0_x64__79rhkp1fndgsc:/mnt/c/Python311/Scripts/:/mnt/c/Python311/:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Eclipse Adoptium/jdk-8.0.322.6-hotspot/bin:/mnt/c/Program Files (x86)/Razer Chroma SDK/bin:/mnt/c/Program Files/Razer Chroma SDK/bin:/mnt/c/Program Files (x86)/Razer/ChromaBroadcast/bin:/mnt/c/Program Files/Razer/ChromaBroadcast/bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Windows/system32/config/systemprofile/AppData/Local/Microsoft/WindowsApps:/mnt/e/Git/cmd:/mnt/e/Airshipper/:/mnt/c/Program Files/nodejs/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/dotnet/:/mnt/c/Users/20lin/AppData/Local/Programs/Python/Python39/python.exe:/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/:/mnt/c/Users/20lin/AppData/Roaming/TinyTeX/bin/win32:/mnt/c/Users/20lin/AppData/Local/Microsoft/WindowsApps:/mnt/d/Microsoft VS Code/bin:/mnt/e/miktex/miktex/bin/x64/:/mnt/c/Users/20lin/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/20lin/AppData/Roaming/npm:/mnt/c/Program Files (x86)/Nmap:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/ericlin/ros/ros-system/src/pathserver/build/pathserver'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', ''), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.060111] (pathserver) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target server\x1b[0m\n'}
+[0.069986] (pathserver) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/server.dir/src/QuadTree.cpp.o\x1b[0m\n'}
+[0.070139] (pathserver) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/server.dir/src/Box.cpp.o\x1b[0m\n'}
+[0.070193] (pathserver) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/server.dir/src/disc.cpp.o\x1b[0m\n'}
+[0.099059] (-) TimerEvent: {}
+[0.199396] (-) TimerEvent: {}
+[0.299751] (-) TimerEvent: {}
+[0.384399] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9\x1b[m\x1b[K,\n'}
+[0.385327] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16\x1b[m\x1b[K,\n'}
+[0.385549] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12\x1b[m\x1b[K:\n'}
+[0.385759] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kbool PQCmp3::operator()(const Box*, const Box*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[0.385977] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:146:43:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kreference to \xe2\x80\x98\x1b[01m\x1b[Kbeta\x1b[m\x1b[K\xe2\x80\x99 is ambiguous\n'}
+[0.386196] (pathserver) StderrLine: {'line': b'  146 |                 double distDiff = (a->x - \x1b[01;31m\x1b[Kbeta\x1b[m\x1b[K[0])*(a->x - beta[0]) + (a->y - beta[1])*(a->y - beta[1])\n'}
+[0.386386] (pathserver) StderrLine: {'line': b'      |                                           \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.386604] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/cmath:1935\x1b[m\x1b[K,\n'}
+[0.386815] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/math.h:36\x1b[m\x1b[K,\n'}
+[0.387045] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6\x1b[m\x1b[K,\n'}
+[0.387257] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14\x1b[m\x1b[K,\n'}
+[0.387475] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12\x1b[m\x1b[K:\n'}
+[0.387686] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/specfun.h:343:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidates are: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.387898] (pathserver) StderrLine: {'line': b'  343 |     \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K(_Tpa __a, _Tpb __b)\n'}
+[0.388136] (pathserver) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.388441] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9\x1b[m\x1b[K,\n'}
+[0.388499] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16\x1b[m\x1b[K,\n'}
+[0.388546] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12\x1b[m\x1b[K:\n'}
+[0.388589] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K                \xe2\x80\x98\x1b[01m\x1b[Kdouble beta [2]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.388635] (pathserver) StderrLine: {'line': b'   11 | extern double \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K[2];\n'}
+[0.388741] (pathserver) StderrLine: {'line': b'      |               \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.388906] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:146:60:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kreference to \xe2\x80\x98\x1b[01m\x1b[Kbeta\x1b[m\x1b[K\xe2\x80\x99 is ambiguous\n'}
+[0.389071] (pathserver) StderrLine: {'line': b'  146 |                 double distDiff = (a->x - beta[0])*(a->x - \x1b[01;31m\x1b[Kbeta\x1b[m\x1b[K[0]) + (a->y - beta[1])*(a->y - beta[1])\n'}
+[0.389233] (pathserver) StderrLine: {'line': b'      |                                                            \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.389389] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/cmath:1935\x1b[m\x1b[K,\n'}
+[0.389565] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/math.h:36\x1b[m\x1b[K,\n'}
+[0.389728] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6\x1b[m\x1b[K,\n'}
+[0.389890] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14\x1b[m\x1b[K,\n'}
+[0.390053] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12\x1b[m\x1b[K:\n'}
+[0.390215] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/specfun.h:343:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidates are: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.390441] (pathserver) StderrLine: {'line': b'  343 |     \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K(_Tpa __a, _Tpb __b)\n'}
+[0.390616] (pathserver) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.390779] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9\x1b[m\x1b[K,\n'}
+[0.390951] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16\x1b[m\x1b[K,\n'}
+[0.391115] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12\x1b[m\x1b[K:\n'}
+[0.391302] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K                \xe2\x80\x98\x1b[01m\x1b[Kdouble beta [2]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.391468] (pathserver) StderrLine: {'line': b'   11 | extern double \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K[2];\n'}
+[0.391632] (pathserver) StderrLine: {'line': b'      |               \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.391795] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:146:79:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kreference to \xe2\x80\x98\x1b[01m\x1b[Kbeta\x1b[m\x1b[K\xe2\x80\x99 is ambiguous\n'}
+[0.391968] (pathserver) StderrLine: {'line': b'  146 |                 double distDiff = (a->x - beta[0])*(a->x - beta[0]) + (a->y - \x1b[01;31m\x1b[Kbeta\x1b[m\x1b[K[1])*(a->y - beta[1])\n'}
+[0.392132] (pathserver) StderrLine: {'line': b'      |                                                                               \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.392309] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/cmath:1935\x1b[m\x1b[K,\n'}
+[0.392463] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/math.h:36\x1b[m\x1b[K,\n'}
+[0.392599] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6\x1b[m\x1b[K,\n'}
+[0.392730] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14\x1b[m\x1b[K,\n'}
+[0.392894] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12\x1b[m\x1b[K:\n'}
+[0.393059] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/specfun.h:343:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidates are: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.393224] (pathserver) StderrLine: {'line': b'  343 |     \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K(_Tpa __a, _Tpb __b)\n'}
+[0.393413] (pathserver) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.393559] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9\x1b[m\x1b[K,\n'}
+[0.393723] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16\x1b[m\x1b[K,\n'}
+[0.393888] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12\x1b[m\x1b[K:\n'}
+[0.394053] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K                \xe2\x80\x98\x1b[01m\x1b[Kdouble beta [2]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.394218] (pathserver) StderrLine: {'line': b'   11 | extern double \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K[2];\n'}
+[0.394392] (pathserver) StderrLine: {'line': b'      |               \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.394556] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:146:96:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kreference to \xe2\x80\x98\x1b[01m\x1b[Kbeta\x1b[m\x1b[K\xe2\x80\x99 is ambiguous\n'}
+[0.394721] (pathserver) StderrLine: {'line': b'  146 |                 double distDiff = (a->x - beta[0])*(a->x - beta[0]) + (a->y - beta[1])*(a->y - \x1b[01;31m\x1b[Kbeta\x1b[m\x1b[K[1])\n'}
+[0.394886] (pathserver) StderrLine: {'line': b'      |                                                                                                \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.395050] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/cmath:1935\x1b[m\x1b[K,\n'}
+[0.395213] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/math.h:36\x1b[m\x1b[K,\n'}
+[0.395388] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6\x1b[m\x1b[K,\n'}
+[0.395611] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14\x1b[m\x1b[K,\n'}
+[0.395776] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12\x1b[m\x1b[K:\n'}
+[0.395941] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/specfun.h:343:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidates are: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.396113] (pathserver) StderrLine: {'line': b'  343 |     \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K(_Tpa __a, _Tpb __b)\n'}
+[0.396290] (pathserver) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.396454] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9\x1b[m\x1b[K,\n'}
+[0.396618] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16\x1b[m\x1b[K,\n'}
+[0.396782] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12\x1b[m\x1b[K:\n'}
+[0.396977] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K                \xe2\x80\x98\x1b[01m\x1b[Kdouble beta [2]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.397148] (pathserver) StderrLine: {'line': b'   11 | extern double \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K[2];\n'}
+[0.397323] (pathserver) StderrLine: {'line': b'      |               \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.397489] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:147:36:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kreference to \xe2\x80\x98\x1b[01m\x1b[Kbeta\x1b[m\x1b[K\xe2\x80\x99 is ambiguous\n'}
+[0.397654] (pathserver) StderrLine: {'line': b'  147 |                         - ((b->x - \x1b[01;31m\x1b[Kbeta\x1b[m\x1b[K[0])*(b->x - beta[0]) + (b->y - beta[1])*(b->y - beta[1]));\n'}
+[0.397819] (pathserver) StderrLine: {'line': b'      |                                    \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.397983] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/cmath:1935\x1b[m\x1b[K,\n'}
+[0.398162] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/math.h:36\x1b[m\x1b[K,\n'}
+[0.398344] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6\x1b[m\x1b[K,\n'}
+[0.398521] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14\x1b[m\x1b[K,\n'}
+[0.398681] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12\x1b[m\x1b[K:\n'}
+[0.398816] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/specfun.h:343:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidates are: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.398978] (pathserver) StderrLine: {'line': b'  343 |     \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K(_Tpa __a, _Tpb __b)\n'}
+[0.399135] (pathserver) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.399298] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9\x1b[m\x1b[K,\n'}
+[0.399457] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16\x1b[m\x1b[K,\n'}
+[0.399629] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12\x1b[m\x1b[K:\n'}
+[0.399784] (-) TimerEvent: {}
+[0.400060] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K                \xe2\x80\x98\x1b[01m\x1b[Kdouble beta [2]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.400203] (pathserver) StderrLine: {'line': b'   11 | extern double \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K[2];\n'}
+[0.400373] (pathserver) StderrLine: {'line': b'      |               \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.400538] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:147:53:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kreference to \xe2\x80\x98\x1b[01m\x1b[Kbeta\x1b[m\x1b[K\xe2\x80\x99 is ambiguous\n'}
+[0.400704] (pathserver) StderrLine: {'line': b'  147 |                         - ((b->x - beta[0])*(b->x - \x1b[01;31m\x1b[Kbeta\x1b[m\x1b[K[0]) + (b->y - beta[1])*(b->y - beta[1]));\n'}
+[0.400869] (pathserver) StderrLine: {'line': b'      |                                                     \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.401034] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/cmath:1935\x1b[m\x1b[K,\n'}
+[0.401199] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/math.h:36\x1b[m\x1b[K,\n'}
+[0.401368] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6\x1b[m\x1b[K,\n'}
+[0.401533] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14\x1b[m\x1b[K,\n'}
+[0.401697] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12\x1b[m\x1b[K:\n'}
+[0.401861] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/specfun.h:343:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidates are: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.402027] (pathserver) StderrLine: {'line': b'  343 |     \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K(_Tpa __a, _Tpb __b)\n'}
+[0.402192] (pathserver) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.402366] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9\x1b[m\x1b[K,\n'}
+[0.402539] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16\x1b[m\x1b[K,\n'}
+[0.402706] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12\x1b[m\x1b[K:\n'}
+[0.402871] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K                \xe2\x80\x98\x1b[01m\x1b[Kdouble beta [2]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.403038] (pathserver) StderrLine: {'line': b'   11 | extern double \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K[2];\n'}
+[0.403202] (pathserver) StderrLine: {'line': b'      |               \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.403370] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:147:72:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kreference to \xe2\x80\x98\x1b[01m\x1b[Kbeta\x1b[m\x1b[K\xe2\x80\x99 is ambiguous\n'}
+[0.403536] (pathserver) StderrLine: {'line': b'  147 |                         - ((b->x - beta[0])*(b->x - beta[0]) + (b->y - \x1b[01;31m\x1b[Kbeta\x1b[m\x1b[K[1])*(b->y - beta[1]));\n'}
+[0.403702] (pathserver) StderrLine: {'line': b'      |                                                                        \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.404021] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/cmath:1935\x1b[m\x1b[K,\n'}
+[0.404190] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/math.h:36\x1b[m\x1b[K,\n'}
+[0.404448] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6\x1b[m\x1b[K,\n'}
+[0.404630] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14\x1b[m\x1b[K,\n'}
+[0.404991] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12\x1b[m\x1b[K:\n'}
+[0.405088] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/specfun.h:343:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidates are: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.405176] (pathserver) StderrLine: {'line': b'  343 |     \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K(_Tpa __a, _Tpb __b)\n'}
+[0.405259] (pathserver) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.405375] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9\x1b[m\x1b[K,\n'}
+[0.405460] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16\x1b[m\x1b[K,\n'}
+[0.405540] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12\x1b[m\x1b[K:\n'}
+[0.405619] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K                \xe2\x80\x98\x1b[01m\x1b[Kdouble beta [2]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.405703] (pathserver) StderrLine: {'line': b'   11 | extern double \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K[2];\n'}
+[0.405791] (pathserver) StderrLine: {'line': b'      |               \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.405872] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:147:89:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kreference to \xe2\x80\x98\x1b[01m\x1b[Kbeta\x1b[m\x1b[K\xe2\x80\x99 is ambiguous\n'}
+[0.405956] (pathserver) StderrLine: {'line': b'  147 |                         - ((b->x - beta[0])*(b->x - beta[0]) + (b->y - beta[1])*(b->y - \x1b[01;31m\x1b[Kbeta\x1b[m\x1b[K[1]));\n'}
+[0.406077] (pathserver) StderrLine: {'line': b'      |                                                                                         \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.406165] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/cmath:1935\x1b[m\x1b[K,\n'}
+[0.406247] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/math.h:36\x1b[m\x1b[K,\n'}
+[0.406374] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6\x1b[m\x1b[K,\n'}
+[0.406465] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14\x1b[m\x1b[K,\n'}
+[0.406549] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12\x1b[m\x1b[K:\n'}
+[0.406628] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/specfun.h:343:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidates are: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.406713] (pathserver) StderrLine: {'line': b'  343 |     \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K(_Tpa __a, _Tpb __b)\n'}
+[0.406794] (pathserver) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.406885] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9\x1b[m\x1b[K,\n'}
+[0.406972] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16\x1b[m\x1b[K,\n'}
+[0.407055] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12\x1b[m\x1b[K:\n'}
+[0.407155] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K                \xe2\x80\x98\x1b[01m\x1b[Kdouble beta [2]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.407243] (pathserver) StderrLine: {'line': b'   11 | extern double \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K[2];\n'}
+[0.407356] (pathserver) StderrLine: {'line': b'      |               \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.407443] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9\x1b[m\x1b[K,\n'}
+[0.407528] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16\x1b[m\x1b[K,\n'}
+[0.407606] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47\x1b[m\x1b[K:\n'}
+[0.407688] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kbool PQCmp3::operator()(const Box*, const Box*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[0.407771] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:146:43:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kreference to \xe2\x80\x98\x1b[01m\x1b[Kbeta\x1b[m\x1b[K\xe2\x80\x99 is ambiguous\n'}
+[0.407853] (pathserver) StderrLine: {'line': b'  146 |                 double distDiff = (a->x - \x1b[01;31m\x1b[Kbeta\x1b[m\x1b[K[0])*(a->x - beta[0]) + (a->y - beta[1])*(a->y - beta[1])\n'}
+[0.407935] (pathserver) StderrLine: {'line': b'      |                                           \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.408022] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/cmath:1935\x1b[m\x1b[K,\n'}
+[0.408104] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/math.h:36\x1b[m\x1b[K,\n'}
+[0.408186] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6\x1b[m\x1b[K,\n'}
+[0.408266] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14\x1b[m\x1b[K,\n'}
+[0.408380] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47\x1b[m\x1b[K:\n'}
+[0.408466] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/specfun.h:343:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidates are: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.408554] (pathserver) StderrLine: {'line': b'  343 |     \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K(_Tpa __a, _Tpb __b)\n'}
+[0.408634] (pathserver) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.408713] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9\x1b[m\x1b[K,\n'}
+[0.408795] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16\x1b[m\x1b[K,\n'}
+[0.408876] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47\x1b[m\x1b[K:\n'}
+[0.408957] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K                \xe2\x80\x98\x1b[01m\x1b[Kdouble beta [2]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.409040] (pathserver) StderrLine: {'line': b'   11 | extern double \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K[2];\n'}
+[0.409120] (pathserver) StderrLine: {'line': b'      |               \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.409208] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:146:60:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kreference to \xe2\x80\x98\x1b[01m\x1b[Kbeta\x1b[m\x1b[K\xe2\x80\x99 is ambiguous\n'}
+[0.409318] (pathserver) StderrLine: {'line': b'  146 |                 double distDiff = (a->x - beta[0])*(a->x - \x1b[01;31m\x1b[Kbeta\x1b[m\x1b[K[0]) + (a->y - beta[1])*(a->y - beta[1])\n'}
+[0.409413] (pathserver) StderrLine: {'line': b'      |                                                            \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.409501] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/cmath:1935\x1b[m\x1b[K,\n'}
+[0.409589] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/math.h:36\x1b[m\x1b[K,\n'}
+[0.409670] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6\x1b[m\x1b[K,\n'}
+[0.409754] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14\x1b[m\x1b[K,\n'}
+[0.409833] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47\x1b[m\x1b[K:\n'}
+[0.409911] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/specfun.h:343:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidates are: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.409991] (pathserver) StderrLine: {'line': b'  343 |     \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K(_Tpa __a, _Tpb __b)\n'}
+[0.410072] (pathserver) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.410149] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9\x1b[m\x1b[K,\n'}
+[0.410226] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16\x1b[m\x1b[K,\n'}
+[0.410341] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47\x1b[m\x1b[K:\n'}
+[0.410429] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K                \xe2\x80\x98\x1b[01m\x1b[Kdouble beta [2]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.410515] (pathserver) StderrLine: {'line': b'   11 | extern double \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K[2];\n'}
+[0.410595] (pathserver) StderrLine: {'line': b'      |               \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.410675] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:146:79:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kreference to \xe2\x80\x98\x1b[01m\x1b[Kbeta\x1b[m\x1b[K\xe2\x80\x99 is ambiguous\n'}
+[0.410756] (pathserver) StderrLine: {'line': b'  146 |                 double distDiff = (a->x - beta[0])*(a->x - beta[0]) + (a->y - \x1b[01;31m\x1b[Kbeta\x1b[m\x1b[K[1])*(a->y - beta[1])\n'}
+[0.410835] (pathserver) StderrLine: {'line': b'      |                                                                               \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.410914] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/cmath:1935\x1b[m\x1b[K,\n'}
+[0.410994] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/math.h:36\x1b[m\x1b[K,\n'}
+[0.411067] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6\x1b[m\x1b[K,\n'}
+[0.411146] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14\x1b[m\x1b[K,\n'}
+[0.411230] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47\x1b[m\x1b[K:\n'}
+[0.411362] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/specfun.h:343:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidates are: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.411453] (pathserver) StderrLine: {'line': b'  343 |     \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K(_Tpa __a, _Tpb __b)\n'}
+[0.411541] (pathserver) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.411658] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9\x1b[m\x1b[K,\n'}
+[0.411744] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16\x1b[m\x1b[K,\n'}
+[0.411824] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47\x1b[m\x1b[K:\n'}
+[0.411907] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K                \xe2\x80\x98\x1b[01m\x1b[Kdouble beta [2]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.411990] (pathserver) StderrLine: {'line': b'   11 | extern double \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K[2];\n'}
+[0.412070] (pathserver) StderrLine: {'line': b'      |               \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.412150] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:146:96:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kreference to \xe2\x80\x98\x1b[01m\x1b[Kbeta\x1b[m\x1b[K\xe2\x80\x99 is ambiguous\n'}
+[0.412232] (pathserver) StderrLine: {'line': b'  146 |                 double distDiff = (a->x - beta[0])*(a->x - beta[0]) + (a->y - beta[1])*(a->y - \x1b[01;31m\x1b[Kbeta\x1b[m\x1b[K[1])\n'}
+[0.412348] (pathserver) StderrLine: {'line': b'      |                                                                                                \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.412435] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/cmath:1935\x1b[m\x1b[K,\n'}
+[0.412536] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/math.h:36\x1b[m\x1b[K,\n'}
+[0.412620] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6\x1b[m\x1b[K,\n'}
+[0.412700] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14\x1b[m\x1b[K,\n'}
+[0.412782] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47\x1b[m\x1b[K:\n'}
+[0.412863] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/specfun.h:343:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidates are: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.412947] (pathserver) StderrLine: {'line': b'  343 |     \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K(_Tpa __a, _Tpb __b)\n'}
+[0.413036] (pathserver) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.413116] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9\x1b[m\x1b[K,\n'}
+[0.413198] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16\x1b[m\x1b[K,\n'}
+[0.413295] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47\x1b[m\x1b[K:\n'}
+[0.413398] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K                \xe2\x80\x98\x1b[01m\x1b[Kdouble beta [2]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.413485] (pathserver) StderrLine: {'line': b'   11 | extern double \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K[2];\n'}
+[0.413568] (pathserver) StderrLine: {'line': b'      |               \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.413648] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:147:36:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kreference to \xe2\x80\x98\x1b[01m\x1b[Kbeta\x1b[m\x1b[K\xe2\x80\x99 is ambiguous\n'}
+[0.413731] (pathserver) StderrLine: {'line': b'  147 |                         - ((b->x - \x1b[01;31m\x1b[Kbeta\x1b[m\x1b[K[0])*(b->x - beta[0]) + (b->y - beta[1])*(b->y - beta[1]));\n'}
+[0.413813] (pathserver) StderrLine: {'line': b'      |                                    \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.413894] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/cmath:1935\x1b[m\x1b[K,\n'}
+[0.413972] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/math.h:36\x1b[m\x1b[K,\n'}
+[0.414054] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6\x1b[m\x1b[K,\n'}
+[0.414136] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14\x1b[m\x1b[K,\n'}
+[0.414219] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47\x1b[m\x1b[K:\n'}
+[0.414334] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/specfun.h:343:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidates are: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.414419] (pathserver) StderrLine: {'line': b'  343 |     \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K(_Tpa __a, _Tpb __b)\n'}
+[0.414498] (pathserver) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.414575] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9\x1b[m\x1b[K,\n'}
+[0.414654] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16\x1b[m\x1b[K,\n'}
+[0.414738] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47\x1b[m\x1b[K:\n'}
+[0.414820] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K                \xe2\x80\x98\x1b[01m\x1b[Kdouble beta [2]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.414903] (pathserver) StderrLine: {'line': b'   11 | extern double \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K[2];\n'}
+[0.414986] (pathserver) StderrLine: {'line': b'      |               \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.415064] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:147:53:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kreference to \xe2\x80\x98\x1b[01m\x1b[Kbeta\x1b[m\x1b[K\xe2\x80\x99 is ambiguous\n'}
+[0.415145] (pathserver) StderrLine: {'line': b'  147 |                         - ((b->x - beta[0])*(b->x - \x1b[01;31m\x1b[Kbeta\x1b[m\x1b[K[0]) + (b->y - beta[1])*(b->y - beta[1]));\n'}
+[0.415223] (pathserver) StderrLine: {'line': b'      |                                                     \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.415330] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/cmath:1935\x1b[m\x1b[K,\n'}
+[0.415417] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/math.h:36\x1b[m\x1b[K,\n'}
+[0.415504] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6\x1b[m\x1b[K,\n'}
+[0.415583] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14\x1b[m\x1b[K,\n'}
+[0.415662] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47\x1b[m\x1b[K:\n'}
+[0.415741] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/specfun.h:343:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidates are: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.415823] (pathserver) StderrLine: {'line': b'  343 |     \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K(_Tpa __a, _Tpb __b)\n'}
+[0.415927] (pathserver) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.416024] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9\x1b[m\x1b[K,\n'}
+[0.416108] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16\x1b[m\x1b[K,\n'}
+[0.416186] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47\x1b[m\x1b[K:\n'}
+[0.416261] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K                \xe2\x80\x98\x1b[01m\x1b[Kdouble beta [2]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.416340] (pathserver) StderrLine: {'line': b'   11 | extern double \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K[2];\n'}
+[0.416416] (pathserver) StderrLine: {'line': b'      |               \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.416494] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:147:72:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kreference to \xe2\x80\x98\x1b[01m\x1b[Kbeta\x1b[m\x1b[K\xe2\x80\x99 is ambiguous\n'}
+[0.416567] (pathserver) StderrLine: {'line': b'  147 |                         - ((b->x - beta[0])*(b->x - beta[0]) + (b->y - \x1b[01;31m\x1b[Kbeta\x1b[m\x1b[K[1])*(b->y - beta[1]));\n'}
+[0.416651] (pathserver) StderrLine: {'line': b'      |                                                                        \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.416728] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/cmath:1935\x1b[m\x1b[K,\n'}
+[0.416806] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/math.h:36\x1b[m\x1b[K,\n'}
+[0.416904] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6\x1b[m\x1b[K,\n'}
+[0.417023] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14\x1b[m\x1b[K,\n'}
+[0.417106] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47\x1b[m\x1b[K:\n'}
+[0.417184] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/specfun.h:343:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidates are: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.417284] (pathserver) StderrLine: {'line': b'  343 |     \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K(_Tpa __a, _Tpb __b)\n'}
+[0.417374] (pathserver) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.417455] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9\x1b[m\x1b[K,\n'}
+[0.417534] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16\x1b[m\x1b[K,\n'}
+[0.417635] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47\x1b[m\x1b[K:\n'}
+[0.417718] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K                \xe2\x80\x98\x1b[01m\x1b[Kdouble beta [2]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.417800] (pathserver) StderrLine: {'line': b'   11 | extern double \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K[2];\n'}
+[0.417879] (pathserver) StderrLine: {'line': b'      |               \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.417995] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:147:89:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kreference to \xe2\x80\x98\x1b[01m\x1b[Kbeta\x1b[m\x1b[K\xe2\x80\x99 is ambiguous\n'}
+[0.418087] (pathserver) StderrLine: {'line': b'  147 |                         - ((b->x - beta[0])*(b->x - beta[0]) + (b->y - beta[1])*(b->y - \x1b[01;31m\x1b[Kbeta\x1b[m\x1b[K[1]));\n'}
+[0.418168] (pathserver) StderrLine: {'line': b'      |                                                                                         \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.418243] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/cmath:1935\x1b[m\x1b[K,\n'}
+[0.418319] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/math.h:36\x1b[m\x1b[K,\n'}
+[0.418399] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6\x1b[m\x1b[K,\n'}
+[0.418539] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14\x1b[m\x1b[K,\n'}
+[0.418620] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47\x1b[m\x1b[K:\n'}
+[0.418699] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/specfun.h:343:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidates are: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.418780] (pathserver) StderrLine: {'line': b'  343 |     \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K(_Tpa __a, _Tpb __b)\n'}
+[0.418858] (pathserver) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.418935] (pathserver) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9\x1b[m\x1b[K,\n'}
+[0.419053] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16\x1b[m\x1b[K,\n'}
+[0.419135] (pathserver) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47\x1b[m\x1b[K:\n'}
+[0.419215] (pathserver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K                \xe2\x80\x98\x1b[01m\x1b[Kdouble beta [2]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[0.419293] (pathserver) StderrLine: {'line': b'   11 | extern double \x1b[01;36m\x1b[Kbeta\x1b[m\x1b[K[2];\n'}
+[0.419373] (pathserver) StderrLine: {'line': b'      |               \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[0.467210] (pathserver) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/server.dir/build.make:104: CMakeFiles/server.dir/src/QuadTree.cpp.o] Error 1\n'}
+[0.467382] (pathserver) StderrLine: {'line': b'gmake[2]: *** Waiting for unfinished jobs....\n'}
+[0.499931] (-) TimerEvent: {}
+[0.560693] (pathserver) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/server.dir/build.make:76: CMakeFiles/server.dir/src/disc.cpp.o] Error 1\n'}
+[0.561123] (pathserver) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/server.dir/all] Error 2\n'}
+[0.561209] (pathserver) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[0.562723] (pathserver) CommandEnded: {'returncode': 2}
+[0.600631] (-) TimerEvent: {}
+[0.624250] (pathserver) JobEnded: {'identifier': 'pathserver', 'rc': 2}
+[0.635146] (-) EventReactorShutdown: {}

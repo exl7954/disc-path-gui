@@ -1,0 +1,4 @@
+Invoking command in '/home/ericlin/ros/ros-system/src/pathserver/build/pathserver': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ericlin/ros/ros-system/src/pathserver/build/pathserver -- -j12 -l12
+Invoked command in '/home/ericlin/ros/ros-system/src/pathserver/build/pathserver' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ericlin/ros/ros-system/src/pathserver/build/pathserver -- -j12 -l12
+Invoking command in '/home/ericlin/ros/ros-system/src/pathserver/build/pathserver': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/ericlin/ros/ros-system/src/pathserver/build/pathserver
+Invoked command in '/home/ericlin/ros/ros-system/src/pathserver/build/pathserver' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/ericlin/ros/ros-system/src/pathserver/build/pathserver

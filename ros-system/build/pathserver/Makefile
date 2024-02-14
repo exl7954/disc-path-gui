@@ -210,6 +210,126 @@ server/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
 .PHONY : server/fast
 
+src/Box.o: src/Box.cpp.o
+.PHONY : src/Box.o
+
+# target to build an object file
+src/Box.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/Box.cpp.o
+.PHONY : src/Box.cpp.o
+
+src/Box.i: src/Box.cpp.i
+.PHONY : src/Box.i
+
+# target to preprocess a source file
+src/Box.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/Box.cpp.i
+.PHONY : src/Box.cpp.i
+
+src/Box.s: src/Box.cpp.s
+.PHONY : src/Box.s
+
+# target to generate assembly for a file
+src/Box.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/Box.cpp.s
+.PHONY : src/Box.cpp.s
+
+src/Corner.o: src/Corner.cpp.o
+.PHONY : src/Corner.o
+
+# target to build an object file
+src/Corner.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/Corner.cpp.o
+.PHONY : src/Corner.cpp.o
+
+src/Corner.i: src/Corner.cpp.i
+.PHONY : src/Corner.i
+
+# target to preprocess a source file
+src/Corner.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/Corner.cpp.i
+.PHONY : src/Corner.cpp.i
+
+src/Corner.s: src/Corner.cpp.s
+.PHONY : src/Corner.s
+
+# target to generate assembly for a file
+src/Corner.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/Corner.cpp.s
+.PHONY : src/Corner.cpp.s
+
+src/QuadTree.o: src/QuadTree.cpp.o
+.PHONY : src/QuadTree.o
+
+# target to build an object file
+src/QuadTree.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/QuadTree.cpp.o
+.PHONY : src/QuadTree.cpp.o
+
+src/QuadTree.i: src/QuadTree.cpp.i
+.PHONY : src/QuadTree.i
+
+# target to preprocess a source file
+src/QuadTree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/QuadTree.cpp.i
+.PHONY : src/QuadTree.cpp.i
+
+src/QuadTree.s: src/QuadTree.cpp.s
+.PHONY : src/QuadTree.s
+
+# target to generate assembly for a file
+src/QuadTree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/QuadTree.cpp.s
+.PHONY : src/QuadTree.cpp.s
+
+src/Timer.o: src/Timer.cpp.o
+.PHONY : src/Timer.o
+
+# target to build an object file
+src/Timer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/Timer.cpp.o
+.PHONY : src/Timer.cpp.o
+
+src/Timer.i: src/Timer.cpp.i
+.PHONY : src/Timer.i
+
+# target to preprocess a source file
+src/Timer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/Timer.cpp.i
+.PHONY : src/Timer.cpp.i
+
+src/Timer.s: src/Timer.cpp.s
+.PHONY : src/Timer.s
+
+# target to generate assembly for a file
+src/Timer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/Timer.cpp.s
+.PHONY : src/Timer.cpp.s
+
+src/Wall.o: src/Wall.cpp.o
+.PHONY : src/Wall.o
+
+# target to build an object file
+src/Wall.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/Wall.cpp.o
+.PHONY : src/Wall.cpp.o
+
+src/Wall.i: src/Wall.cpp.i
+.PHONY : src/Wall.i
+
+# target to preprocess a source file
+src/Wall.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/Wall.cpp.i
+.PHONY : src/Wall.cpp.i
+
+src/Wall.s: src/Wall.cpp.s
+.PHONY : src/Wall.s
+
+# target to generate assembly for a file
+src/Wall.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/Wall.cpp.s
+.PHONY : src/Wall.cpp.s
+
 src/disc.o: src/disc.cpp.o
 .PHONY : src/disc.o
 
@@ -234,6 +354,30 @@ src/disc.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/disc.cpp.s
 .PHONY : src/disc.cpp.s
 
+src/fileProcessor.o: src/fileProcessor.cpp.o
+.PHONY : src/fileProcessor.o
+
+# target to build an object file
+src/fileProcessor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/fileProcessor.cpp.o
+.PHONY : src/fileProcessor.cpp.o
+
+src/fileProcessor.i: src/fileProcessor.cpp.i
+.PHONY : src/fileProcessor.i
+
+# target to preprocess a source file
+src/fileProcessor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/fileProcessor.cpp.i
+.PHONY : src/fileProcessor.cpp.i
+
+src/fileProcessor.s: src/fileProcessor.cpp.s
+.PHONY : src/fileProcessor.s
+
+# target to generate assembly for a file
+src/fileProcessor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/fileProcessor.cpp.s
+.PHONY : src/fileProcessor.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -250,9 +394,27 @@ help:
 	@echo "... pathserver_uninstall"
 	@echo "... uninstall"
 	@echo "... server"
+	@echo "... src/Box.o"
+	@echo "... src/Box.i"
+	@echo "... src/Box.s"
+	@echo "... src/Corner.o"
+	@echo "... src/Corner.i"
+	@echo "... src/Corner.s"
+	@echo "... src/QuadTree.o"
+	@echo "... src/QuadTree.i"
+	@echo "... src/QuadTree.s"
+	@echo "... src/Timer.o"
+	@echo "... src/Timer.i"
+	@echo "... src/Timer.s"
+	@echo "... src/Wall.o"
+	@echo "... src/Wall.i"
+	@echo "... src/Wall.s"
 	@echo "... src/disc.o"
 	@echo "... src/disc.i"
 	@echo "... src/disc.s"
+	@echo "... src/fileProcessor.o"
+	@echo "... src/fileProcessor.i"
+	@echo "... src/fileProcessor.s"
 .PHONY : help
 
 

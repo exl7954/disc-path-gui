@@ -1,0 +1,4 @@
+[35m[1mConsolidate compiler generated dependencies of target server[0m
+[ 37%] [32mBuilding CXX object CMakeFiles/server.dir/src/QuadTree.cpp.o[0m
+[ 37%] [32mBuilding CXX object CMakeFiles/server.dir/src/Box.cpp.o[0m
+[ 37%] [32mBuilding CXX object CMakeFiles/server.dir/src/disc.cpp.o[0m

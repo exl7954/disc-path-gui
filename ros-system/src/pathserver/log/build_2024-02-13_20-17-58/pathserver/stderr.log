@@ -1,0 +1,285 @@
+In file included from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12[m[K:
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:[m[K In member function ‘[01m[Kbool PQCmp3::operator()(const Box*, const Box*)[m[K’:
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:146:43:[m[K [01;31m[Kerror: [m[Kreference to ‘[01m[Kbeta[m[K’ is ambiguous
+  146 |                 double distDiff = (a->x - [01;31m[Kbeta[m[K[0])*(a->x - beta[0]) + (a->y - beta[1])*(a->y - beta[1])
+      |                                           [01;31m[K^~~~[m[K
+In file included from [01m[K/usr/include/c++/11/cmath:1935[m[K,
+                 from [01m[K/usr/include/c++/11/math.h:36[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12[m[K:
+[01m[K/usr/include/c++/11/bits/specfun.h:343:5:[m[K [01;36m[Knote: [m[Kcandidates are: ‘[01m[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)[m[K’
+  343 |     [01;36m[Kbeta[m[K(_Tpa __a, _Tpb __b)
+      |     [01;36m[K^~~~[m[K
+In file included from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12[m[K:
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:[m[K [01;36m[Knote: [m[K                ‘[01m[Kdouble beta [2][m[K’
+   11 | extern double [01;36m[Kbeta[m[K[2];
+      |               [01;36m[K^~~~[m[K
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:146:60:[m[K [01;31m[Kerror: [m[Kreference to ‘[01m[Kbeta[m[K’ is ambiguous
+  146 |                 double distDiff = (a->x - beta[0])*(a->x - [01;31m[Kbeta[m[K[0]) + (a->y - beta[1])*(a->y - beta[1])
+      |                                                            [01;31m[K^~~~[m[K
+In file included from [01m[K/usr/include/c++/11/cmath:1935[m[K,
+                 from [01m[K/usr/include/c++/11/math.h:36[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12[m[K:
+[01m[K/usr/include/c++/11/bits/specfun.h:343:5:[m[K [01;36m[Knote: [m[Kcandidates are: ‘[01m[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)[m[K’
+  343 |     [01;36m[Kbeta[m[K(_Tpa __a, _Tpb __b)
+      |     [01;36m[K^~~~[m[K
+In file included from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12[m[K:
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:[m[K [01;36m[Knote: [m[K                ‘[01m[Kdouble beta [2][m[K’
+   11 | extern double [01;36m[Kbeta[m[K[2];
+      |               [01;36m[K^~~~[m[K
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:146:79:[m[K [01;31m[Kerror: [m[Kreference to ‘[01m[Kbeta[m[K’ is ambiguous
+  146 |                 double distDiff = (a->x - beta[0])*(a->x - beta[0]) + (a->y - [01;31m[Kbeta[m[K[1])*(a->y - beta[1])
+      |                                                                               [01;31m[K^~~~[m[K
+In file included from [01m[K/usr/include/c++/11/cmath:1935[m[K,
+                 from [01m[K/usr/include/c++/11/math.h:36[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12[m[K:
+[01m[K/usr/include/c++/11/bits/specfun.h:343:5:[m[K [01;36m[Knote: [m[Kcandidates are: ‘[01m[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)[m[K’
+  343 |     [01;36m[Kbeta[m[K(_Tpa __a, _Tpb __b)
+      |     [01;36m[K^~~~[m[K
+In file included from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12[m[K:
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:[m[K [01;36m[Knote: [m[K                ‘[01m[Kdouble beta [2][m[K’
+   11 | extern double [01;36m[Kbeta[m[K[2];
+      |               [01;36m[K^~~~[m[K
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:146:96:[m[K [01;31m[Kerror: [m[Kreference to ‘[01m[Kbeta[m[K’ is ambiguous
+  146 |                 double distDiff = (a->x - beta[0])*(a->x - beta[0]) + (a->y - beta[1])*(a->y - [01;31m[Kbeta[m[K[1])
+      |                                                                                                [01;31m[K^~~~[m[K
+In file included from [01m[K/usr/include/c++/11/cmath:1935[m[K,
+                 from [01m[K/usr/include/c++/11/math.h:36[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12[m[K:
+[01m[K/usr/include/c++/11/bits/specfun.h:343:5:[m[K [01;36m[Knote: [m[Kcandidates are: ‘[01m[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)[m[K’
+  343 |     [01;36m[Kbeta[m[K(_Tpa __a, _Tpb __b)
+      |     [01;36m[K^~~~[m[K
+In file included from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12[m[K:
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:[m[K [01;36m[Knote: [m[K                ‘[01m[Kdouble beta [2][m[K’
+   11 | extern double [01;36m[Kbeta[m[K[2];
+      |               [01;36m[K^~~~[m[K
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:147:36:[m[K [01;31m[Kerror: [m[Kreference to ‘[01m[Kbeta[m[K’ is ambiguous
+  147 |                         - ((b->x - [01;31m[Kbeta[m[K[0])*(b->x - beta[0]) + (b->y - beta[1])*(b->y - beta[1]));
+      |                                    [01;31m[K^~~~[m[K
+In file included from [01m[K/usr/include/c++/11/cmath:1935[m[K,
+                 from [01m[K/usr/include/c++/11/math.h:36[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12[m[K:
+[01m[K/usr/include/c++/11/bits/specfun.h:343:5:[m[K [01;36m[Knote: [m[Kcandidates are: ‘[01m[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)[m[K’
+  343 |     [01;36m[Kbeta[m[K(_Tpa __a, _Tpb __b)
+      |     [01;36m[K^~~~[m[K
+In file included from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12[m[K:
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:[m[K [01;36m[Knote: [m[K                ‘[01m[Kdouble beta [2][m[K’
+   11 | extern double [01;36m[Kbeta[m[K[2];
+      |               [01;36m[K^~~~[m[K
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:147:53:[m[K [01;31m[Kerror: [m[Kreference to ‘[01m[Kbeta[m[K’ is ambiguous
+  147 |                         - ((b->x - beta[0])*(b->x - [01;31m[Kbeta[m[K[0]) + (b->y - beta[1])*(b->y - beta[1]));
+      |                                                     [01;31m[K^~~~[m[K
+In file included from [01m[K/usr/include/c++/11/cmath:1935[m[K,
+                 from [01m[K/usr/include/c++/11/math.h:36[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12[m[K:
+[01m[K/usr/include/c++/11/bits/specfun.h:343:5:[m[K [01;36m[Knote: [m[Kcandidates are: ‘[01m[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)[m[K’
+  343 |     [01;36m[Kbeta[m[K(_Tpa __a, _Tpb __b)
+      |     [01;36m[K^~~~[m[K
+In file included from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12[m[K:
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:[m[K [01;36m[Knote: [m[K                ‘[01m[Kdouble beta [2][m[K’
+   11 | extern double [01;36m[Kbeta[m[K[2];
+      |               [01;36m[K^~~~[m[K
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:147:72:[m[K [01;31m[Kerror: [m[Kreference to ‘[01m[Kbeta[m[K’ is ambiguous
+  147 |                         - ((b->x - beta[0])*(b->x - beta[0]) + (b->y - [01;31m[Kbeta[m[K[1])*(b->y - beta[1]));
+      |                                                                        [01;31m[K^~~~[m[K
+In file included from [01m[K/usr/include/c++/11/cmath:1935[m[K,
+                 from [01m[K/usr/include/c++/11/math.h:36[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12[m[K:
+[01m[K/usr/include/c++/11/bits/specfun.h:343:5:[m[K [01;36m[Knote: [m[Kcandidates are: ‘[01m[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)[m[K’
+  343 |     [01;36m[Kbeta[m[K(_Tpa __a, _Tpb __b)
+      |     [01;36m[K^~~~[m[K
+In file included from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12[m[K:
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:[m[K [01;36m[Knote: [m[K                ‘[01m[Kdouble beta [2][m[K’
+   11 | extern double [01;36m[Kbeta[m[K[2];
+      |               [01;36m[K^~~~[m[K
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:147:89:[m[K [01;31m[Kerror: [m[Kreference to ‘[01m[Kbeta[m[K’ is ambiguous
+  147 |                         - ((b->x - beta[0])*(b->x - beta[0]) + (b->y - beta[1])*(b->y - [01;31m[Kbeta[m[K[1]));
+      |                                                                                         [01;31m[K^~~~[m[K
+In file included from [01m[K/usr/include/c++/11/cmath:1935[m[K,
+                 from [01m[K/usr/include/c++/11/math.h:36[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12[m[K:
+[01m[K/usr/include/c++/11/bits/specfun.h:343:5:[m[K [01;36m[Knote: [m[Kcandidates are: ‘[01m[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)[m[K’
+  343 |     [01;36m[Kbeta[m[K(_Tpa __a, _Tpb __b)
+      |     [01;36m[K^~~~[m[K
+In file included from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.cpp:12[m[K:
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:[m[K [01;36m[Knote: [m[K                ‘[01m[Kdouble beta [2][m[K’
+   11 | extern double [01;36m[Kbeta[m[K[2];
+      |               [01;36m[K^~~~[m[K
+In file included from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47[m[K:
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:[m[K In member function ‘[01m[Kbool PQCmp3::operator()(const Box*, const Box*)[m[K’:
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:146:43:[m[K [01;31m[Kerror: [m[Kreference to ‘[01m[Kbeta[m[K’ is ambiguous
+  146 |                 double distDiff = (a->x - [01;31m[Kbeta[m[K[0])*(a->x - beta[0]) + (a->y - beta[1])*(a->y - beta[1])
+      |                                           [01;31m[K^~~~[m[K
+In file included from [01m[K/usr/include/c++/11/cmath:1935[m[K,
+                 from [01m[K/usr/include/c++/11/math.h:36[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47[m[K:
+[01m[K/usr/include/c++/11/bits/specfun.h:343:5:[m[K [01;36m[Knote: [m[Kcandidates are: ‘[01m[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)[m[K’
+  343 |     [01;36m[Kbeta[m[K(_Tpa __a, _Tpb __b)
+      |     [01;36m[K^~~~[m[K
+In file included from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47[m[K:
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:[m[K [01;36m[Knote: [m[K                ‘[01m[Kdouble beta [2][m[K’
+   11 | extern double [01;36m[Kbeta[m[K[2];
+      |               [01;36m[K^~~~[m[K
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:146:60:[m[K [01;31m[Kerror: [m[Kreference to ‘[01m[Kbeta[m[K’ is ambiguous
+  146 |                 double distDiff = (a->x - beta[0])*(a->x - [01;31m[Kbeta[m[K[0]) + (a->y - beta[1])*(a->y - beta[1])
+      |                                                            [01;31m[K^~~~[m[K
+In file included from [01m[K/usr/include/c++/11/cmath:1935[m[K,
+                 from [01m[K/usr/include/c++/11/math.h:36[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47[m[K:
+[01m[K/usr/include/c++/11/bits/specfun.h:343:5:[m[K [01;36m[Knote: [m[Kcandidates are: ‘[01m[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)[m[K’
+  343 |     [01;36m[Kbeta[m[K(_Tpa __a, _Tpb __b)
+      |     [01;36m[K^~~~[m[K
+In file included from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47[m[K:
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:[m[K [01;36m[Knote: [m[K                ‘[01m[Kdouble beta [2][m[K’
+   11 | extern double [01;36m[Kbeta[m[K[2];
+      |               [01;36m[K^~~~[m[K
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:146:79:[m[K [01;31m[Kerror: [m[Kreference to ‘[01m[Kbeta[m[K’ is ambiguous
+  146 |                 double distDiff = (a->x - beta[0])*(a->x - beta[0]) + (a->y - [01;31m[Kbeta[m[K[1])*(a->y - beta[1])
+      |                                                                               [01;31m[K^~~~[m[K
+In file included from [01m[K/usr/include/c++/11/cmath:1935[m[K,
+                 from [01m[K/usr/include/c++/11/math.h:36[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47[m[K:
+[01m[K/usr/include/c++/11/bits/specfun.h:343:5:[m[K [01;36m[Knote: [m[Kcandidates are: ‘[01m[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)[m[K’
+  343 |     [01;36m[Kbeta[m[K(_Tpa __a, _Tpb __b)
+      |     [01;36m[K^~~~[m[K
+In file included from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47[m[K:
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:[m[K [01;36m[Knote: [m[K                ‘[01m[Kdouble beta [2][m[K’
+   11 | extern double [01;36m[Kbeta[m[K[2];
+      |               [01;36m[K^~~~[m[K
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:146:96:[m[K [01;31m[Kerror: [m[Kreference to ‘[01m[Kbeta[m[K’ is ambiguous
+  146 |                 double distDiff = (a->x - beta[0])*(a->x - beta[0]) + (a->y - beta[1])*(a->y - [01;31m[Kbeta[m[K[1])
+      |                                                                                                [01;31m[K^~~~[m[K
+In file included from [01m[K/usr/include/c++/11/cmath:1935[m[K,
+                 from [01m[K/usr/include/c++/11/math.h:36[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47[m[K:
+[01m[K/usr/include/c++/11/bits/specfun.h:343:5:[m[K [01;36m[Knote: [m[Kcandidates are: ‘[01m[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)[m[K’
+  343 |     [01;36m[Kbeta[m[K(_Tpa __a, _Tpb __b)
+      |     [01;36m[K^~~~[m[K
+In file included from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47[m[K:
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:[m[K [01;36m[Knote: [m[K                ‘[01m[Kdouble beta [2][m[K’
+   11 | extern double [01;36m[Kbeta[m[K[2];
+      |               [01;36m[K^~~~[m[K
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:147:36:[m[K [01;31m[Kerror: [m[Kreference to ‘[01m[Kbeta[m[K’ is ambiguous
+  147 |                         - ((b->x - [01;31m[Kbeta[m[K[0])*(b->x - beta[0]) + (b->y - beta[1])*(b->y - beta[1]));
+      |                                    [01;31m[K^~~~[m[K
+In file included from [01m[K/usr/include/c++/11/cmath:1935[m[K,
+                 from [01m[K/usr/include/c++/11/math.h:36[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47[m[K:
+[01m[K/usr/include/c++/11/bits/specfun.h:343:5:[m[K [01;36m[Knote: [m[Kcandidates are: ‘[01m[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)[m[K’
+  343 |     [01;36m[Kbeta[m[K(_Tpa __a, _Tpb __b)
+      |     [01;36m[K^~~~[m[K
+In file included from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47[m[K:
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:[m[K [01;36m[Knote: [m[K                ‘[01m[Kdouble beta [2][m[K’
+   11 | extern double [01;36m[Kbeta[m[K[2];
+      |               [01;36m[K^~~~[m[K
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:147:53:[m[K [01;31m[Kerror: [m[Kreference to ‘[01m[Kbeta[m[K’ is ambiguous
+  147 |                         - ((b->x - beta[0])*(b->x - [01;31m[Kbeta[m[K[0]) + (b->y - beta[1])*(b->y - beta[1]));
+      |                                                     [01;31m[K^~~~[m[K
+In file included from [01m[K/usr/include/c++/11/cmath:1935[m[K,
+                 from [01m[K/usr/include/c++/11/math.h:36[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47[m[K:
+[01m[K/usr/include/c++/11/bits/specfun.h:343:5:[m[K [01;36m[Knote: [m[Kcandidates are: ‘[01m[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)[m[K’
+  343 |     [01;36m[Kbeta[m[K(_Tpa __a, _Tpb __b)
+      |     [01;36m[K^~~~[m[K
+In file included from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47[m[K:
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:[m[K [01;36m[Knote: [m[K                ‘[01m[Kdouble beta [2][m[K’
+   11 | extern double [01;36m[Kbeta[m[K[2];
+      |               [01;36m[K^~~~[m[K
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:147:72:[m[K [01;31m[Kerror: [m[Kreference to ‘[01m[Kbeta[m[K’ is ambiguous
+  147 |                         - ((b->x - beta[0])*(b->x - beta[0]) + (b->y - [01;31m[Kbeta[m[K[1])*(b->y - beta[1]));
+      |                                                                        [01;31m[K^~~~[m[K
+In file included from [01m[K/usr/include/c++/11/cmath:1935[m[K,
+                 from [01m[K/usr/include/c++/11/math.h:36[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47[m[K:
+[01m[K/usr/include/c++/11/bits/specfun.h:343:5:[m[K [01;36m[Knote: [m[Kcandidates are: ‘[01m[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)[m[K’
+  343 |     [01;36m[Kbeta[m[K(_Tpa __a, _Tpb __b)
+      |     [01;36m[K^~~~[m[K
+In file included from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47[m[K:
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:[m[K [01;36m[Knote: [m[K                ‘[01m[Kdouble beta [2][m[K’
+   11 | extern double [01;36m[Kbeta[m[K[2];
+      |               [01;36m[K^~~~[m[K
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:147:89:[m[K [01;31m[Kerror: [m[Kreference to ‘[01m[Kbeta[m[K’ is ambiguous
+  147 |                         - ((b->x - beta[0])*(b->x - beta[0]) + (b->y - beta[1])*(b->y - [01;31m[Kbeta[m[K[1]));
+      |                                                                                         [01;31m[K^~~~[m[K
+In file included from [01m[K/usr/include/c++/11/cmath:1935[m[K,
+                 from [01m[K/usr/include/c++/11/math.h:36[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Box.h:6[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:14[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47[m[K:
+[01m[K/usr/include/c++/11/bits/specfun.h:343:5:[m[K [01;36m[Knote: [m[Kcandidates are: ‘[01m[Ktemplate<class _Tpa, class _Tpb> typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::beta(_Tpa, _Tpb)[m[K’
+  343 |     [01;36m[Kbeta[m[K(_Tpa __a, _Tpb __b)
+      |     [01;36m[K^~~~[m[K
+In file included from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/PriorityQueue.h:9[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/QuadTree.h:16[m[K,
+                 from [01m[K/home/ericlin/ros/ros-system/src/pathserver/src/disc.cpp:47[m[K:
+[01m[K/home/ericlin/ros/ros-system/src/pathserver/src/Graph.h:11:15:[m[K [01;36m[Knote: [m[K                ‘[01m[Kdouble beta [2][m[K’
+   11 | extern double [01;36m[Kbeta[m[K[2];
+      |               [01;36m[K^~~~[m[K
+gmake[2]: *** [CMakeFiles/server.dir/build.make:104: CMakeFiles/server.dir/src/QuadTree.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/server.dir/build.make:76: CMakeFiles/server.dir/src/disc.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/server.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

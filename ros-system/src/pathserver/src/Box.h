@@ -114,7 +114,7 @@ public:
 			// if this is greater than the outer domain or not in zone,
 			// erase it 
 			if( c->distance(this->x, this->y) > outerDomain
-					|| !c->intersectZone(this) ) {
+					|| !c->intersectZone() ) {
 				it = corners.erase(it);
 			}
 			else {
@@ -132,7 +132,7 @@ public:
 				return;				
 			} 
 			
-			if (distWall > outerDomain || !w->intersectZone(this) )
+			if (distWall > outerDomain || !w->intersectZone() )
 			{
 				it = walls.erase(it);
 			}

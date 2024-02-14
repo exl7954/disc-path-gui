@@ -1,0 +1,22 @@
+[35m[1mConsolidate compiler generated dependencies of target server[0m
+[ 12%] [32mBuilding CXX object CMakeFiles/server.dir/src/QuadTree.cpp.o[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/server.dir/src/disc.cpp.o[0m
+[ 37%] [32m[1mLinking CXX executable server[0m
+[100%] Built target server
+-- Install configuration: ""
+-- Installing: /home/ericlin/ros/ros-system/src/pathserver/install/pathserver/lib/pathserver/server
+-- Installing: /home/ericlin/ros/ros-system/src/pathserver/install/pathserver/share/ament_index/resource_index/package_run_dependencies/pathserver
+-- Installing: /home/ericlin/ros/ros-system/src/pathserver/install/pathserver/share/ament_index/resource_index/parent_prefix_path/pathserver
+-- Installing: /home/ericlin/ros/ros-system/src/pathserver/install/pathserver/share/pathserver/environment/ament_prefix_path.sh
+-- Installing: /home/ericlin/ros/ros-system/src/pathserver/install/pathserver/share/pathserver/environment/ament_prefix_path.dsv
+-- Installing: /home/ericlin/ros/ros-system/src/pathserver/install/pathserver/share/pathserver/environment/path.sh
+-- Installing: /home/ericlin/ros/ros-system/src/pathserver/install/pathserver/share/pathserver/environment/path.dsv
+-- Installing: /home/ericlin/ros/ros-system/src/pathserver/install/pathserver/share/pathserver/local_setup.bash
+-- Installing: /home/ericlin/ros/ros-system/src/pathserver/install/pathserver/share/pathserver/local_setup.sh
+-- Installing: /home/ericlin/ros/ros-system/src/pathserver/install/pathserver/share/pathserver/local_setup.zsh
+-- Installing: /home/ericlin/ros/ros-system/src/pathserver/install/pathserver/share/pathserver/local_setup.dsv
+-- Installing: /home/ericlin/ros/ros-system/src/pathserver/install/pathserver/share/pathserver/package.dsv
+-- Installing: /home/ericlin/ros/ros-system/src/pathserver/install/pathserver/share/ament_index/resource_index/packages/pathserver
+-- Installing: /home/ericlin/ros/ros-system/src/pathserver/install/pathserver/share/pathserver/cmake/pathserverConfig.cmake
+-- Installing: /home/ericlin/ros/ros-system/src/pathserver/install/pathserver/share/pathserver/cmake/pathserverConfig-version.cmake
+-- Installing: /home/ericlin/ros/ros-system/src/pathserver/install/pathserver/share/pathserver/package.xml

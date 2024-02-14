@@ -1,0 +1,68 @@
+[0.039s] Invoking command in '/home/ericlin/ros/ros-system/src/pathserver/build/pathserver': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ericlin/ros/ros-system/src/pathserver/build/pathserver -- -j12 -l12
+[0.052s] -- Found ament_cmake: 1.3.7 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.200s] -- Configuring done
+[0.202s] -- Generating done
+[0.203s] -- Build files have been written to: /home/ericlin/ros/ros-system/src/pathserver/build/pathserver
+[0.215s] [35m[1mConsolidate compiler generated dependencies of target server[0m
+[0.223s] [ 50%] [32m[1mLinking CXX executable server[0m
+[0.369s] /usr/bin/ld: CMakeFiles/server.dir/src/disc.cpp.o: warning: relocation against `_ZN3Box2r0E' in read-only section `.text._ZN3Box12updateStatusEv[_ZN3Box12updateStatusEv]'
+[0.374s] /usr/bin/ld: CMakeFiles/server.dir/src/disc.cpp.o: in function `findPath(Box*, Box*, QuadTree*, int&)':
+[0.374s] disc.cpp:(.text+0x153): undefined reference to `BoxIter::BoxIter(Box const*, int)'
+[0.374s] /usr/bin/ld: disc.cpp:(.text+0x163): undefined reference to `BoxIter::First()'
+[0.374s] /usr/bin/ld: disc.cpp:(.text+0x19e): undefined reference to `BoxIter::Next()'
+[0.375s] /usr/bin/ld: disc.cpp:(.text+0x1b5): undefined reference to `BoxIter::End()'
+[0.375s] /usr/bin/ld: disc.cpp:(.text+0x3d8): undefined reference to `BoxIter::BoxIter(Box const*, int)'
+[0.375s] /usr/bin/ld: disc.cpp:(.text+0x3e8): undefined reference to `BoxIter::First()'
+[0.375s] /usr/bin/ld: disc.cpp:(.text+0x4ae): undefined reference to `BoxIter::Next()'
+[0.375s] /usr/bin/ld: disc.cpp:(.text+0x4cd): undefined reference to `BoxIter::End()'
+[0.376s] /usr/bin/ld: CMakeFiles/server.dir/src/disc.cpp.o: in function `genEmptyTree()':
+[0.376s] disc.cpp:(.text+0x9f0): undefined reference to `Box::r0'
+[0.376s] /usr/bin/ld: CMakeFiles/server.dir/src/disc.cpp.o: in function `run()':
+[0.376s] disc.cpp:(.text+0xb53): undefined reference to `Timer::Timer()'
+[0.376s] /usr/bin/ld: disc.cpp:(.text+0xb5f): undefined reference to `Timer::start()'
+[0.376s] /usr/bin/ld: disc.cpp:(.text+0xf8f): undefined reference to `Timer::stop()'
+[0.377s] /usr/bin/ld: disc.cpp:(.text+0xfe9): undefined reference to `Timer::getElapsedTimeInMilliSec()'
+[0.377s] /usr/bin/ld: disc.cpp:(.text+0x1250): undefined reference to `Timer::~Timer()'
+[0.377s] /usr/bin/ld: disc.cpp:(.text+0x1274): undefined reference to `Timer::~Timer()'
+[0.377s] /usr/bin/ld: CMakeFiles/server.dir/src/disc.cpp.o: in function `parseConfigFile(Box*)':
+[0.377s] disc.cpp:(.text+0x149d): undefined reference to `fileProcessor(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)'
+[0.377s] /usr/bin/ld: disc.cpp:(.text+0x194d): undefined reference to `Wall::Wall(Corner*, Corner*)'
+[0.378s] /usr/bin/ld: disc.cpp:(.text+0x19e6): undefined reference to `Wall::Wall(Corner*, Corner*)'
+[0.378s] /usr/bin/ld: CMakeFiles/server.dir/src/disc.cpp.o: in function `Box::Box(double, double, double, double)':
+[0.378s] disc.cpp:(.text._ZN3BoxC2Edddd[_ZN3BoxC5Edddd]+0x179): undefined reference to `Box::counter'
+[0.378s] /usr/bin/ld: CMakeFiles/server.dir/src/disc.cpp.o: in function `Box::updateStatus()':
+[0.378s] disc.cpp:(.text._ZN3Box12updateStatusEv[_ZN3Box12updateStatusEv]+0x3d): undefined reference to `Box::r0'
+[0.378s] /usr/bin/ld: disc.cpp:(.text._ZN3Box12updateStatusEv[_ZN3Box12updateStatusEv]+0x57): undefined reference to `Box::r0'
+[0.378s] /usr/bin/ld: disc.cpp:(.text._ZN3Box12updateStatusEv[_ZN3Box12updateStatusEv]+0x65): undefined reference to `Box::r0'
+[0.378s] /usr/bin/ld: disc.cpp:(.text._ZN3Box12updateStatusEv[_ZN3Box12updateStatusEv]+0x132): undefined reference to `Corner::intersectZone()'
+[0.379s] /usr/bin/ld: disc.cpp:(.text._ZN3Box12updateStatusEv[_ZN3Box12updateStatusEv]+0x208): undefined reference to `Wall::distance(double, double)'
+[0.379s] /usr/bin/ld: disc.cpp:(.text._ZN3Box12updateStatusEv[_ZN3Box12updateStatusEv]+0x245): undefined reference to `Wall::intersectZone()'
+[0.379s] /usr/bin/ld: CMakeFiles/server.dir/src/disc.cpp.o: in function `Box::checkChildStatus(double, double)':
+[0.379s] disc.cpp:(.text._ZN3Box16checkChildStatusEdd[_ZN3Box16checkChildStatusEdd]+0x8c): undefined reference to `Wall::distance(double, double)'
+[0.379s] /usr/bin/ld: disc.cpp:(.text._ZN3Box16checkChildStatusEdd[_ZN3Box16checkChildStatusEdd]+0x273): undefined reference to `Wall::isRight(double, double)'
+[0.379s] /usr/bin/ld: disc.cpp:(.text._ZN3Box16checkChildStatusEdd[_ZN3Box16checkChildStatusEdd]+0x289): undefined reference to `Corner::isConvex()'
+[0.379s] /usr/bin/ld: CMakeFiles/server.dir/src/disc.cpp.o: in function `Box::split(double)':
+[0.379s] disc.cpp:(.text._ZN3Box5splitEd[_ZN3Box5splitEd]+0x9d): undefined reference to `Box::counter'
+[0.379s] /usr/bin/ld: disc.cpp:(.text._ZN3Box5splitEd[_ZN3Box5splitEd]+0xa6): undefined reference to `Box::counter'
+[0.379s] /usr/bin/ld: disc.cpp:(.text._ZN3Box5splitEd[_ZN3Box5splitEd]+0x4be): undefined reference to `BoxIter::BoxIter(Box const*, int)'
+[0.379s] /usr/bin/ld: disc.cpp:(.text._ZN3Box5splitEd[_ZN3Box5splitEd]+0x4ce): undefined reference to `BoxIter::First()'
+[0.379s] /usr/bin/ld: disc.cpp:(.text._ZN3Box5splitEd[_ZN3Box5splitEd]+0x659): undefined reference to `BoxIter::Next()'
+[0.380s] /usr/bin/ld: disc.cpp:(.text._ZN3Box5splitEd[_ZN3Box5splitEd]+0x669): undefined reference to `BoxIter::End()'
+[0.380s] /usr/bin/ld: CMakeFiles/server.dir/src/disc.cpp.o: in function `PQCmp3::operator()(Box const*, Box const*)':
+[0.380s] disc.cpp:(.text._ZN6PQCmp3clEPK3BoxS2_[_ZN6PQCmp3clEPK3BoxS2_]+0x21): undefined reference to `bta'
+[0.380s] /usr/bin/ld: disc.cpp:(.text._ZN6PQCmp3clEPK3BoxS2_[_ZN6PQCmp3clEPK3BoxS2_]+0x3a): undefined reference to `bta'
+[0.380s] /usr/bin/ld: disc.cpp:(.text._ZN6PQCmp3clEPK3BoxS2_[_ZN6PQCmp3clEPK3BoxS2_]+0x53): undefined reference to `bta'
+[0.380s] /usr/bin/ld: disc.cpp:(.text._ZN6PQCmp3clEPK3BoxS2_[_ZN6PQCmp3clEPK3BoxS2_]+0x6c): undefined reference to `bta'
+[0.381s] /usr/bin/ld: disc.cpp:(.text._ZN6PQCmp3clEPK3BoxS2_[_ZN6PQCmp3clEPK3BoxS2_]+0x89): undefined reference to `bta'
+[0.381s] /usr/bin/ld: CMakeFiles/server.dir/src/disc.cpp.o:disc.cpp:(.text._ZN6PQCmp3clEPK3BoxS2_[_ZN6PQCmp3clEPK3BoxS2_]+0xa2): more undefined references to `bta' follow
+[0.381s] /usr/bin/ld: CMakeFiles/server.dir/src/disc.cpp.o: in function `QuadTree::unionAdjacent(Box*)':
+[0.381s] disc.cpp:(.text._ZN8QuadTree13unionAdjacentEP3Box[_ZN8QuadTree13unionAdjacentEP3Box]+0x3e): undefined reference to `BoxIter::BoxIter(Box const*, int)'
+[0.381s] /usr/bin/ld: disc.cpp:(.text._ZN8QuadTree13unionAdjacentEP3Box[_ZN8QuadTree13unionAdjacentEP3Box]+0x4e): undefined reference to `BoxIter::First()'
+[0.381s] /usr/bin/ld: disc.cpp:(.text._ZN8QuadTree13unionAdjacentEP3Box[_ZN8QuadTree13unionAdjacentEP3Box]+0x85): undefined reference to `BoxIter::Next()'
+[0.382s] /usr/bin/ld: disc.cpp:(.text._ZN8QuadTree13unionAdjacentEP3Box[_ZN8QuadTree13unionAdjacentEP3Box]+0x9c): undefined reference to `BoxIter::End()'
+[0.382s] /usr/bin/ld: warning: creating DT_TEXTREL in a PIE
+[0.382s] collect2: error: ld returned 1 exit status
+[0.382s] gmake[2]: *** [CMakeFiles/server.dir/build.make:97: server] Error 1
+[0.382s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/server.dir/all] Error 2
+[0.382s] gmake: *** [Makefile:146: all] Error 2
+[0.383s] Invoked command in '/home/ericlin/ros/ros-system/src/pathserver/build/pathserver' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ericlin/ros/ros-system/src/pathserver/build/pathserver -- -j12 -l12
