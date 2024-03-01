@@ -406,8 +406,14 @@ cout<<"inside run:  Qtype= " << QType << "\n";
 	if (QType == 0 || QType == 1) // 0=random, 1=BFS
 	{
 		boxA = QT->getBox(alpha[0], alpha[1]);
+		cout<<"!boxA->isFree()="<<(!boxA->isFree())<<endl;
 		while (boxA && !boxA->isFree())
-		{
+		{	
+			cout<< "Inside While A"<<endl;
+			cout<<"height of A:"<< boxA->height<<endl;
+			cout<<"width of A:"<< boxA->width<<endl;
+			cout<<"isLeaf of A:"<< boxA->isLeaf<<endl;
+			cout<<"status of A:"<< boxA->status<<endl;
 			if (!QT->expand(boxA))
 			{
 				noPath = true; // Confusing use of "noPath"
@@ -418,9 +424,10 @@ cout<<"inside run:  Qtype= " << QType << "\n";
 		}
 
 		boxB = QT->getBox(bta[0], bta[1]);
+		cout<<"!boxB->isFree()="<<(!boxB->isFree())<<endl;
 		while (!noPath && boxB && !boxB->isFree())
 		{
-			
+			cout<< "Inside While B"<<endl;
 			if (!QT->expand(boxB))
 			{
 				noPath = true;
@@ -485,6 +492,7 @@ cout<<"inside run:  Qtype= " << QType << "\n";
 	cout << "Expanded " << ct << " times" << endl;
 	cout << "total Free boxes: " << freeCount << endl;
 	cout << "total Stuck boxes: " << stuckCount << endl;
+	cout << "Epsilon: " <<epsilon << endl;
 	cout << "total Mixed boxes smaller than epsilon: " << mixSmallCount << endl;
 	cout << "total Mixed boxes bigger than epsilon: " << mixCount - ct - mixSmallCount << endl;
 	freeCount = stuckCount = mixCount = mixSmallCount = 0;
@@ -716,11 +724,11 @@ void parseConfigFile(Box* b)
 	std::stringstream ss;
 	ss << inputDir << "/" << fileName;	// create full file name 
 	std::string s = ss.str();
+//	s = "/home/ros/disc-path-gui/ros-system/src/pathserver/src/inputs/input2.txt";
 cout << "input file name = " << s << endl;	
 
 	fileProcessor(s);	// this will clean the input and put in
 				// output-tmp.txt
-	
 	ifstream ifs( "output-tmp.txt" );
 	if (!ifs)
 	{
