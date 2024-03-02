@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/server.dir/src/disc.cpp.o CMakeFiles/server.dir/src/Box.cpp.o CMakeFiles/server.dir/src/QuadTree.cpp.o CMakeFiles/server.dir/src/Corner.cpp.o CMakeFiles/server.dir/src/fileProcessor.cpp.o CMakeFiles/server.dir/src/Timer.cpp.o CMakeFiles/server.dir/src/Wall.cpp.o -o server 
