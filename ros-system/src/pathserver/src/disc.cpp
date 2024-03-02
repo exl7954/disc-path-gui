@@ -80,8 +80,7 @@ QuadTree* QT;
 	double R0 = 30;				// Robot radius 
 	int windowPosX = 400;			// X Position of Window
 	int windowPosY = 200;			// Y Position of Window
-	string fileName("input2.txt"); 		// Input file name
-	string inputDir("inputs"); 		// Path for input files 
+
 	int QType = 0;				// The Priority Queue can be
 						//    sequential (0) or random (1)
 	int interactive = 0;			// Run interactively?
@@ -101,30 +100,7 @@ QuadTree* QT;
 	int mixCount = 0;
 	int mixSmallCount = 0;
 
-// GLUI controls ========================================
-//
-/*
-	GLUI_RadioGroup* radioQType;
-	GLUI_RadioGroup* radioDrawOption;
-	GLUI_EditText* editInput;
-	GLUI_EditText* editDir;
-	GLUI_EditText* editRadius;
-	GLUI_EditText* editEpsilon;
-	GLUI_EditText* editAlphaX;
-	GLUI_EditText* editAlphaY;
-	GLUI_EditText* editBetaX;
-	GLUI_EditText* editBetaY;
-	GLUI_EditText* editSeed;
-*/
-// External Routines ========================================
-//
-//void renderScene(void);
 void parseFromInput(Box*, int, string, int, string, double, double, double);
-void parseConfigFile(Box*);
-void run();
-void genEmptyTree();
-//void drawPath(vector<Box*>&);
-extern int fileProcessor(string inputfile);
 
 // THIS IS JUST FOR THE GreedyBestFirst Heuristic!
 //    -- should be completely general!
@@ -238,14 +214,15 @@ bool findPath(Box* a, Box* b, QuadTree* QT, int& ct)
 }
 
 // SAMPLE TEST SERVICE ========================================
-void add(const std::shared_ptr<interfaces::srv::TestService::Request> request,     // CHANGE
-          std::shared_ptr<interfaces::srv::TestService::Response>       response)  // CHANGE
+void add(const std::shared_ptr<interfaces::srv::TestService::Request> request,     
+          std::shared_ptr<interfaces::srv::TestService::Response>       response)  
 {
-  response->sum = request->a + request->b;                                      // CHANGE
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request\na: %ld" " b: %ld",  // CHANGE
-                request->a, request->b);                                         // CHANGE
+  response->sum = request->a + request->b;                                      
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request\na: %ld" " b: %ld",  
+                request->a, request->b);                                         
   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "sending back response: [%ld]", (long int)response->sum);
 }
+// ============================================================
 
 void service_run(const std::shared_ptr<interfaces::srv::FindPath::Request> request, std::shared_ptr<interfaces::srv::FindPath::Response> response)
 {
@@ -393,190 +370,18 @@ void service_run(const std::shared_ptr<interfaces::srv::FindPath::Request> reque
 // MAIN PROGRAM: ========================================
 int main(int argc, char* argv[])
 {
-	if (argc > 1) interactive = atoi(argv[1]);	// Interactive (0) or no (>0)
-	if (argc > 2) alpha[0] = atof(argv[2]);		// start x
-	if (argc > 3) alpha[1] = atof(argv[3]);		// start y
-	if (argc > 4) bta[0] = atof(argv[4]);		// goal x
-	if (argc > 5) bta[1] = atof(argv[5]);		// goal y
-	if (argc > 6) epsilon = atof(argv[6]);		// epsilon (resolution)
-	if (argc > 7) R0      = atof(argv[7]);		// robot radius
-	if (argc > 8) fileName = argv[8]; 		// Input file name
-	if (argc > 9) boxWidth = atof(argv[9]);		// boxWidth
-	if (argc > 10) boxHeight = atof(argv[10]);	// boxHeight
-	if (argc > 11) windowPosX = atoi(argv[11]);	// window X pos
-	if (argc > 12) windowPosY = atoi(argv[12]);	// window Y pos
-	if (argc > 13) QType   = atoi(argv[13]);	// PriorityQ Type (random or no)
-	if (argc > 14) seed   = atoi(argv[14]);		// for random number generator
-	if (argc > 15) inputDir  = argv[15];		// path for input files
-	if (argc > 16) deltaX  = atof(argv[16]);	// x-translation of input file
-	if (argc > 17) deltaY  = atof(argv[17]);	// y-translation of input file
-	if (argc > 18) scale  = atof(argv[18]);		// scaling of input file
-
-/*
-	// PERFORM THE INITIAL RUN OF THE ALGORITHM
-	//==========================================
-	run(); 	// make it do something interesting from the start!!!
-
-	// SHOULD WE STOP or GO INTERACTIVE?
-	//==========================================
-//cout<<"after run\n";
-	if (interactive > 0) {	// non-interactive
-	    // do something...
-	    cout << "Non Interactive Run of Disc Robot" << endl;
-	    if (noPath)
-	    	cout << "No Path Found!" << endl;
-	    else
-	    	cout << "Path was Found!" << endl;
-	    return 0;
-	}
-	*/
+	// Initialize ROS
 	rclcpp::init(argc, argv);
+	// Create service node
 	std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("test_server");
 
+	// Add service to node
 	rclcpp::Service<interfaces::srv::FindPath>::SharedPtr service = node->create_service<interfaces::srv::FindPath>("find_path",  &service_run);
 	RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready.");
 	rclcpp::spin(node);
   	rclcpp::shutdown();
 	
 	return 0;
-}
-
-void genEmptyTree()
-{
-	Box* root = new Box(boxWidth/2, boxHeight/2, boxWidth, boxHeight);
-	Box::r0 = R0;
-
-	parseConfigFile(root);
-	root->updateStatus();
-
-	if (QT)
-	{
-		delete(QT);
-	}
-	QT = new QuadTree(root, epsilon, QType, seed++);  // Note that seed keeps changing!
-
-cout<<"inside genEmpty:  Qtype= " << QType << "\n";
-}
-
-void run()
-{
-	/*
-	fileName;
-	inputDir;
-	R0;
-	epsilon;
-	alpha[0];
-	alpha[1];
-	goal[0];
-	goal[1];
-    QType;	
-	*/
-cout<<"inside run:  Qtype= " << QType << "\n";
-
-	Timer t;
-	// start timer
-	t.start();
-
-	genEmptyTree();
-
-	noPath = false;	// Confusing use of "noPath"
-	int ct = 0;
-
-	if (QType == 0 || QType == 1) // 0=random, 1=BFS
-	{
-		boxA = QT->getBox(alpha[0], alpha[1]);
-		cout<<"!boxA->isFree()="<<(!boxA->isFree())<<endl;
-		while (boxA && !boxA->isFree())
-		{	
-			cout<< "Inside While A"<<endl;
-			cout<<"height of A:"<< boxA->height<<endl;
-			cout<<"width of A:"<< boxA->width<<endl;
-			cout<<"isLeaf of A:"<< boxA->isLeaf<<endl;
-			cout<<"status of A:"<< boxA->status<<endl;
-			if (!QT->expand(boxA))
-			{
-				noPath = true; // Confusing use of "noPath"
-				break;
-			}
-			++ct;
-			boxA = QT->getBox(boxA, alpha[0], alpha[1]);
-		}
-
-		boxB = QT->getBox(bta[0], bta[1]);
-		cout<<"!boxB->isFree()="<<(!boxB->isFree())<<endl;
-		while (!noPath && boxB && !boxB->isFree())
-		{
-			cout<< "Inside While B"<<endl;
-			if (!QT->expand(boxB))
-			{
-				noPath = true;
-				break;
-			}
-			++ct;
-			boxB = QT->getBox(boxB, bta[0], bta[1]);
-		}
-		// similar to findPath (for QType 2) -- so it is a duplicated logic
-		while(!noPath && !QT->isConnect(boxA, boxB)) {
-			if (!QT->expand()) // should ct be passed to expand?
-			{
-				noPath = true;
-			}
-			++ct;
-		}
-	} 
-	else if(QType == 2)
-	{
-		boxA = QT->getBox(alpha[0], alpha[1]);
-		// split until the box containing A is free (or, NOPATH)
-		while (boxA && !boxA->isFree())
-		{
-			if (!QT->expand(boxA))
-			{
-				noPath = true;
-				break;
-			}
-			boxA = QT->getBox(boxA, alpha[0], alpha[1]);
-		}
-
-		boxB = QT->getBox(bta[0], bta[1]);
-		// split until the box containing B is free (or, NOPATH)
-		while (!noPath && boxB && !boxB->isFree())
-		{
-			if (!QT->expand(boxB))
-			{
-				noPath = true;
-				break;
-			}
-			boxB = QT->getBox(boxB, bta[0], bta[1]);
-		}
-
-		// findPath will split until exists path from boxA to boxB (or, NOPATH)
-		noPath = !findPath(boxA, boxB, QT, ct);
-	}	
-
-	// stop timer
-	t.stop();
-	// print the elapsed time in millisec
-	cout << ">>>>>>>>>>>>>>> > > > > > > >>>>>>>>>>>>>>>>>>\n";
-	cout << ">>\n";
-	cout << ">>     Time used: " << t.getElapsedTimeInMilliSec() << " ms\n";
-	cout << ">>\n";
-
-	//glutPostRedisplay();
-
-	if (!noPath) cout << ">>     Path found !" << endl;
-	else  cout << ">>     No Path !" << endl;
-	cout << ">>\n";
-	cout << ">>>>>>>>>>>>>>> > > > > > > >>>>>>>>>>>>>>>>>>\n";
-	cout << "Expanded " << ct << " times" << endl;
-	cout << "total Free boxes: " << freeCount << endl;
-	cout << "total Stuck boxes: " << stuckCount << endl;
-	cout << "Epsilon: " <<epsilon << endl;
-	cout << "total Mixed boxes smaller than epsilon: " << mixSmallCount << endl;
-	cout << "total Mixed boxes bigger than epsilon: " << mixCount - ct - mixSmallCount << endl;
-	freeCount = stuckCount = mixCount = mixSmallCount = 0;
-
-	
 }
 
 
@@ -755,49 +560,6 @@ void renderScene(void)
 }
 */
 
-
-/* ********************************************************************** */
-// skip blanks, tabs, line breaks and comment lines,
-// 	leaving us at the beginning of a token (or EOF)
-// 	(This code is taken from core2/src/CoreIo.cpp)
-int skip_comment_line (std::ifstream & in) {
-	  int c;
-	
-	  do {
-	    c = in.get();
-	    while ( c == '#' ) {
-	      do {// ignore the rest of this line
-	        c = in.get();
-	      } while ( c != '\n' );
-	      c = in.get(); // now, reach the beginning of the next line
-	    }
-	  } while (c == ' ' || c == '\t' || c == '\n');	//ignore white spaces and newlines
-	
-	  if (c == EOF)
-	    std::cout << "unexpected end of file." << std::endl;
-	
-	  in.putback(c);  // this is non-white and non-comment char!
-	  return c;
-}//skip_comment_line
-
-// skips '\' followed by '\n'
-// 	NOTE: this assumes a very special file format (e.g., our BigInt File format)
-// 	in which the only legitimate appearance of '\' is when it is followed
-// 	by '\n' immediately!  
-int skip_backslash_new_line (std::istream & in) {
-	  int c = in.get();
-	
-	  while (c == '\\') {
-	    c = in.get();
-	
-	    if (c == '\n')
-	      c = in.get();
-	    else // assuming the very special file format noted above!
-	      cout<< "continuation line \\ must be immediately followed by new line.\n";
-	  }//while
-	  return c;
-}//skip_backslash_new_line
-
 /* ********************************************************************** */
 void parseFromInput(Box* b, int nPt, string points, int nPolygons, string polygons, double deltaX, double deltaY, double scale) {
 	/* REQUEST FORMAT
@@ -890,85 +652,4 @@ void parseFromInput(Box* b, int nPt, string points, int nPolygons, string polygo
 			}
 		}
 	}
-}
-
-
-void parseConfigFile(Box* b)
-{	
-	std::stringstream ss;
-	ss << inputDir << "/" << fileName;	// create full file name 
-	std::string s = ss.str();
-//	s = "/home/ros/disc-path-gui/ros-system/src/pathserver/src/inputs/input2.txt";
-cout << "input file name = " << s << endl;	
-
-	fileProcessor(s);	// this will clean the input and put in
-				// output-tmp.txt
-	ifstream ifs( "output-tmp.txt" );
-	if (!ifs)
-	{
-		cerr<< "cannot open input file" << endl;
-		exit(1);
-	}
-
-	// First, get to the beginning of the first token:
-	skip_comment_line ( ifs );
-
-	int nPt, nPolygons;	// previously, nPolygons was misnamed as nFeatures
-	ifs >> nPt;
-cout<< "nPt=" << nPt << endl;
-
-	//skip_comment_line ( ifs );	// again, clear white space
-	vector<double> pts(nPt*2);
-	for (int i = 0; i < nPt; ++i)
-	{
-		ifs >> pts[i*2] >> pts[i*2+1];
-	}
-
-	//skip_comment_line ( ifs );	// again, clear white space
-	ifs >> nPolygons;
-	//skip_comment_line ( ifs );	// again, clear white space
-cout<< "nPolygons=" << nPolygons << endl;
-	string temp;
-	std::getline(ifs, temp);
-	for (int i = 0; i < nPolygons; ++i)
-	{
-		string s;
-		std::getline(ifs, s);
-		stringstream ss(s);
-		vector<Corner*> ptVec;
-		set<int> ptSet;
-		while (ss)
-		{
-			int pt;
-			/// TODO:
-			ss >> pt;
-			pt -= 1; //1 based array
-			if (ptSet.find(pt) == ptSet.end())
-			{
-				ptVec.push_back(new Corner(pts[pt*2]*scale+deltaX,
-					    	pts[pt*2+1]*scale+deltaY));
-
-
-				b->addCorner(ptVec.back());
-				ptSet.insert(pt);
-				if (ptVec.size() > 1)
-				{
-					Wall* w = new Wall(ptVec[ptVec.size()-2], ptVec[ptVec.size()-1]);
-					b->addWall(w);
-				}				
-			}
-			//new pt already appeared, a loop is formed. should only happen on first and last pt
-			else
-			{
-				if (ptVec.size() > 1)
-				{
-					Wall* w = new Wall(ptVec[ptVec.size()-1], ptVec[0]);
-					b->addWall(w);
-					break;
-				}	
-			}
-		}
-	}
-	ifs.close();
-
 }
