@@ -1,0 +1,4 @@
+source install/setup.bash
+ros2 run pathserver server
+ros2 service call /test_service interfaces/srv/TestService '{a: 1, b: 2}'
+ros2 launch rosbridge_server rosbridge_websocket_launch.xml

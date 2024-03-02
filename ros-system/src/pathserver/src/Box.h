@@ -158,7 +158,6 @@ public:
 				status = pParent->checkChildStatus(this->x, this->y);
 			}			
 		}
-		cout<<"status: "<<status<<endl;
 	}
 
 

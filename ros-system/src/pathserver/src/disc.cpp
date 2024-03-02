@@ -55,16 +55,11 @@
 #include "Graph.h"
 #include "Timer.h"
 #include "Box.h"
+#include <queue>
 
-#ifdef __CYGWIN32__
-#include "glui.h"
-#endif
-#ifdef _WIN32
-#include <gl/glui.h>
-#endif
-#ifdef __APPLE__
-#include <GLUI/glui.h>
-#endif
+#include "rclcpp/rclcpp.hpp"
+#include "interfaces/srv/test_service.hpp"
+#include "interfaces/srv/find_path.hpp"
 
 #include <set>
 //#include "CoreIo.h"
@@ -124,6 +119,7 @@ QuadTree* QT;
 // External Routines ========================================
 //
 //void renderScene(void);
+void parseFromInput(Box*, int, string, int, string, double, double, double);
 void parseConfigFile(Box*);
 void run();
 void genEmptyTree();
@@ -241,6 +237,158 @@ bool findPath(Box* a, Box* b, QuadTree* QT, int& ct)
 	return isPath;
 }
 
+// SAMPLE TEST SERVICE ========================================
+void add(const std::shared_ptr<interfaces::srv::TestService::Request> request,     // CHANGE
+          std::shared_ptr<interfaces::srv::TestService::Response>       response)  // CHANGE
+{
+  response->sum = request->a + request->b;                                      // CHANGE
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request\na: %ld" " b: %ld",  // CHANGE
+                request->a, request->b);                                         // CHANGE
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "sending back response: [%ld]", (long int)response->sum);
+}
+
+void service_run(const std::shared_ptr<interfaces::srv::FindPath::Request> request, std::shared_ptr<interfaces::srv::FindPath::Response> response)
+{
+	/* REQUEST FORMAT
+	float64[2] alpha [10, 360]
+	float64[2] bta [500, 20]
+	float64 epsilon 1
+	float64 boxwidth 512
+	float64 boxheight 512
+	float64 r0 30
+	int64 qtype 0
+	int64 seed 111
+	float64 deltax 0
+	float64 deltay 0
+	float64 scale 1
+	int64 numpts 12
+	string pts "10,502|110,502|110,402|10,402|200,312|250,332|300,292|210,162|220,202|50,112|100,162|150,92"
+	int64 numpolygons 3
+	string polygons "1,4,3,2,1|5,9,8,7,6,5|10,12,11,10"
+	---
+	string response
+	*/
+	// SET VARIABLES
+	alpha[0] = request->alpha[0];
+	alpha[1] = request->alpha[1];
+	bta[0] = request->bta[0];
+	bta[1] = request->bta[1];
+	epsilon = request->epsilon;
+	boxWidth = request->boxwidth;
+	boxHeight = request->boxheight;
+	R0 = request->r0;
+	QType = request->qtype;
+	seed = request->seed;
+	deltaX = request->deltax;
+	deltaY = request->deltay;
+	scale = request->scale;
+
+	RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Received request.");
+	cout << request->pts << endl;
+	cout << request->polygons << endl;
+
+	Timer t;
+	t.start();
+
+	// gen empty tree
+	Box* root = new Box(request->boxwidth/2, request->boxheight/2, request->boxwidth, request->boxheight);
+	Box::r0 = request->r0;
+	parseFromInput(root, request->numpts, request->pts, request->numpolygons, request->polygons, request->deltax, request->deltay, request->scale);
+	root->updateStatus();
+	if (QT)
+	{
+		delete(QT);
+	}
+	QT = new QuadTree(root, request->epsilon, request->qtype, request->seed);  // Note that seed keeps changing!
+
+	// ******************** START ALGORITHM ****************************************************
+	noPath = false;	// Confusing use of "noPath"
+	int ct = 0;
+	freeCount = 0;
+	stuckCount = 0;
+	mixCount = 0;
+	mixSmallCount = 0;
+
+	if (request->qtype == 0 || request->qtype == 1) // 0=random, 1=BFS
+	{
+		boxA = QT->getBox(request->alpha[0], request->alpha[1]);
+		cout<<"!boxA->isFree()="<<(!boxA->isFree())<<endl;
+		while (boxA && !boxA->isFree())
+		{	
+			if (!QT->expand(boxA))
+			{
+				noPath = true; // Confusing use of "noPath"
+				break;
+			}
+			++ct;
+			boxA = QT->getBox(boxA, request->alpha[0], request->alpha[1]);
+		}
+
+		boxB = QT->getBox(request->bta[0], request->bta[1]);
+		cout<<"!boxB->isFree()="<<(!boxB->isFree())<<endl;
+		while (!noPath && boxB && !boxB->isFree())
+		{
+			if (!QT->expand(boxB))
+			{
+				noPath = true;
+				break;
+			}
+			++ct;
+			boxB = QT->getBox(boxB, request->bta[0], request->bta[1]);
+		}
+		// similar to findPath (for QType 2) -- so it is a duplicated logic
+		while(!noPath && !QT->isConnect(boxA, boxB)) {
+			if (!QT->expand()) // should ct be passed to expand?
+			{
+				noPath = true;
+			}
+			++ct;
+		}
+	} 
+	else if(QType == 2)
+	{
+		boxA = QT->getBox(request->alpha[0], request->alpha[1]);
+		// split until the box containing A is free (or, NOPATH)
+		while (boxA && !boxA->isFree())
+		{
+			if (!QT->expand(boxA))
+			{
+				noPath = true;
+				break;
+			}
+			boxA = QT->getBox(boxA, request->alpha[0], request->alpha[1]);
+		}
+
+		boxB = QT->getBox(request->bta[0], request->bta[1]);
+		// split until the box containing B is free (or, NOPATH)
+		while (!noPath && boxB && !boxB->isFree())
+		{
+			if (!QT->expand(boxB))
+			{
+				noPath = true;
+				break;
+			}
+			boxB = QT->getBox(boxB, request->bta[0], request->bta[1]);
+		}
+
+		// findPath will split until exists path from boxA to boxB (or, NOPATH)
+		noPath = !findPath(boxA, boxB, QT, ct);
+	}	
+
+	// stop timer
+	t.stop();
+
+	RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Path found? %s", !noPath ? "true" : "false");
+	cout << ">>     Time used: " << t.getElapsedTimeInMilliSec() << " ms\n";
+	response->response = !noPath ? "true" : "false";
+	cout << ">>>>>>>>>>>>>>> > > > > > > >>>>>>>>>>>>>>>>>>\n";
+	cout << "Expanded " << ct << " times" << endl;
+	cout << "total Free boxes: " << freeCount << endl;
+	cout << "total Stuck boxes: " << stuckCount << endl;
+	cout << "Epsilon: " <<epsilon << endl;
+	cout << "total Mixed boxes smaller than epsilon: " << mixSmallCount << endl;
+	cout << "total Mixed boxes bigger than epsilon: " << mixCount - ct - mixSmallCount << endl;
+}
 
 // MAIN PROGRAM: ========================================
 int main(int argc, char* argv[])
@@ -263,83 +411,8 @@ int main(int argc, char* argv[])
 	if (argc > 16) deltaX  = atof(argv[16]);	// x-translation of input file
 	if (argc > 17) deltaY  = atof(argv[17]);	// y-translation of input file
 	if (argc > 18) scale  = atof(argv[18]);		// scaling of input file
+
 /*
-
- ****NOT SURE WHAT THIS IS
-
-cout<<"before interactive, Qtype= " << QType << "\n";
-
-	if (interactive > 0) {	// non-interactive
-	    // do something...
-	    cout << "Non Interactive Run of Disc Robot" << endl;
-	    if (noPath)
-	    	cout << "No Path Found!" << endl;
-	    else
-	    	cout << "Path was Found!" << endl;
-	    return 0;
-	}
-*/
-
-
-
-	// Else, set up for GLUT/GLUI interactive display:
-/*
-//cout<<"before glutInit\n";
-	glutInit(&argc, argv);
-	glutInitWindowPosition(windowPosX, windowPosY);
-	glutInitWindowSize(boxWidth, boxWidth);
-	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
-	int windowID = glutCreateWindow("Motion Planning");
-	glutDisplayFunc(renderScene);
-	GLUI_Master.set_glutIdleFunc( NULL );
-	GLUI *glui = GLUI_Master.create_glui( "control", 0, windowPosX + boxWidth + 20, windowPosY );
-	
-	// SETTING UP THE CONTROL PANEL:
-	editInput = glui->add_edittext( "Input file:", GLUI_EDITTEXT_TEXT );
-	editInput->set_text((char*)fileName.c_str());
-	editDir = glui->add_edittext( "Input Directory:", GLUI_EDITTEXT_TEXT );
-	editDir->set_text((char*)inputDir.c_str());
-	editRadius = glui->add_edittext( "Radius:", GLUI_EDITTEXT_FLOAT );
-	editRadius->set_float_val(R0);
-	editEpsilon = glui->add_edittext( "Epsilon:", GLUI_EDITTEXT_FLOAT );
-	editEpsilon->set_float_val(epsilon);
-
-	editAlphaX = glui->add_edittext( "alpha.x:", GLUI_EDITTEXT_FLOAT );
-	editAlphaX->set_float_val(alpha[0]);
-	editAlphaY = glui->add_edittext( "alpha.y:", GLUI_EDITTEXT_FLOAT );
-	editAlphaY->set_float_val(alpha[1]);
-	editBetaX = glui->add_edittext( "beta.x:", GLUI_EDITTEXT_FLOAT );
-	editBetaX->set_float_val(beta[0]);
-	editBetaY = glui->add_edittext( "beta.y:", GLUI_EDITTEXT_FLOAT );
-	editBetaY->set_float_val(beta[1]);
-	editSeed = glui->add_edittext( "seed:", GLUI_EDITTEXT_INT );
-	editSeed->set_int_val(seed);
-
-	GLUI_Button* buttonRun = glui->add_button( "Run", -1, (GLUI_Update_CB)run);
-	buttonRun->set_name("Run me"); // Hack, but to avoid "unused warning" (Chee)
-
-
-	// New column:
-	glui->add_column(true);
-
-	glui->add_separator();
-	radioQType = glui->add_radiogroup();
-	glui->add_radiobutton_to_group(radioQType, "Random");
-	glui->add_radiobutton_to_group(radioQType, "BFS");
-	glui->add_radiobutton_to_group(radioQType, "A-star");
-	glui->add_separator();
-
-	radioDrawOption = glui->add_radiogroup(0, -1, (GLUI_Update_CB)renderScene);
-	glui->add_radiobutton_to_group(radioDrawOption, "Show Box Boundary");
-	glui->add_radiobutton_to_group(radioDrawOption, "Hide Box Boundary");
-	glui->add_separator();
-
-	// Quit button
-	glui->add_button( "Quit", 0, (GLUI_Update_CB)exit );
-
-	glui->set_main_gfx_window( windowID );
-*/
-//cout<<"before run\n";
 	// PERFORM THE INITIAL RUN OF THE ALGORITHM
 	//==========================================
 	run(); 	// make it do something interesting from the start!!!
@@ -356,9 +429,15 @@ cout<<"before interactive, Qtype= " << QType << "\n";
 	    	cout << "Path was Found!" << endl;
 	    return 0;
 	}
-	else
-		//glutMainLoop();
+	*/
+	rclcpp::init(argc, argv);
+	std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("test_server");
 
+	rclcpp::Service<interfaces::srv::FindPath>::SharedPtr service = node->create_service<interfaces::srv::FindPath>("find_path",  &service_run);
+	RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready.");
+	rclcpp::spin(node);
+  	rclcpp::shutdown();
+	
 	return 0;
 }
 
@@ -496,6 +575,8 @@ cout<<"inside run:  Qtype= " << QType << "\n";
 	cout << "total Mixed boxes smaller than epsilon: " << mixSmallCount << endl;
 	cout << "total Mixed boxes bigger than epsilon: " << mixCount - ct - mixSmallCount << endl;
 	freeCount = stuckCount = mixCount = mixSmallCount = 0;
+
+	
 }
 
 
@@ -718,6 +799,99 @@ int skip_backslash_new_line (std::istream & in) {
 }//skip_backslash_new_line
 
 /* ********************************************************************** */
+void parseFromInput(Box* b, int nPt, string points, int nPolygons, string polygons, double deltaX, double deltaY, double scale) {
+	/* REQUEST FORMAT
+	int64 numpts 12
+	string pts "10,502|110,502|110,402|10,402|200,312|250,332|300,292|210,162|220,202|50,112|100,162|150,92"
+	int64 numpolygons 3
+	string polygons "1,4,3,2,1|5,9,8,7,6,5|10,12,11,10"
+	---
+	string response
+	*/
+
+	// populate pts array from string using same logic as parseConfigFile
+	vector<double> pts(nPt*2);
+	string currNum = "";
+	int counter = 0;
+	for (int i = 0; i < (int)points.size(); i++) {
+		if (points[i] == '|' || points[i] == ',' || i == (int)points.size() - 1) {
+			if (i == (int)points.size() - 1) {currNum += points[i];} // if last char, add to number
+			pts[counter] = stod(currNum);
+			currNum = "";
+			counter++;
+		} else {
+			currNum += points[i];
+		}
+	}
+	// DEBUG:
+	// print pts vector
+	for (double i: pts) {
+		cout << i << " ";
+	}
+
+
+	// modify Box b from string using same logic as parseConfigFile
+	for (int i = 0; i < nPolygons; ++i)
+	{
+
+		queue<int> q;
+		string currNum = "";
+		for (int j = 0; j < (int)polygons.size(); j++) {
+			if (polygons[j] == '|' || j == (int)polygons.size() - 1) {
+				if (j == (int)polygons.size() - 1) {currNum += polygons[j];} // if last char, add to number
+				q.push(stoi(currNum));
+				break;
+			}
+			if (polygons[j] == ',') {
+				q.push(stoi(currNum));
+				currNum = "";
+			} else {
+				currNum += polygons[j];
+			}
+		}
+
+		// delete first polygon from string after finding it
+		if (i != nPolygons - 1) {
+			polygons = polygons.substr(polygons.find('|') + 1);
+		}
+
+		vector<Corner*> ptVec;
+		set<int> ptSet;
+		while (!q.empty())
+		{
+			int pt;
+			/// TODO:
+			pt = q.front();
+			q.pop();
+			pt -= 1; //1 based array
+			if (ptSet.find(pt) == ptSet.end())
+			{
+				ptVec.push_back(new Corner(pts[pt*2]*scale+deltaX,
+					    	pts[pt*2+1]*scale+deltaY));
+
+
+				b->addCorner(ptVec.back());
+				ptSet.insert(pt);
+				if (ptVec.size() > 1)
+				{
+					Wall* w = new Wall(ptVec[ptVec.size()-2], ptVec[ptVec.size()-1]);
+					b->addWall(w);
+				}				
+			}
+			//new pt already appeared, a loop is formed. should only happen on first and last pt
+			else
+			{
+				if (ptVec.size() > 1)
+				{
+					Wall* w = new Wall(ptVec[ptVec.size()-1], ptVec[0]);
+					b->addWall(w);
+					break;
+				}	
+			}
+		}
+	}
+}
+
 
 void parseConfigFile(Box* b)
 {	
