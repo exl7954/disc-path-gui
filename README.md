@@ -8,7 +8,7 @@ These steps assume that you have ROS Humble correctly installed and sourced. If 
 4. Install ROSBridge using `sudo apt-get install ros-humble-rosbridge-server`.
 5. After installing ROSBridge, re-source ROS using `source /opt/ros/humble/setup.bash`.
 6. Run `ros2 run pathserver server` to start a service node on the ROS network.
-7. In a new terminal window, run `ros2 launch rosbridge_server rosbridge_websocket_launch.xml` to open a WebSocket listening on port 9090. 
+7. In a new terminal window, repeat step 3, then run `ros2 launch rosbridge_server rosbridge_websocket_launch.xml` to open a WebSocket listening on port 9090. 
 8. Test the connection by opening `ros-system/src/pathserver/src/test.html` with your browser. This file contains a script that calls the service with default arguments.
 
 Feel free to send me an email or open an [Issue](https://github.com/exl7954/disc-path-gui/issues) in this repository if you have trouble running the server.
