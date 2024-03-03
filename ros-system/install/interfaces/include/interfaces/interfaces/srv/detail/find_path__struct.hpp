@@ -388,16 +388,19 @@ struct FindPath_Response_
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
       this->response = "";
+      this->path = "";
     }
   }
 
   explicit FindPath_Response_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
-  : response(_alloc)
+  : response(_alloc),
+    path(_alloc)
   {
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
       this->response = "";
+      this->path = "";
     }
   }
 
@@ -405,12 +408,21 @@ struct FindPath_Response_
   using _response_type =
     std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>;
   _response_type response;
+  using _path_type =
+    std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>;
+  _path_type path;
 
   // setters for named parameter idiom
   Type & set__response(
     const std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> & _arg)
   {
     this->response = _arg;
+    return *this;
+  }
+  Type & set__path(
+    const std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> & _arg)
+  {
+    this->path = _arg;
     return *this;
   }
 
@@ -457,6 +469,9 @@ struct FindPath_Response_
   bool operator==(const FindPath_Response_ & other) const
   {
     if (this->response != other.response) {
+      return false;
+    }
+    if (this->path != other.path) {
       return false;
     }
     return true;

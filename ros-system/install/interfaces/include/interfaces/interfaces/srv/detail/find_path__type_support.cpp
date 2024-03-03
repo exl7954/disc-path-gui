@@ -470,7 +470,7 @@ void FindPath_Response_fini_function(void * message_memory)
   typed_message->~FindPath_Response();
 }
 
-static const ::rosidl_typesupport_introspection_cpp::MessageMember FindPath_Response_message_member_array[1] = {
+static const ::rosidl_typesupport_introspection_cpp::MessageMember FindPath_Response_message_member_array[2] = {
   {
     "response",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
@@ -487,13 +487,30 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember FindPath_Resp
     nullptr,  // fetch(index, &value) function pointer
     nullptr,  // assign(index, value) function pointer
     nullptr  // resize(index) function pointer
+  },
+  {
+    "path",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(interfaces::srv::FindPath_Response, path),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr,  // fetch(index, &value) function pointer
+    nullptr,  // assign(index, value) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
 static const ::rosidl_typesupport_introspection_cpp::MessageMembers FindPath_Response_message_members = {
   "interfaces::srv",  // message namespace
   "FindPath_Response",  // message name
-  1,  // number of fields
+  2,  // number of fields
   sizeof(interfaces::srv::FindPath_Response),
   FindPath_Response_message_member_array,  // message members
   FindPath_Response_init_function,  // function to initialize message memory (memory has to be allocated)

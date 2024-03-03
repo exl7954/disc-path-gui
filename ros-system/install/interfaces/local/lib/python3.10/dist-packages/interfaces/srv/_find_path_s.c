@@ -519,6 +519,21 @@ bool interfaces__srv__find_path__response__convert_from_py(PyObject * _pymsg, vo
     Py_DECREF(encoded_field);
     Py_DECREF(field);
   }
+  {  // path
+    PyObject * field = PyObject_GetAttrString(_pymsg, "path");
+    if (!field) {
+      return false;
+    }
+    assert(PyUnicode_Check(field));
+    PyObject * encoded_field = PyUnicode_AsUTF8String(field);
+    if (!encoded_field) {
+      Py_DECREF(field);
+      return false;
+    }
+    rosidl_runtime_c__String__assign(&ros_message->path, PyBytes_AS_STRING(encoded_field));
+    Py_DECREF(encoded_field);
+    Py_DECREF(field);
+  }
 
   return true;
 }
@@ -552,6 +567,23 @@ PyObject * interfaces__srv__find_path__response__convert_to_py(void * raw_ros_me
     }
     {
       int rc = PyObject_SetAttrString(_pymessage, "response", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // path
+    PyObject * field = NULL;
+    field = PyUnicode_DecodeUTF8(
+      ros_message->path.data,
+      strlen(ros_message->path.data),
+      "replace");
+    if (!field) {
+      return NULL;
+    }
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "path", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

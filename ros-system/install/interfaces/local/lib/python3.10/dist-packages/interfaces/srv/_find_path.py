@@ -614,13 +614,16 @@ class FindPath_Response(metaclass=Metaclass_FindPath_Response):
 
     __slots__ = [
         '_response',
+        '_path',
     ]
 
     _fields_and_field_types = {
         'response': 'string',
+        'path': 'string',
     }
 
     SLOT_TYPES = (
+        rosidl_parser.definition.UnboundedString(),  # noqa: E501
         rosidl_parser.definition.UnboundedString(),  # noqa: E501
     )
 
@@ -629,6 +632,7 @@ class FindPath_Response(metaclass=Metaclass_FindPath_Response):
             'Invalid arguments passed to constructor: %s' % \
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         self.response = kwargs.get('response', str())
+        self.path = kwargs.get('path', str())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -661,6 +665,8 @@ class FindPath_Response(metaclass=Metaclass_FindPath_Response):
             return False
         if self.response != other.response:
             return False
+        if self.path != other.path:
+            return False
         return True
 
     @classmethod
@@ -680,6 +686,19 @@ class FindPath_Response(metaclass=Metaclass_FindPath_Response):
                 isinstance(value, str), \
                 "The 'response' field must be of type 'str'"
         self._response = value
+
+    @builtins.property
+    def path(self):
+        """Message field 'path'."""
+        return self._path
+
+    @path.setter
+    def path(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, str), \
+                "The 'path' field must be of type 'str'"
+        self._path = value
 
 
 class Metaclass_FindPath(type):

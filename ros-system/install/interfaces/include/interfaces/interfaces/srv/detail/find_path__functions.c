@@ -415,6 +415,7 @@ interfaces__srv__FindPath_Request__Sequence__copy(
 
 // Include directives for member types
 // Member `response`
+// Member `path`
 // already included above
 // #include "rosidl_runtime_c/string_functions.h"
 
@@ -429,6 +430,11 @@ interfaces__srv__FindPath_Response__init(interfaces__srv__FindPath_Response * ms
     interfaces__srv__FindPath_Response__fini(msg);
     return false;
   }
+  // path
+  if (!rosidl_runtime_c__String__init(&msg->path)) {
+    interfaces__srv__FindPath_Response__fini(msg);
+    return false;
+  }
   return true;
 }
 
@@ -440,6 +446,8 @@ interfaces__srv__FindPath_Response__fini(interfaces__srv__FindPath_Response * ms
   }
   // response
   rosidl_runtime_c__String__fini(&msg->response);
+  // path
+  rosidl_runtime_c__String__fini(&msg->path);
 }
 
 bool
@@ -451,6 +459,12 @@ interfaces__srv__FindPath_Response__are_equal(const interfaces__srv__FindPath_Re
   // response
   if (!rosidl_runtime_c__String__are_equal(
       &(lhs->response), &(rhs->response)))
+  {
+    return false;
+  }
+  // path
+  if (!rosidl_runtime_c__String__are_equal(
+      &(lhs->path), &(rhs->path)))
   {
     return false;
   }
@@ -468,6 +482,12 @@ interfaces__srv__FindPath_Response__copy(
   // response
   if (!rosidl_runtime_c__String__copy(
       &(input->response), &(output->response)))
+  {
+    return false;
+  }
+  // path
+  if (!rosidl_runtime_c__String__copy(
+      &(input->path), &(output->path)))
   {
     return false;
   }

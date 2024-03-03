@@ -54,6 +54,8 @@ module interfaces {
     };
     struct FindPath_Response {
       string response;
+
+      string path;
     };
   };
 };

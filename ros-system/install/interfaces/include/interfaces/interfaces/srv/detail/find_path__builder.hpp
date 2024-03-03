@@ -287,16 +287,32 @@ namespace srv
 namespace builder
 {
 
+class Init_FindPath_Response_path
+{
+public:
+  explicit Init_FindPath_Response_path(::interfaces::srv::FindPath_Response & msg)
+  : msg_(msg)
+  {}
+  ::interfaces::srv::FindPath_Response path(::interfaces::srv::FindPath_Response::_path_type arg)
+  {
+    msg_.path = std::move(arg);
+    return std::move(msg_);
+  }
+
+private:
+  ::interfaces::srv::FindPath_Response msg_;
+};
+
 class Init_FindPath_Response_response
 {
 public:
   Init_FindPath_Response_response()
   : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
   {}
-  ::interfaces::srv::FindPath_Response response(::interfaces::srv::FindPath_Response::_response_type arg)
+  Init_FindPath_Response_path response(::interfaces::srv::FindPath_Response::_response_type arg)
   {
     msg_.response = std::move(arg);
-    return std::move(msg_);
+    return Init_FindPath_Response_path(msg_);
   }
 
 private:
