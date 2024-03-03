@@ -365,6 +365,20 @@ void service_run(const std::shared_ptr<interfaces::srv::FindPath::Request> reque
 	cout << "Epsilon: " <<epsilon << endl;
 	cout << "total Mixed boxes smaller than epsilon: " << mixSmallCount << endl;
 	cout << "total Mixed boxes bigger than epsilon: " << mixCount - ct - mixSmallCount << endl;
+
+	if (!noPath) {
+		stringstream responsePath;
+		vector<Box*> path = Graph::dijketraShortestPath(boxA, boxB);
+		cout << "Path length: " << path.size() << endl;
+		cout << "Path: ";
+		for (int i = 0; i < (int)path.size(); ++i)
+		{
+			cout << path[i]->x << " " << path[i]->y << " | ";
+			responsePath << path[i]->x << " " << path[i]->y << " | ";
+		}
+		cout << endl;
+		response->path = responsePath.str();
+	}
 }
 
 // MAIN PROGRAM: ========================================
