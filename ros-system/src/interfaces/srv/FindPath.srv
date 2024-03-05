@@ -1,0 +1,18 @@
+float64[2] alpha [10, 360]
+float64[2] bta [500, 20]
+float64 epsilon 1
+float64 boxwidth 512
+float64 boxheight 512
+float64 r0 30
+int64 qtype 0
+int64 seed 111
+float64 deltax 0
+float64 deltay 0
+float64 scale 1
+int64 numpts 12
+string pts "10,502|110,502|110,402|10,402|200,312|250,332|300,292|210,162|220,202|50,112|100,162|150,92"
+int64 numpolygons 3
+string polygons "1,4,3,2,1|5,9,8,7,6,5|10,12,11,10"
+---
+string response
+string path

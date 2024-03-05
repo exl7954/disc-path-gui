@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/eventemitter2@6.4.9/lib/eventemitter2.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/roslib@1/build/roslib.min.js"></script>
+        <script type="text/javascript" type="text/javascript">
+            var ros = new ROSLIB.Ros({
+                url: 'ws://localhost:9090'
+            });
+            ros.on('connection', function() {
+                console.log('Connected to websocket server.');
+            });
+            ros.on('error', function(error) {
+                console.log('Error connecting to websocket server: ', error);
+            });
+            ros.on('close', function() {
+                console.log('Connection to websocket server closed.');
+            });
+
+            var client = new ROSLIB.Service({
+                ros: ros,
+                name: '/find_path',
+                serviceType: 'interfaces/srv/FindPath'
+            });
+
+            var request = new ROSLIB.ServiceRequest({
+                alpha: [40, 360],
+                bta: [460, 100],
+                epsilon: 1,
+                boxwidth: 512,
+                boxheight: 512,
+                r0: 30,
+                qtype: 0,
+                seed: 111,
+                deltax: 0,
+                deltay: 0,
+                scale: 1,
+                numpts: 12,
+                pts: "10,502|110,502|110,402|10,402|200,312|250,332|300,292|210,162|220,202|50,112|100,162|150,92",
+                numpolygons: 3,
+                polygons: "1,4,3,2,1|5,9,8,7,6,5|10,12,11,10"
+            });
+
+
+            client.callService(request, function(result) {
+                console.log('Result for service call on ' + client.name + ': ' + result.response);
+                document.getElementById("inputPts").innerHTML = 'Input points: ' + request.pts;
+                document.getElementById("inputPolygons").innerHTML = 'Input polygons: ' + request.polygons;
+                document.getElementById("result").innerHTML = 'Result for service call on ' + client.name + ': ' + result.response;
+                document.getElementById("path").innerHTML = result.path;
+
+                let canvas = document.querySelector('#canvas');
+                canvas.width = request.boxwidth;
+                canvas.height = request.boxheight;
+                let ctx = canvas.getContext('2d');
+
+                // DRAW ENVIRONMENT
+                let points = request.pts.split('|');
+                points = points.map(p => p.split(',').map((x) => parseInt(x)));
+                console.log(points);
+
+                let polygons = request.polygons.split('|');
+                polygons = polygons.map(p => p.split(',').map((x) => parseInt(x)));
+                
+                for (polygon of polygons) {
+                    ctx.beginPath();
+                    ctx.moveTo(points[polygon[0] - 1][0], points[polygon[0] - 1][1]);
+                    for (let i = 1; i < polygon.length; i++) {
+                        ctx.lineTo(points[polygon[i] - 1][0], points[polygon[i] - 1][1]);
+                    }
+                    ctx.stroke();
+                }
+
+                // DRAW DISC AND GOAL
+                ctx.beginPath();
+                ctx.arc(request.alpha[0], request.alpha[1], request.r0, 0, 2 * Math.PI);
+                ctx.fillStyle = "red";
+                ctx.fill();
+                ctx.closePath();
+
+                ctx.beginPath();
+                ctx.arc(request.bta[0], request.bta[1], request.r0, 0, 2 * Math.PI);
+                ctx.fillStyle = "green";
+                ctx.fill();
+                ctx.stroke();
+
+                // DRAW PATH
+                let path = result.path.split('|')
+                    .map((x) => x.trim())
+                    .filter((arr) => arr.length > 1)
+                    .map(p => p.split(' '))
+                    .map(p => p.map((x) => parseInt(x)));
+                ctx.beginPath();
+                ctx.moveTo(path[0][0], path[0][1]);
+                console.log(path);
+                for (let i = 1; i < path.length; i++) {
+                    ctx.lineTo(path[i][0], path[i][1]);
+                }
+                ctx.stroke();
+            });
+        </script>
+    </head>
+    <body>
+        <p id="result"></p> <!-- This will be filled with the result of the service call -->
+        <p id="inputPts"></p>
+        <p id="inputPolygons"></p>
+        <p id="path"></p>
+        <canvas width="1" height="1" id="canvas" style="border: 1px solid black;"></canvas>
+    </body>
+</html>

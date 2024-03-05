@@ -1,5 +1,6 @@
 #pragma once
 
+#include<iostream>
 #include <time.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -81,7 +82,7 @@ public:
 
 	Box(double xx, double yy, double w, double h):
 	    	depth(1), x(xx), y(yy), width(w), height(h), isLeaf(true), 
-		pParent(0), status(UNKNOWN),
+		pParent(0), status(MIXED),
 		pSet(0), dist2Source(-1), heapId(-1), prev(0), visited(false)
 	{
 		for (int i = 0; i < 4; ++i)
@@ -93,11 +94,11 @@ public:
 	}
 	
 	void updateStatus()
-	{
+	{/*
 		if (status != UNKNOWN)
 		{
 			return;
-		}
+		}*/
 		
 		double outerDomain = r0 + rB;
 		double innerDomain = r0 > rB ? r0 - rB : 0;
@@ -265,7 +266,7 @@ public:
 			return false;
 		}
 
-		if (!this->isLeaf || this->status != MIXED)
+		if (!this->isLeaf || (this->status != MIXED&&this->status!=UNKNOWN))
 		{
 			return false; 
 		}

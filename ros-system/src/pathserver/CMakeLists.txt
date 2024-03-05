@@ -7,12 +7,14 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(interfaces REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
 add_executable(server src/disc.cpp src/Box.cpp src/QuadTree.cpp src/Corner.cpp src/fileProcessor.cpp src/Timer.cpp src/Wall.cpp)
-ament_target_dependencies(server)
+ament_target_dependencies(server rclcpp interfaces)
 
 install(TARGETS
   server

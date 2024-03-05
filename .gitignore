@@ -1,3 +1,12 @@
 github-token.txt
 ros-system/log
 ros-system/build
+build
+log
+output-tmp.txt
+ros-system/output-tmp.txt
+ros-system/src/interfaces/build
+ros-system/src/pathserver/build
+ros-system/src/pathserver/log
+.vscode
+/install

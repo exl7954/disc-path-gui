@@ -1,0 +1,59 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from interfaces/srv/FindPath.srv
+// generated code does not contain a copyright notice
+
+
+module interfaces {
+  module srv {
+    typedef double double__2[2];
+    struct FindPath_Request {
+      @default (value="(10.0, 360.0)")
+      double__2 alpha;
+
+      @default (value="(500.0, 20.0)")
+      double__2 bta;
+
+      @default (value=1.0)
+      double epsilon;
+
+      @default (value=512.0)
+      double boxwidth;
+
+      @default (value=512.0)
+      double boxheight;
+
+      @default (value=30.0)
+      double r0;
+
+      @default (value=0)
+      int64 qtype;
+
+      @default (value=111)
+      int64 seed;
+
+      @default (value=0.0)
+      double deltax;
+
+      @default (value=0.0)
+      double deltay;
+
+      @default (value=1.0)
+      double scale;
+
+      @default (value=12)
+      int64 numpts;
+
+      @default (value="10,502|110,502|110,402|10,402|200,312|250,332|300,292|210,162|220,202|50,112|100,162|150,92")
+      string pts;
+
+      @default (value=3)
+      int64 numpolygons;
+
+      @default (value="1,4,3,2,1|5,9,8,7,6,5|10,12,11,10")
+      string polygons;
+    };
+    struct FindPath_Response {
+      string response;
+    };
+  };
+};
