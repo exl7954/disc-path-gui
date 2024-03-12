@@ -5,6 +5,7 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/eventemitter2@6.4.9/lib/eventemitter2.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/roslib@1/build/roslib.min.js"></script>
         <script type="text/javascript" type="text/javascript">
+            const BOX_COLORS = {0: "green", 1: "yellow", 2: "red", 3: "grey"};
             var ros = new ROSLIB.Ros({
                 url: 'ws://localhost:9090'
             });
@@ -41,8 +42,14 @@
                 numpolygons: 3,
                 polygons: "1,4,3,2,1|5,9,8,7,6,5|10,12,11,10"
             });
+            
+            /* RESPONSE STRUCTURE
 
+            string response: "true" or "false"
+            string path: "x1 y1|x2 y2|...|xn yn"
+            string boxes: "x,y!width,height!status|x,y!width,height!status|..."
 
+            */
             client.callService(request, function(result) {
                 console.log('Result for service call on ' + client.name + ': ' + result.response);
                 document.getElementById("inputPts").innerHTML = 'Input points: ' + request.pts;
@@ -55,10 +62,26 @@
                 canvas.height = request.boxheight;
                 let ctx = canvas.getContext('2d');
 
+                // DRAW BOXES
+                let boxes = result.boxes.split('|')
+                    .map((x) => x.trim())
+                    .filter((arr) => arr.length > 1);
+                for (let box of boxes) {
+                    let currentBox = box.split("!");
+                    let x = parseInt(currentBox[0].split(",")[0]);
+                    let y = parseInt(currentBox[0].split(",")[1]);
+                    let width = parseInt(currentBox[1].split(",")[0]);
+                    let height = parseInt(currentBox[1].split(",")[1]);
+                    ctx.beginPath();
+                    ctx.fillStyle = BOX_COLORS[parseInt(currentBox[2])];
+                    ctx.rect(x - width / 2, y - height / 2, width, height);
+                    ctx.fill();
+                    ctx.stroke();
+                }
+
                 // DRAW ENVIRONMENT
                 let points = request.pts.split('|');
                 points = points.map(p => p.split(',').map((x) => parseInt(x)));
-                console.log(points);
 
                 let polygons = request.polygons.split('|');
                 polygons = polygons.map(p => p.split(',').map((x) => parseInt(x)));
@@ -93,19 +116,21 @@
                     .map(p => p.map((x) => parseInt(x)));
                 ctx.beginPath();
                 ctx.moveTo(path[0][0], path[0][1]);
-                console.log(path);
                 for (let i = 1; i < path.length; i++) {
                     ctx.lineTo(path[i][0], path[i][1]);
                 }
                 ctx.stroke();
+
+                
+
             });
         </script>
     </head>
     <body>
         <p id="result"></p> <!-- This will be filled with the result of the service call -->
         <p id="inputPts"></p>
-        <p id="inputPolygons"></p>
-        <p id="path"></p>
+        <p id="inputPolygons"></p><br>
+        <div>Path: <p id="path"></p></div>
         <canvas width="1" height="1" id="canvas" style="border: 1px solid black;"></canvas>
     </body>
 </html>
