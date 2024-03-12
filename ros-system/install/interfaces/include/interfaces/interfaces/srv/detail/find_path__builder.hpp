@@ -287,16 +287,32 @@ namespace srv
 namespace builder
 {
 
+class Init_FindPath_Response_boxes
+{
+public:
+  explicit Init_FindPath_Response_boxes(::interfaces::srv::FindPath_Response & msg)
+  : msg_(msg)
+  {}
+  ::interfaces::srv::FindPath_Response boxes(::interfaces::srv::FindPath_Response::_boxes_type arg)
+  {
+    msg_.boxes = std::move(arg);
+    return std::move(msg_);
+  }
+
+private:
+  ::interfaces::srv::FindPath_Response msg_;
+};
+
 class Init_FindPath_Response_path
 {
 public:
   explicit Init_FindPath_Response_path(::interfaces::srv::FindPath_Response & msg)
   : msg_(msg)
   {}
-  ::interfaces::srv::FindPath_Response path(::interfaces::srv::FindPath_Response::_path_type arg)
+  Init_FindPath_Response_boxes path(::interfaces::srv::FindPath_Response::_path_type arg)
   {
     msg_.path = std::move(arg);
-    return std::move(msg_);
+    return Init_FindPath_Response_boxes(msg_);
   }
 
 private:

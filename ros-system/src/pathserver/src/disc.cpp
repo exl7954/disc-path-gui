@@ -101,6 +101,7 @@ QuadTree* QT;
 	int mixSmallCount = 0;
 
 void parseFromInput(Box*, int, string, int, string, double, double, double);
+void treeTraverse(Box*, stringstream&);
 
 // THIS IS JUST FOR THE GreedyBestFirst Heuristic!
 //    -- should be completely general!
@@ -244,6 +245,8 @@ void service_run(const std::shared_ptr<interfaces::srv::FindPath::Request> reque
 	string polygons "1,4,3,2,1|5,9,8,7,6,5|10,12,11,10"
 	---
 	string response
+	string path
+	string boxes
 	*/
 	// SET VARIABLES
 	alpha[0] = request->alpha[0];
@@ -367,6 +370,7 @@ void service_run(const std::shared_ptr<interfaces::srv::FindPath::Request> reque
 	cout << "total Mixed boxes bigger than epsilon: " << mixCount - ct - mixSmallCount << endl;
 
 	if (!noPath) {
+		// return path points
 		stringstream responsePath;
 		vector<Box*> path = Graph::dijketraShortestPath(boxA, boxB);
 		cout << "Path length: " << path.size() << endl;
@@ -379,6 +383,10 @@ void service_run(const std::shared_ptr<interfaces::srv::FindPath::Request> reque
 		cout << endl;
 		response->path = responsePath.str();
 	}
+	// return boxes
+	stringstream responseBoxes;
+	treeTraverse(QT->pRoot, responseBoxes);
+	response->boxes = responseBoxes.str();
 }
 
 // MAIN PROGRAM: ========================================
@@ -398,6 +406,23 @@ int main(int argc, char* argv[])
 	return 0;
 }
 
+void treeTraverse(Box* b, stringstream& responseStr)
+{	
+	if (!b)
+	{
+		return;
+	}
+	if (b->isLeaf)
+	{
+		// x,y!width,height!status|
+		responseStr << b->x << "," << b->y << "!" << b->width << "," << b->height << "!" << b->status << "|";
+		return;
+	}
+	for (int i = 0; i < 4; ++i)
+	{
+		treeTraverse(b->pChildren[i], responseStr);
+	}
+}
 
 /* TOOLS FOR DRAWING GLUI ======================================== NO LONGER NEEDED
 void drawPath(vector<Box*>& path)
@@ -471,22 +496,7 @@ void drawWalls(Box* b)
 	glLineWidth(1.0);
 }
 
-void treeTraverse(Box* b)
-{	
-	if (!b)
-	{
-		return;
-	}
-	if (b->isLeaf)
-	{
-		drawQuad(b);
-		return;
-	}
-	for (int i = 0; i < 4; ++i)
-	{
-		treeTraverse(b->pChildren[i]);
-	}
-}
+
 
 void drawCircle( float Radius, int numPoints, double x, double y, double r, double g, double b)
 {	

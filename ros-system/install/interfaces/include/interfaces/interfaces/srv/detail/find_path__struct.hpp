@@ -389,18 +389,21 @@ struct FindPath_Response_
     {
       this->response = "";
       this->path = "";
+      this->boxes = "";
     }
   }
 
   explicit FindPath_Response_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
   : response(_alloc),
-    path(_alloc)
+    path(_alloc),
+    boxes(_alloc)
   {
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
       this->response = "";
       this->path = "";
+      this->boxes = "";
     }
   }
 
@@ -411,6 +414,9 @@ struct FindPath_Response_
   using _path_type =
     std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>;
   _path_type path;
+  using _boxes_type =
+    std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>;
+  _boxes_type boxes;
 
   // setters for named parameter idiom
   Type & set__response(
@@ -423,6 +429,12 @@ struct FindPath_Response_
     const std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> & _arg)
   {
     this->path = _arg;
+    return *this;
+  }
+  Type & set__boxes(
+    const std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> & _arg)
+  {
+    this->boxes = _arg;
     return *this;
   }
 
@@ -472,6 +484,9 @@ struct FindPath_Response_
       return false;
     }
     if (this->path != other.path) {
+      return false;
+    }
+    if (this->boxes != other.boxes) {
       return false;
     }
     return true;
