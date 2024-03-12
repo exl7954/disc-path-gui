@@ -58,6 +58,7 @@ typedef struct interfaces__srv__FindPath_Request__Sequence
 // Include directives for member types
 // Member 'response'
 // Member 'path'
+// Member 'boxes'
 // already included above
 // #include "rosidl_runtime_c/string.h"
 
@@ -66,6 +67,7 @@ typedef struct interfaces__srv__FindPath_Response
 {
   rosidl_runtime_c__String response;
   rosidl_runtime_c__String path;
+  rosidl_runtime_c__String boxes;
 } interfaces__srv__FindPath_Response;
 
 // Struct for a sequence of interfaces__srv__FindPath_Response.

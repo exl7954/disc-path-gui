@@ -615,14 +615,17 @@ class FindPath_Response(metaclass=Metaclass_FindPath_Response):
     __slots__ = [
         '_response',
         '_path',
+        '_boxes',
     ]
 
     _fields_and_field_types = {
         'response': 'string',
         'path': 'string',
+        'boxes': 'string',
     }
 
     SLOT_TYPES = (
+        rosidl_parser.definition.UnboundedString(),  # noqa: E501
         rosidl_parser.definition.UnboundedString(),  # noqa: E501
         rosidl_parser.definition.UnboundedString(),  # noqa: E501
     )
@@ -633,6 +636,7 @@ class FindPath_Response(metaclass=Metaclass_FindPath_Response):
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         self.response = kwargs.get('response', str())
         self.path = kwargs.get('path', str())
+        self.boxes = kwargs.get('boxes', str())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -667,6 +671,8 @@ class FindPath_Response(metaclass=Metaclass_FindPath_Response):
             return False
         if self.path != other.path:
             return False
+        if self.boxes != other.boxes:
+            return False
         return True
 
     @classmethod
@@ -699,6 +705,19 @@ class FindPath_Response(metaclass=Metaclass_FindPath_Response):
                 isinstance(value, str), \
                 "The 'path' field must be of type 'str'"
         self._path = value
+
+    @builtins.property
+    def boxes(self):
+        """Message field 'boxes'."""
+        return self._boxes
+
+    @boxes.setter
+    def boxes(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, str), \
+                "The 'boxes' field must be of type 'str'"
+        self._boxes = value
 
 
 class Metaclass_FindPath(type):
