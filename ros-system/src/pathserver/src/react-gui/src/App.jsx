@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CanvasProvider } from "./components/CanvasProvider";
 import Rectangle from "./components/Rectangle";
 import Polygon from "./components/Polygon";
+import Path from "./components/Path";
 import { RosProcessor } from "./components/RosProcessor";
 import { generateBox, generatePolygon, processessOutPut } from "./components/methods";
 import { FileUploader } from "./components/FileUploader";
@@ -28,6 +29,7 @@ function App() {
       <CanvasProvider width={512} height={512}>
         {show && generatePolygon(input)}
         {result && generateBox(processessOutPut(result).boxes)}
+        {result && <Path points={processessOutPut(result).path} />}
       </CanvasProvider>
       <button onClick={showData}>Start</button>
       <RosProcessor func={setResult} />

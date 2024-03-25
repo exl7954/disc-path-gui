@@ -22,7 +22,6 @@ export function generateBox(input) {
         if (color == 2) {
             box_color = "yellow";
         }
-        console.log(box_color);
         return (
             <Rectangle
                 x={parseInt(x)}
@@ -98,4 +97,13 @@ export function processessOutPut(output) {
     else {
         return false
     }
+};
+
+export function processPath(input) {
+    let path = input.split('|')
+    .map((x) => x.trim())
+    .filter((arr) => arr.length > 1)
+    .map(p => p.split(' '))
+    .map(p => p.map((x) => parseInt(x)));
+    return path;
 };
