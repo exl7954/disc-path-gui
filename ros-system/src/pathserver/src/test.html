@@ -5,7 +5,7 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/eventemitter2@6.4.9/lib/eventemitter2.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/roslib@1/build/roslib.min.js"></script>
         <script type="text/javascript" type="text/javascript">
-            const BOX_COLORS = {0: "green", 1: "yellow", 2: "red", 3: "grey"};
+            const BOX_COLORS = {0: "green", 1: "red", 2: "yellow", 3: "grey"};
             var ros = new ROSLIB.Ros({
                 url: 'ws://localhost:9090'
             });
@@ -127,6 +127,7 @@
         </script>
     </head>
     <body>
+        <input id="r0" type="text"></input>
         <p id="result"></p> <!-- This will be filled with the result of the service call -->
         <p id="inputPts"></p>
         <p id="inputPolygons"></p><br>
