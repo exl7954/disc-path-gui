@@ -11,7 +11,7 @@ export default function InputForm({rosRequest, setRosRequest}) {
         console.log(formJson);
     }
 
-    function TextInput(name, label, inputType) {
+    function TextInput(props) {
         function handleInputChange(event) {
             const target = event.target;
             const value = target.value;
@@ -27,8 +27,8 @@ export default function InputForm({rosRequest, setRosRequest}) {
         
         return (
             <div className="text-input">
-                <label>{label}</label>
-                <input name={name} type={inputType} onChange={handleInputChange} />
+                <label>{props.label}</label>
+                <input name={props.name} type={props.inputType} onChange={handleInputChange} />
             </div>
         );
     }
@@ -37,20 +37,22 @@ export default function InputForm({rosRequest, setRosRequest}) {
         <div className="input-form">
             <form onSubmit={handleSubmit}>
             <div className="disk-input flex-child">
-                {TextInput("alpha", "Alpha", "text")}
-                {TextInput("beta", "Beta", "text")}
-                {TextInput("epsilon", "Epsilon", "number")}
-                {TextInput("radius", "R0", "number")}
+                {TextInput({name: "alphax", label: "Alpha X", inputType: "number"})}
+                {TextInput({name: "alphay", label: "Alpha Y", inputType: "number"})}
+                {TextInput({name: "betax", label: "Beta X", inputType: "number"})}
+                {TextInput({name: "betay", label: "Beta Y", inputType: "number"})}
+                {TextInput({name: "epsilon", label: "Epsilon", inputType: "number"})}
+                {TextInput({name: "radius", label: "R0", inputType: "number"})}
             </div>
             <div className="environment-input flex-child">
-                {TextInput("boxwidth", "Box Width", "number")}
-                {TextInput("boxheight", "Box Height", "number")}
-                {TextInput("points", "Points", "text")}
-                {TextInput("polygons", "Polygons", "text")}
+                {TextInput({name: "boxwidth", label: "Box Width", inputType: "number"})}
+                {TextInput({name: "boxheight", label: "Box Height", inputType: "number"})}
+                {TextInput({name: "points", label: "Points", inputType: "text"})}
+                {TextInput({name: "polygons", label: "Polygons", inputType: "text"})}
             </div>
             <div className="alg-input flex-child">
-                {TextInput("qtype", "QType", "number")}
-                {TextInput("seed", "Random Seed", "number")}
+                {TextInput({name: "qtype", label: "QType", inputType: "number"})}
+                {TextInput({name: "seed", label: "Random Seed", inputType: "number"})}
             </div>
                 
                 <button type="submit">Submit</button>
