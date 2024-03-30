@@ -7,23 +7,70 @@
     margin-top: 20px;
 }
 
-input {
+input, select {
     font-family: 'JetBrains Mono';
 }
+
+
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
+input[type=number] {
+    width: 100px;
+}
+
 
 .disk-input {
+    display: grid;
+    grid-template-columns: 1fr;
     flex: 1;
-    
+}
+.disk-input > .text-input {
+    margin-right: 10px;
+}
+#alphax {
+    grid-column: 1;
+    grid-row: 1;
+}
+#alphay {
+    grid-column: 2;
+    grid-row: 1;
+
 }
 
 .environment-input {
+    display: grid;
+    column-gap: 5px;
     flex: 1;
+}
+#boxwidth {
+    grid-column: 1;
+    grid-row: 1;
+}
+#boxheight {
+    grid-column: 2;
+    grid-row: 1;
+}
+#points {
+    grid-column: 1/5;
+    grid-row: 2;
+    width: 500px;
+}
+#polygons {
+    grid-column: 1/5;
+    grid-row: 3;
+}
+#seed {
+    grid-row: 1;
+    grid-column: 3;
+}
+#qtype {
+    grid-row: 1;
+    grid-column: 4
 }
 
 .alg-input {
@@ -43,4 +90,5 @@ form {
     display: flex;
     flex-direction: column;
     text-align: left;
+    font-size: 14px;
 }

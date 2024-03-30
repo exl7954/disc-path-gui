@@ -26,7 +26,7 @@ export default function InputForm({rosRequest, setRosRequest}) {
         }
         
         return (
-            <div className="text-input">
+            <div className="text-input" id={props.name}>
                 <label>{props.label}</label>
                 <input name={props.name} type={props.inputType} onChange={handleInputChange} />
             </div>
@@ -42,17 +42,26 @@ export default function InputForm({rosRequest, setRosRequest}) {
                 {TextInput({name: "betax", label: "Beta X", inputType: "number"})}
                 {TextInput({name: "betay", label: "Beta Y", inputType: "number"})}
                 {TextInput({name: "epsilon", label: "Epsilon", inputType: "number"})}
-                {TextInput({name: "radius", label: "R0", inputType: "number"})}
+                {TextInput({name: "radius", label: "Radius", inputType: "number"})}
             </div>
             <div className="environment-input flex-child">
                 {TextInput({name: "boxwidth", label: "Box Width", inputType: "number"})}
-                {TextInput({name: "boxheight", label: "Box Height", inputType: "number"})}
+                {TextInput({name: "boxheight", label: "Bo`x Height", inputType: "number"})}
                 {TextInput({name: "points", label: "Points", inputType: "text"})}
                 {TextInput({name: "polygons", label: "Polygons", inputType: "text"})}
+                {TextInput({name: "seed", label: "Random Seed", inputType: "number"})}
+                <div className="text-input">
+                    <label for="qtype">QType</label>
+                    <select id="qtype" name="qtype" onChange={e => setRosRequest({...rosRequest, qtype: e.target.value})}>
+                        <option value="0">Random</option>
+                        <option value="1">Sequential</option>
+                        <option value="2">Dijkstra</option>
+                    </select>
+                </div>
+                
             </div>
             <div className="alg-input flex-child">
-                {TextInput({name: "qtype", label: "QType", inputType: "number"})}
-                {TextInput({name: "seed", label: "Random Seed", inputType: "number"})}
+                
             </div>
                 
                 <button type="submit">Submit</button>
