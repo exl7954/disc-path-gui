@@ -9,6 +9,15 @@
 
 .disk-input {
     flex: 1;
+    
+}
+
+.environment-input {
+    flex: 1;
+}
+
+.alg-input {
+    flex: 1;
 }
 
 .flex-child {

@@ -1,21 +1,36 @@
 import "./InputForm.css";
 
-function TextInput(name, label, inputType) {
-    return (
-        <div className="text-input">
-            <label>{label}</label>
-            <input name={name} type={inputType} />
-        </div>
-    );
-}
 
-export default function InputForm() {
+
+export default function InputForm({rosRequest, setRosRequest}) {
     function handleSubmit(e) {
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
         const formJson = Object.fromEntries(formData.entries());
         console.log(formJson);
+    }
+
+    function TextInput(name, label, inputType) {
+        function handleInputChange(event) {
+            const target = event.target;
+            const value = target.value;
+            const name = target.name;
+    
+            setRosRequest({
+                ...rosRequest,
+                [name]: value
+            });
+    
+            console.log(rosRequest)
+        }
+        
+        return (
+            <div className="text-input">
+                <label>{label}</label>
+                <input name={name} type={inputType} onChange={handleInputChange} />
+            </div>
+        );
     }
 
     return (

@@ -12,6 +12,8 @@ import "./App.css";
 function App() {
   // connect to ROS
   const [connection, setConnection] = useState("closed");
+  const [rosRequest, setRosRequest] = useState({});
+  /*
   var ros = new ROSLIB.Ros({
     url: 'ws://localhost:9090'
   });
@@ -33,12 +35,13 @@ function App() {
       name: '/find_path',
       serviceType: 'interfaces/srv/FindPath'
   });
-
+  */
 
   return (
     <>
       <p>Connection Status: {connection}</p>
-      <InputForm />
+      <InputForm rosRequest={rosRequest} setRosRequest={setRosRequest} />
+      <p>ROS Request: {JSON.stringify(rosRequest)}</p>
     </>
   )
 };
