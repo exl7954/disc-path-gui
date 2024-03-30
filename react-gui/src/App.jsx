@@ -6,33 +6,42 @@ import Path from "./components/Path";
 import { RosProcessor } from "./components/RosProcessor";
 import { generateBox, generatePolygon, processessOutPut } from "./components/methods";
 import { FileUploader } from "./components/FileUploader";
+import InputForm from "./components/InputForm";
 import "./App.css";
 
 function App() {
-  const [input, setInput] = useState(null);
-  const [show, setShow] = useState(false);
-  const [result, setResult] = useState(null);
+  // connect to ROS
+  const [connection, setConnection] = useState("closed");
+  const [rosRequest, setRosRequest] = useState({});
+  /*
+  var ros = new ROSLIB.Ros({
+    url: 'ws://localhost:9090'
+  });
+  ros.on('connection', function() {
+      console.log('Connected to websocket server.');
+      setConnection("open");
+  });
+  ros.on('error', function(error) {
+      console.log('Error connecting to websocket server: ', error);
+      setConnection("error");
+  });
+  ros.on('close', function() {
+      console.log('Connection to websocket server closed.');
+      setConnection("closed");
+  });
 
-  const showData = () => {
-    setShow(true);
-  };
-
-  const test = () => {
-    if (result) {
-      console.log(result);
-    }
-  }
+  var client = new ROSLIB.Service({
+      ros: ros,
+      name: '/find_path',
+      serviceType: 'interfaces/srv/FindPath'
+  });
+  */
 
   return (
     <>
-      <FileUploader func={setInput}></FileUploader>
-      <CanvasProvider width={512} height={512}>
-        {show && generatePolygon(input)}
-        {result && generateBox(processessOutPut(result).boxes)}
-        {result && <Path points={processessOutPut(result).path} />}
-      </CanvasProvider>
-      <button onClick={showData}>Start</button>
-      <RosProcessor func={setResult} />
+      <p>Connection Status: {connection}</p>
+      <InputForm rosRequest={rosRequest} setRosRequest={setRosRequest} />
+      <p>ROS Request: {JSON.stringify(rosRequest)}</p>
     </>
   )
 };

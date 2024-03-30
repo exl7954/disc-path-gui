@@ -1,0 +1,36 @@
+.input-form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.disk-input {
+    flex: 1;
+    
+}
+
+.environment-input {
+    flex: 1;
+}
+
+.alg-input {
+    flex: 1;
+}
+
+.flex-child {
+    margin: 10px;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.text-input {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
