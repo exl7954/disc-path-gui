@@ -1,7 +1,9 @@
+import "./InputForm.css";
+
 function TextInput(name, label, inputType) {
     return (
-        <div>
-            <label>{label}</label><br></br>
+        <div className="text-input">
+            <label>{label}</label>
             <input name={name} type={inputType} />
         </div>
     );
@@ -19,25 +21,22 @@ export default function InputForm() {
     return (
         <div className="input-form">
             <form onSubmit={handleSubmit}>
-            <fieldset>
-                <legend>Disk</legend>
+            <div className="disk-input flex-child">
                 {TextInput("alpha", "Alpha", "text")}
                 {TextInput("beta", "Beta", "text")}
                 {TextInput("epsilon", "Epsilon", "number")}
                 {TextInput("radius", "R0", "number")}
-            </fieldset>
-            <fieldset>
-                <legend>Environment</legend>
+            </div>
+            <div className="environment-input flex-child">
                 {TextInput("boxwidth", "Box Width", "number")}
                 {TextInput("boxheight", "Box Height", "number")}
                 {TextInput("points", "Points", "text")}
                 {TextInput("polygons", "Polygons", "text")}
-            </fieldset>
-            <fieldset>
-                <legend>Algorithm</legend>
+            </div>
+            <div className="alg-input flex-child">
                 {TextInput("qtype", "QType", "number")}
                 {TextInput("seed", "Random Seed", "number")}
-            </fieldset>
+            </div>
                 
                 <button type="submit">Submit</button>
             </form>
