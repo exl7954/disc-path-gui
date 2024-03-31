@@ -1,14 +1,35 @@
+import React, { useState } from "react";
 import "./InputForm.css";
 
 
 
 export default function InputForm({rosRequest, setRosRequest}) {
+    const [invalidInput, setInvalidInput] = useState(false);
+
     function handleSubmit(e) {
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
         const formJson = Object.fromEntries(formData.entries());
-        console.log(formJson);
+        let canSubmit = true;
+        for (const key in formJson) {
+            if (formJson[key] === "") {
+                console.log("empty key")
+                setInvalidInput(true);
+                canSubmit = false;
+                break;
+            }
+        }
+        // canSubmit to keep track of whether the form can be submitted because setInvalidInput is async
+        if (canSubmit == true) {setRosRequest(formJson);}
+    }
+
+    function InvalidInput() {
+        return (
+            <div className="invalid-input">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Cross_red_circle.svg/2048px-Cross_red_circle.svg.png" alt="red x"></img> Invalid Input
+            </div>
+        );
     }
 
     function TextInput(props) {
@@ -16,7 +37,7 @@ export default function InputForm({rosRequest, setRosRequest}) {
             const target = event.target;
             const value = target.value;
             const name = target.name;
-    
+            setInvalidInput(false);
             setRosRequest({
                 ...rosRequest,
                 [name]: value
@@ -34,10 +55,11 @@ export default function InputForm({rosRequest, setRosRequest}) {
     }
 
     return (
+        <>
         <div className="input-form">
             <form onSubmit={handleSubmit}>
             <div className="disk-input flex-child">
-                {TextInput({name: "alphax", label: "Alpha X", inputType: "number"})}
+                {TextInput({name: "alphax", label: "Alpha X", inputType: "number", setInvalidInput: setInvalidInput})}
                 {TextInput({name: "alphay", label: "Alpha Y", inputType: "number"})}
                 {TextInput({name: "betax", label: "Beta X", inputType: "number"})}
                 {TextInput({name: "betay", label: "Beta Y", inputType: "number"})}
@@ -51,7 +73,7 @@ export default function InputForm({rosRequest, setRosRequest}) {
                 {TextInput({name: "polygons", label: "Polygons", inputType: "text"})}
                 {TextInput({name: "seed", label: "Random Seed", inputType: "number"})}
                 <div className="text-input">
-                    <label for="qtype">QType</label>
+                    <label>QType</label>
                     <select id="qtype" name="qtype" onChange={e => setRosRequest({...rosRequest, qtype: e.target.value})}>
                         <option value="0">Random</option>
                         <option value="1">Sequential</option>
@@ -59,13 +81,12 @@ export default function InputForm({rosRequest, setRosRequest}) {
                     </select>
                 </div>
                 
-            </div>
-            <div className="alg-input flex-child">
-                
-            </div>
-                
+            </div>      
                 <button type="submit">Submit</button>
+                <button type="reset" onClick={() => {setRosRequest({}); setInvalidInput(false)}}>Reset</button>
             </form>
         </div>
+        <div>{invalidInput ? <InvalidInput /> :null}</div>
+        </>
     );
 }

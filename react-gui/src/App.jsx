@@ -1,11 +1,5 @@
 import React, { useState } from "react";
 import { CanvasProvider } from "./components/CanvasProvider";
-import Rectangle from "./components/Rectangle";
-import Polygon from "./components/Polygon";
-import Path from "./components/Path";
-import { RosProcessor } from "./components/RosProcessor";
-import { generateBox, generatePolygon, processessOutPut } from "./components/methods";
-import { FileUploader } from "./components/FileUploader";
 import InputForm from "./components/InputForm";
 import "./App.css";
 
