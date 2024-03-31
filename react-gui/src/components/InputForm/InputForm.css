@@ -9,8 +9,15 @@
 
 input, select {
     font-family: 'JetBrains Mono';
+    border: 1px solid lightgray;
+    border-radius: 3px;
 }
 
+input:focus, select:focus {
+    outline: none;
+    border: 1px solid black;
+    transition: all 0.5s;
+}
 
 
 input::-webkit-outer-spin-button,
@@ -91,4 +98,9 @@ form {
     flex-direction: column;
     text-align: left;
     font-size: 14px;
+    margin-top: 5px;
 }
+
+*, *::before, *::after {
+    box-sizing: border-box;
+  }

@@ -46,7 +46,7 @@ export default function InputForm({rosRequest, setRosRequest}) {
             </div>
             <div className="environment-input flex-child">
                 {TextInput({name: "boxwidth", label: "Box Width", inputType: "number"})}
-                {TextInput({name: "boxheight", label: "Bo`x Height", inputType: "number"})}
+                {TextInput({name: "boxheight", label: "Box Height", inputType: "number"})}
                 {TextInput({name: "points", label: "Points", inputType: "text"})}
                 {TextInput({name: "polygons", label: "Polygons", inputType: "text"})}
                 {TextInput({name: "seed", label: "Random Seed", inputType: "number"})}
