@@ -144,6 +144,42 @@ form {
     padding-bottom: 1px;
 }
 
+button {
+    border-radius: 5px;
+    min-width: 60px;
+    font-family: 'JetBrains Mono';
+}
+
+#submit-button {
+    margin-right: 5px;
+    margin-left: 10px;
+    background-color: lightgreen;
+    border: 1px solid gray;
+    color: rgb(136, 136, 136);
+}
+#submit-button:hover {
+    background-color: lightgreen;
+    color: black;
+    cursor: pointer;
+}
+#submit-button:active {
+    background-color: rgb(191, 229, 179);
+}
+
+#reset-button {
+    background-color: lightcoral;
+    border: 1px solid gray;
+    color: rgb(255, 255, 255);
+}
+#reset-button:hover {
+    background-color: lightcoral;
+    color: black;
+    cursor: pointer;
+}
+#reset-button:active {
+    background-color: rgb(255, 204, 204);
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
   }

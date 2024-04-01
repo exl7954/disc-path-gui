@@ -86,9 +86,9 @@ export default function InputForm({rosRequest, setRosRequest}) {
                     </select>
                 </div>
                 
-            </div>      
-                <button type="submit">Submit</button>
-                <button type="reset" onClick={() => {setRosRequest({}); setInvalidInput(false)}}>Reset</button>
+            </div>
+                <button id="submit-button" type="submit">Submit</button>
+                <button id="reset-button" type="reset" onClick={() => {setRosRequest({}); setInvalidInput(false)}}>Reset</button>
             </form>
         </div>
         <div>{invalidInput ? <InvalidInput /> :null}</div>
