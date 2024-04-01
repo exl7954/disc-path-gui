@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./InputForm.css";
 import { Tooltip } from 'react-tooltip';
+import red_x from "../assets/red_x.png";
 
 
 export default function InputForm({rosRequest, setRosRequest}) {
@@ -27,7 +28,7 @@ export default function InputForm({rosRequest, setRosRequest}) {
     function InvalidInput() {
         return (
             <div className="invalid-input">
-                <img src="../assets/red_x.png" alt="red x"></img> Invalid Input
+                <img src={red_x} alt="red x"></img> Invalid Input
             </div>
         );
     }
