@@ -6,6 +6,7 @@ import red_x from "../assets/red_x.png";
 
 export default function InputForm({rosRequest, setRosRequest}) {
     const [invalidInput, setInvalidInput] = useState(false);
+    const [errorMessage, setErrorMessage] = useState(null);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -13,22 +14,70 @@ export default function InputForm({rosRequest, setRosRequest}) {
         const formData = new FormData(form);
         const formJson = Object.fromEntries(formData.entries());
         let canSubmit = true;
-        for (const key in formJson) {
-            if (formJson[key] === "") {
-                console.log("empty key")
-                setInvalidInput(true);
-                canSubmit = false;
-                break;
-            }
+        let checkResult = checkInput(formJson);
+        if (checkResult != "valid") {
+            setInvalidInput(true);
+            setErrorMessage(checkResult);
+            canSubmit = false;
         }
+
         // canSubmit to keep track of whether the form can be submitted because setInvalidInput is async
         if (canSubmit == true) {setRosRequest(formJson);}
+    }
+
+    function checkInput(formJson) {
+        // check for empty values
+        for (const key in formJson) {
+            if (formJson[key] === "") {
+                return "Empty Field(s)";
+            }
+        }
+
+        // check for invalid epsilon and radius and box dimensions
+        if (parseInt(formJson.epsilon) <= 0) {
+            return "Epsilon must be greater than 0";
+        }
+        if (parseInt(formJson.radius) <= 0) {
+            return "Radius must be greater than 0";
+        }
+        if (parseInt(formJson.boxwidth) <= 0 || parseInt(formJson.boxwidth) > 1500) {
+            return "Box width out of bounds";
+        }
+        if (parseInt(formJson.boxheight) <= 0 || parseInt(formJson.boxheight) > 1500) {
+            return "Box height out of bounds";
+        }
+
+        // check for out of bounds alpha and beta
+        if (parseInt(formJson.alphax) < 0 || parseInt(formJson.alphax) > parseInt(formJson.boxwidth)) {
+            return "Alpha X out of bounds";
+        }
+        if (parseInt(formJson.alphay) < 0 || parseInt(formJson.alphay) > parseInt(formJson.boxheight)) {
+            return "Alpha Y out of bounds";
+        }
+        if (parseInt(formJson.betax) < 0 || parseInt(formJson.betax) > parseInt(formJson.boxwidth)) {
+            return "Beta X out of bounds";
+        }
+        if (parseInt(formJson.betay) < 0 || parseInt(formJson.betay) > parseInt(formJson.boxheight)) {
+            return "Beta Y out of bounds";
+        }
+
+        // check points and polygons
+        const re = /[^\d,|]/
+        if (formJson.points.search(re) != -1) {
+            return "Invalid Points";
+        }
+        if (formJson.polygons.search(re) != -1) {
+            return "Invalid Polygons";
+        }
+
+        // valid input
+        return "valid";
     }
 
     function InvalidInput() {
         return (
             <div className="invalid-input">
-                <img src={red_x} alt="red x"></img> Invalid Input
+                <img src={red_x} alt="red x"></img> Invalid Input: {errorMessage}
             </div>
         );
     }
@@ -39,6 +88,7 @@ export default function InputForm({rosRequest, setRosRequest}) {
             const value = target.value;
             const name = target.name;
             setInvalidInput(false);
+            setErrorMessage(null);
             setRosRequest({
                 ...rosRequest,
                 [name]: value
@@ -88,7 +138,11 @@ export default function InputForm({rosRequest, setRosRequest}) {
                 
             </div>
                 <button id="submit-button" type="submit">Submit</button>
-                <button id="reset-button" type="reset" onClick={() => {setRosRequest({}); setInvalidInput(false)}}>Reset</button>
+                <button id="reset-button" type="reset" onClick={() => {
+                    setRosRequest({}); 
+                    setInvalidInput(false);
+                    setErrorMessage(null);
+                }}>Reset</button>
             </form>
         </div>
         <div>{invalidInput ? <InvalidInput /> :null}</div>
