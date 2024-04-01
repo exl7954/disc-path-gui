@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./InputForm.css";
-
+import { Tooltip } from 'react-tooltip';
 
 
 export default function InputForm({rosRequest, setRosRequest}) {
@@ -27,7 +27,7 @@ export default function InputForm({rosRequest, setRosRequest}) {
     function InvalidInput() {
         return (
             <div className="invalid-input">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Cross_red_circle.svg/2048px-Cross_red_circle.svg.png" alt="red x"></img> Invalid Input
+                <img src="../assets/red_x.png" alt="red x"></img> Invalid Input
             </div>
         );
     }
@@ -45,11 +45,15 @@ export default function InputForm({rosRequest, setRosRequest}) {
     
             console.log(rosRequest)
         }
-        
+        // if tooltipId is passed in, create a tooltip
         return (
             <div className="text-input" id={props.name}>
-                <label>{props.label}</label>
+                <div className="input-label">
+                    <label>{props.label}</label>
+                    {"tooltipId" in props ? <img src="https://icons.veryicon.com/png/o/miscellaneous/official-icon-of-flying-pig/question-mark-is-small.png" alt="info" data-tooltip-id={props.tooltipId} data-tooltip-content={props.tooltipContent}></img> : null}
+                </div>
                 <input name={props.name} type={props.inputType} onChange={handleInputChange} />
+                <Tooltip id={props.tooltipId} place="top" type="dark" effect="solid" />
             </div>
         );
     }
@@ -59,18 +63,18 @@ export default function InputForm({rosRequest, setRosRequest}) {
         <div className="input-form">
             <form onSubmit={handleSubmit}>
             <div className="disk-input flex-child">
-                {TextInput({name: "alphax", label: "Alpha X", inputType: "number", setInvalidInput: setInvalidInput})}
+                {TextInput({name: "alphax", label: "Alpha X", inputType: "number", tooltipId: "alphax-tooltip", tooltipContent: "Starting Coordinates"})}
                 {TextInput({name: "alphay", label: "Alpha Y", inputType: "number"})}
-                {TextInput({name: "betax", label: "Beta X", inputType: "number"})}
+                {TextInput({name: "betax", label: "Beta X", inputType: "number", tooltipId: "betax-tooltip", tooltipContent: "Ending Coordinates"})}
                 {TextInput({name: "betay", label: "Beta Y", inputType: "number"})}
-                {TextInput({name: "epsilon", label: "Epsilon", inputType: "number"})}
+                {TextInput({name: "epsilon", label: "Epsilon", inputType: "number", tooltipId: "epsilon-tooltip", tooltipContent: "Minimum Box Size for Subdivision"})}
                 {TextInput({name: "radius", label: "Radius", inputType: "number"})}
             </div>
             <div className="environment-input flex-child">
                 {TextInput({name: "boxwidth", label: "Box Width", inputType: "number"})}
                 {TextInput({name: "boxheight", label: "Box Height", inputType: "number"})}
-                {TextInput({name: "points", label: "Points", inputType: "text"})}
-                {TextInput({name: "polygons", label: "Polygons", inputType: "text"})}
+                {TextInput({name: "points", label: "Points", inputType: "text", tooltipId: "points-tooltip", tooltipContent: "Points should be in the format: x1,y1|x2,y2|x3,y3..."})}
+                {TextInput({name: "polygons", label: "Polygons", inputType: "text", tooltipId: "polygons-tooltip", tooltipContent: "Polygons should be in the format: v1,v2,v3|v1,v2,v3,v4|..."})}
                 {TextInput({name: "seed", label: "Random Seed", inputType: "number"})}
                 <div className="text-input">
                     <label>QType</label>
