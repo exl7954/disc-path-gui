@@ -22,7 +22,25 @@ export default function InputForm({rosRequest, setRosRequest}) {
         }
 
         // canSubmit to keep track of whether the form can be submitted because setInvalidInput is async
-        if (canSubmit == true) {setRosRequest(formJson);}
+        if (canSubmit == true) {
+            // FORMAT REQUEST
+            // convert all values to integers
+            Object.keys(formJson).map(key => {
+                if (key != "pts" && key != "polygons") {
+                    formJson[key] = parseInt(formJson[key]);
+                }
+            })
+
+            // format alpha and beta
+            formJson["alpha"] = [formJson["alphax"], formJson["alphay"]];
+            formJson["bta"] = [formJson["betax"], formJson["betay"]];
+            delete formJson["alphax"];
+            delete formJson["alphay"];
+            delete formJson["betax"];
+            delete formJson["betay"];
+            
+            setRosRequest(formJson);
+        }
     }
 
     function checkInput(formJson) {
@@ -63,10 +81,11 @@ export default function InputForm({rosRequest, setRosRequest}) {
 
         // check points and polygons
         const re = /[^\d,|]/
-        if (formJson.points.search(re) != -1) {
+        
+        if (String(formJson.pts).search(re) != -1) {
             return "Invalid Points";
         }
-        if (formJson.polygons.search(re) != -1) {
+        if (String(formJson.polygons).search(re) != -1) {
             return "Invalid Polygons";
         }
 
@@ -93,8 +112,6 @@ export default function InputForm({rosRequest, setRosRequest}) {
                 ...rosRequest,
                 [name]: value
             });
-    
-            console.log(rosRequest)
         }
         // if tooltipId is passed in, create a tooltip
         return (
@@ -119,12 +136,12 @@ export default function InputForm({rosRequest, setRosRequest}) {
                 {TextInput({name: "betax", label: "Beta X", inputType: "number", tooltipId: "betax-tooltip", tooltipContent: "Ending Coordinates"})}
                 {TextInput({name: "betay", label: "Beta Y", inputType: "number"})}
                 {TextInput({name: "epsilon", label: "Epsilon", inputType: "number", tooltipId: "epsilon-tooltip", tooltipContent: "Minimum Box Size for Subdivision"})}
-                {TextInput({name: "radius", label: "Radius", inputType: "number"})}
+                {TextInput({name: "r0", label: "Radius", inputType: "number"})}
             </div>
             <div className="environment-input flex-child">
                 {TextInput({name: "boxwidth", label: "Box Width", inputType: "number"})}
                 {TextInput({name: "boxheight", label: "Box Height", inputType: "number"})}
-                {TextInput({name: "points", label: "Points", inputType: "text", tooltipId: "points-tooltip", tooltipContent: "Points should be in the format: x1,y1|x2,y2|x3,y3..."})}
+                {TextInput({name: "pts", label: "Points", inputType: "text", tooltipId: "points-tooltip", tooltipContent: "Points should be in the format: x1,y1|x2,y2|x3,y3..."})}
                 {TextInput({name: "polygons", label: "Polygons", inputType: "text", tooltipId: "polygons-tooltip", tooltipContent: "Polygons should be in the format: v1,v2,v3|v1,v2,v3,v4|..."})}
                 {TextInput({name: "seed", label: "Random Seed", inputType: "number"})}
                 <div className="text-input">
