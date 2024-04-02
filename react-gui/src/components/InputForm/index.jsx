@@ -4,7 +4,7 @@ import { Tooltip } from 'react-tooltip';
 import red_x from "../assets/red_x.png";
 
 
-export default function InputForm({rosRequest, setRosRequest}) {
+export default function InputForm({rosRequest, setRosRequest, working, setWorking, setResponse}) {
     const [invalidInput, setInvalidInput] = useState(false);
     const [errorMessage, setErrorMessage] = useState(null);
 
@@ -40,8 +40,8 @@ export default function InputForm({rosRequest, setRosRequest}) {
             delete formJson["betay"];
 
             // add numPts and numPolygons
-            formJson["numPts"] = formJson["pts"].split("|").length;
-            formJson["numPolygons"] = formJson["polygons"].split("|").length;
+            formJson["numpts"] = formJson["pts"].split("|").length;
+            formJson["numpolygons"] = formJson["polygons"].split("|").length;
 
             // add view params (unused)
             formJson["deltax"] = 0;
@@ -49,6 +49,7 @@ export default function InputForm({rosRequest, setRosRequest}) {
             formJson["scale"] = 1;
 
             setRosRequest(formJson);
+            setWorking(true);
         }
     }
 
@@ -191,6 +192,7 @@ export default function InputForm({rosRequest, setRosRequest}) {
         <>
         <div className="input-form">
             <form onSubmit={handleSubmit}>
+            <fieldset disabled={working}>
             <div className="disk-input flex-child">
                 {TextInput({name: "alphax", label: "Alpha X", inputType: "number", tooltipId: "alphax-tooltip", tooltipContent: "Starting Coordinates"})}
                 {TextInput({name: "alphay", label: "Alpha Y", inputType: "number"})}
@@ -220,9 +222,12 @@ export default function InputForm({rosRequest, setRosRequest}) {
                     setRosRequest({}); 
                     setInvalidInput(false);
                     setErrorMessage(null);
+                    setResponse({});
                 }}>Reset</button>
+            </fieldset>
             </form>
         </div>
+        <button onClick={() => {setWorking(false);}}>Disable Working</button>
         <div>{invalidInput ? <InvalidInput /> :null}</div>
         </>
     );

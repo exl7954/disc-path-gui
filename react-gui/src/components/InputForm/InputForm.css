@@ -149,6 +149,11 @@ button {
     min-width: 60px;
     font-family: 'JetBrains Mono';
 }
+button:disabled {
+    background-color: transparent!important;
+    color: black!important;
+    cursor: default!important;
+}
 
 #submit-button {
     margin-right: 5px;
@@ -178,6 +183,10 @@ button {
 }
 #reset-button:active {
     background-color: rgb(255, 204, 204);
+}
+
+fieldset {
+    display: contents;
 }
 
 *, *::before, *::after {
