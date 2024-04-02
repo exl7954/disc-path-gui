@@ -38,7 +38,16 @@ export default function InputForm({rosRequest, setRosRequest}) {
             delete formJson["alphay"];
             delete formJson["betax"];
             delete formJson["betay"];
-            
+
+            // add numPts and numPolygons
+            formJson["numPts"] = formJson["pts"].split("|").length;
+            formJson["numPolygons"] = formJson["polygons"].split("|").length;
+
+            // add view params (unused)
+            formJson["deltax"] = 0;
+            formJson["deltay"] = 0;
+            formJson["scale"] = 1;
+
             setRosRequest(formJson);
         }
     }
@@ -88,6 +97,58 @@ export default function InputForm({rosRequest, setRosRequest}) {
         if (String(formJson.polygons).search(re) != -1) {
             return "Invalid Polygons";
         }
+        // check to make sure points are in the correct format
+        let counter = 0;
+        let currentNum = "";
+        for (let i = 0; i < formJson.pts.length; i++) {
+            if (formJson.pts[i] == ",") {
+                if (currentNum == "") {
+                    return "Invalid Points";
+                } else if (parseInt(currentNum) < 0 || parseInt(currentNum) > parseInt(formJson.boxwidth)) {
+                    return "Out of bounds point";
+                }
+                currentNum = "";
+                counter++;
+            } else if (formJson.pts[i] == "|" || i == formJson.pts.length - 1) {
+                if (i == formJson.pts.length - 1) {currentNum += formJson.pts[i];}
+                if (currentNum == "") {
+                    return "Invalid Points";
+                } else if (parseInt(currentNum) < 0 || parseInt(currentNum) > parseInt(formJson.boxheight)) {
+                    return "Out of bounds point";
+                } else if (counter != 1) {
+                    return "Invalid Points";
+                }
+                currentNum = "";
+                counter = 0;
+            } else {
+                currentNum += formJson.pts[i];
+            }
+        }
+
+        // check to make sure polygons are in the correct format
+        const numPts = formJson.pts.split("|").length;
+        let polygonArray = formJson.polygons.split("|");
+        if (polygonArray.includes(undefined) || polygonArray.includes("")) {
+            return "Invalid Polygons";
+        }
+        for (let i = 0; i < polygonArray.length; i++) {
+            let arr = polygonArray[i].split(",");
+            if (arr.includes(undefined) || arr.includes("")) {
+                return "Invalid Polygons";
+            }
+            if (new Set(arr).size < 3) {
+                return "Polygon must have at least 3 unique points";
+            }
+            if (Math.max(...arr) > numPts) {
+                return "Polygon contains invalid point";
+            }
+            if (Math.min(...arr) <= 0) {
+                return "Polygon contains invalid point";
+            }
+            if (arr[0] != arr[arr.length - 1]) {
+                return "Polygon must be closed";
+            }
+        }
 
         // valid input
         return "valid";
@@ -120,7 +181,7 @@ export default function InputForm({rosRequest, setRosRequest}) {
                     <label>{props.label}</label>
                     {"tooltipId" in props ? <img src="https://icons.veryicon.com/png/o/miscellaneous/official-icon-of-flying-pig/question-mark-is-small.png" alt="info" data-tooltip-id={props.tooltipId} data-tooltip-content={props.tooltipContent}></img> : null}
                 </div>
-                <input name={props.name} type={props.inputType} onChange={handleInputChange} />
+                <input name={props.name} type={props.inputType} autoComplete="off" onChange={handleInputChange} />
                 <Tooltip id={props.tooltipId} place="top" type="dark" effect="solid" />
             </div>
         );
