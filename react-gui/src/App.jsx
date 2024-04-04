@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CanvasProvider } from "./components/CanvasProvider";
 import InputForm from "./components/InputForm";
+import { generatePolygon, readPolygon } from "./components/methods";
 import "./App.css";
 import Disc from "./components/Disc";
 
@@ -59,6 +60,7 @@ function App() {
       <CanvasProvider width={rosRequest.boxwidth || 512} height={rosRequest.boxheight || 512} Request={rosRequest} change={setDrawObj}>
         <Disc x={drawObj.alphax} y={drawObj.alphay} r={drawObj.r0} color={"#C4E4FF"} trigger={drawObj} />
         <Disc x={drawObj.betax} y={drawObj.betay} r={drawObj.r0} color={"pink"} trigger={drawObj} />
+        {generatePolygon(readPolygon(drawObj))}
       </CanvasProvider>
     </>
   )

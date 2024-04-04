@@ -36,46 +36,35 @@ export function generateBox(input) {
     return result;
 };
 
-export function readInput(input) {
-    let content = input.split("\n");
-    content = content.map((ele) => {
-        return ele.split(" ");
-    });
-    content = content.map((ele) => {
-        let temp = ele.map((element) => {
-            return parseInt(element);
-        });
-        return temp;
-    });
-    content = content.filter((array) => {
-        let result = array.reduce((old, ele) => {
-            if (isNaN(ele)) {
-                return false;
-            }
-            return old;
-        }, true);
-        return result;
-    })
-    return content;
-};
+export function parsePoints(ptsString) {
+    if (!ptsString) return [];
+    return ptsString.split('|').map(pt =>
+        pt.split(',')
+            .map(str => str.trim())
+            .filter(str => str !== '')
+            .map(Number)
+            .filter(num => !isNaN(num))
+    ).filter(arr => arr.length > 0);
+}
 
-export function readPolygon(input) {
-    input = readInput(input);
-    let numPoints = input[0][0];
-    let numPolygons = input[numPoints + 1][0];
-    let points = [];
-    let polygons = [];
-    for (let i = 1; i < numPoints + 1; i++) {
-        points.push(input[i]);
-    }
-    for (let i = numPoints + 2; i < numPoints + numPolygons + 2; i++) {
-        let poly = input[i];
-        let temp = [];
-        for (let j = 0; j < poly.length; j++) {
-            temp.push(points[poly[j] - 1]);
-        }
-        polygons.push(temp);
-    }
+export function parsePolygons(polygonsString, points) {
+    if (!polygonsString) return [];
+    return polygonsString.split('|').map(polygon => {
+        return polygon.split(',')
+            .map(str => str.trim())
+            .filter(str => str !== '' && !isNaN(str))
+            .map(ptIndex => {
+                const index = parseInt(ptIndex, 10) - 1;
+                return index >= 0 && index < points.length ? points[index] : null;
+            })
+            .filter(pt => pt !== null);
+    }).filter(polygon => polygon.length > 0);
+}
+
+
+export function readPolygon(drawObj) {
+    const points = parsePoints(drawObj.pts);
+    const polygons = parsePolygons(drawObj.polygons, points);
     return polygons;
 };
 
@@ -101,9 +90,9 @@ export function processessOutPut(output) {
 
 export function processPath(input) {
     let path = input.split('|')
-    .map((x) => x.trim())
-    .filter((arr) => arr.length > 1)
-    .map(p => p.split(' '))
-    .map(p => p.map((x) => parseInt(x)));
+        .map((x) => x.trim())
+        .filter((arr) => arr.length > 1)
+        .map(p => p.split(' '))
+        .map(p => p.map((x) => parseInt(x)));
     return path;
 };
