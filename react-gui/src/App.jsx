@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { CanvasProvider } from "./components/CanvasProvider";
 import InputForm from "./components/InputForm";
 import { generatePolygon, readPolygon } from "./components/methods";
-import "./App.css";
+import { ResultCanvas } from "./components/ResultCanvas";
 import Disc from "./components/Disc";
+import "./App.css";
 
 
 
@@ -62,6 +63,7 @@ function App() {
         <Disc x={drawObj.betax} y={drawObj.betay} r={drawObj.r0} color={"pink"} trigger={drawObj} />
         {generatePolygon(readPolygon(drawObj))}
       </CanvasProvider>
+      {/* {Object.entries(rosRequest) !== 0 && <ResultCanvas requestObj={rosRequest} resultObj={response}></ResultCanvas>} */}
     </>
   )
 };

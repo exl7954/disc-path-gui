@@ -1,8 +1,6 @@
 import {useDrawPath} from "./useDrawPath";
 
-const Path = (props) => {
+export const Path = (props) => {
     useDrawPath(props);
     return null;
-}
-
-export default Path;
+};
