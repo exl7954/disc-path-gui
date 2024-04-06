@@ -68,9 +68,9 @@ export function readPolygon(drawObj) {
     return polygons;
 };
 
+let i = 0;
 export function generatePolygon(input) {
     let result = input.map((point) => {
-        let i = 0;
         return <Polygon color="black" points={point} key={i++}></Polygon>;;
     });
     return result;

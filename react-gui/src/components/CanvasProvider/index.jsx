@@ -24,7 +24,7 @@ export const CanvasProvider = ({ width, height, Request, change, children }) => 
         ctx.clearRect(0, 0, width, height);
         change({...Request})
     }, [Request]);
-
+    
     return (
         <div className="canvas-container">
             <CanvasContext.Provider value={{ draw }}>

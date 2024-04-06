@@ -4,6 +4,7 @@ import InputForm from "./components/InputForm";
 import { generatePolygon, readPolygon } from "./components/methods";
 import "./App.css";
 import Disc from "./components/Disc";
+import Path from "./components/Path";
 
 
 
@@ -58,10 +59,12 @@ function App() {
       <p>ROS Request: {JSON.stringify(rosRequest)}</p>
       <p>Response: {JSON.stringify(response.response)}</p>
       <CanvasProvider width={rosRequest.boxwidth || 512} height={rosRequest.boxheight || 512} Request={rosRequest} change={setDrawObj}>
-        <Disc x={drawObj.alphax} y={drawObj.alphay} r={drawObj.r0} color={"#C4E4FF"} trigger={drawObj} />
-        <Disc x={drawObj.betax} y={drawObj.betay} r={drawObj.r0} color={"pink"} trigger={drawObj} />
+        <Disc x={drawObj.alpha ? drawObj.alpha[0] : drawObj.alphax} y={drawObj.alpha ? drawObj.alpha[1] : drawObj.alphay} r={drawObj.r0} color={"#C4E4FF"} />
+        <Disc x={drawObj.bta ? drawObj.bta[0] : drawObj.betax} y={drawObj.bta ? drawObj.bta[1] : drawObj.betay} r={drawObj.r0} color={"pink"} />
+        <Path response={response} />
         {generatePolygon(readPolygon(drawObj))}
       </CanvasProvider>
+      
     </>
   )
 };

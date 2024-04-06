@@ -1,7 +1,7 @@
 import { useCanvas } from "../CanvasProvider";
 import { useEffect } from "react";
 
-export const useDrawPath = ({ points }) => {
+export const useDrawPath = ({ points, trigger }) => {
     const { draw } = useCanvas();
 
     useEffect(() => {
@@ -18,5 +18,5 @@ export const useDrawPath = ({ points }) => {
             }
             ctx.stroke();
         })
-    }, [points]);
+    }, [points, trigger]);
 }
