@@ -54,10 +54,8 @@ function App() {
 
   return (
     <>
-      <p>Connection Status: {connection}</p>
       <InputForm rosRequest={rosRequest} setRosRequest={setRosRequest} working={working} setWorking={setWorking} setResponse={setResponse} />
-      <p>ROS Request: {JSON.stringify(rosRequest)}</p>
-      <p>Response: {JSON.stringify(response.response)}</p>
+      {response.response == "false" ? <h1>Path Not Found</h1> : null}
       <CanvasProvider width={rosRequest.boxwidth || 512} height={rosRequest.boxheight || 512} Request={rosRequest} setDrawObj={setDrawObj}>
         <Disc x={drawObj.alpha ? drawObj.alpha[0] : drawObj.alphax} y={drawObj.alpha ? drawObj.alpha[1] : drawObj.alphay} r={drawObj.r0} color={"#C4E4FF"} />
         <Disc x={drawObj.bta ? drawObj.bta[0] : drawObj.betax} y={drawObj.bta ? drawObj.bta[1] : drawObj.betay} r={drawObj.r0} color={"pink"} />

@@ -174,6 +174,7 @@ export default function InputForm({rosRequest, setRosRequest, working, setWorkin
                 ...rosRequest,
                 [name]: value
             });
+            setResponse({});
             if (value == "") {
                 setRosRequest({
                     ...rosRequest,
@@ -249,7 +250,12 @@ export default function InputForm({rosRequest, setRosRequest, working, setWorkin
                 {TextInput({name: "seed", label: "Random Seed", inputType: "number"})}
                 <div className="text-input">
                     <label>QType</label>
-                    <select id="qtype" name="qtype" onChange={e => setRosRequest({...rosRequest, qtype: e.target.value})}>
+                    <select id="qtype" name="qtype" onChange={e => {
+                        setRosRequest({...rosRequest, qtype: e.target.value});
+                        setResponse({});
+                        setInvalidInput(false);
+                        setErrorMessage(null);
+                    }}>
                         <option value="0">Random</option>
                         <option value="1">Sequential</option>
                         <option value="2">Dijkstra</option>
@@ -267,7 +273,6 @@ export default function InputForm({rosRequest, setRosRequest, working, setWorkin
             </fieldset>
             </form>
         </div>
-        <button onClick={() => {setWorking(false);}}>Disable Working</button>
         <div>{invalidInput ? <InvalidInput /> :null}</div>
         </>
     );
