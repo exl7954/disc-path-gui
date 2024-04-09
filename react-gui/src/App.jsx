@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CanvasProvider } from "./components/CanvasProvider";
 import InputForm from "./components/InputForm";
-import { generatePolygon, readPolygon } from "./components/methods";
+import { generateBox, generatePolygon, readPolygon } from "./components/methods";
 import "./App.css";
 import Disc from "./components/Disc";
 import Path from "./components/Path";
@@ -63,6 +63,7 @@ function App() {
         <Disc x={drawObj.bta ? drawObj.bta[0] : drawObj.betax} y={drawObj.bta ? drawObj.bta[1] : drawObj.betay} r={drawObj.r0} color={"pink"} />
         <Path response={response} />
         {generatePolygon(readPolygon(drawObj))}
+        {response.boxes ? generateBox(response.boxes) : null}
       </CanvasProvider>
       
     </>

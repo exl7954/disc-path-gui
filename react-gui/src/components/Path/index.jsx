@@ -1,5 +1,4 @@
 import { useCanvas } from "../CanvasProvider";
-import { useEffect } from "react";
 
 const Path = (props) => {
     const { draw } = useCanvas();
