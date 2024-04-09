@@ -14,13 +14,13 @@ export function generateBox(input) {
     let result = input.map(([x, y, width, height, color]) => {
         let box_color = "grey"
         if (color == 0) {
-            box_color = "green";
+            box_color = "#3CB371";
         }
         if (color == 1) {
-            box_color = "red";
+            box_color = "#CD5C5C";
         }
         if (color == 2) {
-            box_color = "yellow";
+            box_color = "#FFCD00";
         }
         return (
             <Rectangle
