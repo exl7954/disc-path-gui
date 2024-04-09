@@ -5,7 +5,7 @@ const CanvasContext = createContext();
 
 export const useCanvas = () => useContext(CanvasContext);
 
-export const CanvasProvider = ({ width, height, Request, change, children }) => {
+export const CanvasProvider = ({ width, height, Request, setDrawObj, children }) => {
     const canvasRef = useRef(null);
     const draw = (drawFunction) => {
         const canvas = canvasRef.current;
@@ -22,7 +22,7 @@ export const CanvasProvider = ({ width, height, Request, change, children }) => 
         const canvas = canvasRef.current;
         const ctx = canvas.getContext("2d");
         ctx.clearRect(0, 0, width, height);
-        change({...Request})
+        setDrawObj({...Request})
     }, [Request]);
     
     return (

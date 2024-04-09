@@ -3,7 +3,7 @@ import { useCanvas } from "../CanvasProvider";
 const Disc = (props) => {
     const { draw } = useCanvas();
     
-    if (props.x !== undefined && props.y !== undefined && props.r !== undefined) {
+    if (props.x != undefined && props.y != undefined && props.r != undefined) {
         draw((ctx) => {
             ctx.beginPath();
             ctx.arc(props.x, props.y, props.r, 0, 2 * Math.PI);

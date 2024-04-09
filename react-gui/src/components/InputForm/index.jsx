@@ -174,6 +174,46 @@ export default function InputForm({rosRequest, setRosRequest, working, setWorkin
                 ...rosRequest,
                 [name]: value
             });
+            if (value == "") {
+                setRosRequest({
+                    ...rosRequest,
+                    [name]: undefined
+                });
+            } else {
+                if (name == "alphax" || name == "alphay") {
+                    if (rosRequest["alpha"] != undefined) {
+                        if (name == "alphax") {
+                            setRosRequest({
+                                ...rosRequest,
+                                alpha: [value, rosRequest["alpha"][1]]
+                            });
+                        }
+                        if (name == "alphay") {
+                            setRosRequest({
+                                ...rosRequest,
+                                alpha: [rosRequest["alpha"][0], value]
+                            });
+                        }
+                    }
+                }
+                if (name == "betax" || name == "betay") {
+                    if (rosRequest["bta"] != undefined) {
+                        if (name == "betax") {
+                            setRosRequest({
+                                ...rosRequest,
+                                bta: [value, rosRequest["bta"][1]]
+                            });
+                        }
+                        if (name == "betay") {
+                            setRosRequest({
+                                ...rosRequest,
+                                bta: [rosRequest["bta"][0], value]
+                            });
+                        }
+                    }
+                }
+            }
+            
         }
         // if tooltipId is passed in, create a tooltip
         return (
