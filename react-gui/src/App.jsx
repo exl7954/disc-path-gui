@@ -61,7 +61,6 @@ function App() {
                 setResponse={setResponse} 
                 externalChange={externalChange} setExternalChange={setExternalChange} />
       <FileProcessor rosRequest={rosRequest} setRosRequest={setRosRequest} setExternalChange={setExternalChange} />
-      {JSON.stringify(rosRequest)}
       {response.response == "false" ? <h1>Path Not Found</h1> : null}
       <CanvasProvider width={rosRequest.boxwidth || 512} height={rosRequest.boxheight || 512} Request={rosRequest} setDrawObj={setDrawObj}>
         <Disc x={drawObj.alpha ? drawObj.alpha[0] : drawObj.alphax} y={drawObj.alpha ? drawObj.alpha[1] : drawObj.alphay} r={drawObj.r0} color={"#C4E4FF"} />
