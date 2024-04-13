@@ -5,6 +5,7 @@ import { generateBox, generatePolygon, readPolygon } from "./components/methods"
 import "./App.css";
 import Disc from "./components/Disc";
 import Path from "./components/Path";
+import FileProcessor from "./components/FileProcessor";
 
 
 
@@ -15,6 +16,7 @@ function App() {
   const [drawObj, setDrawObj] = useState({});
   const [working, setWorking] = useState(false); // true if waiting for response from ROS
   const [response, setResponse] = useState({}); // response from ROS
+  const [externalChange, setExternalChange] = useState({}); // request object when imported from file
 
   useEffect(() => {
     if (working) {
@@ -54,7 +56,12 @@ function App() {
 
   return (
     <>
-      <InputForm rosRequest={rosRequest} setRosRequest={setRosRequest} working={working} setWorking={setWorking} setResponse={setResponse} />
+      <InputForm rosRequest={rosRequest} setRosRequest={setRosRequest} 
+                working={working} setWorking={setWorking} 
+                setResponse={setResponse} 
+                externalChange={externalChange} setExternalChange={setExternalChange} />
+      <FileProcessor rosRequest={rosRequest} setRosRequest={setRosRequest} setExternalChange={setExternalChange} />
+      {JSON.stringify(rosRequest)}
       {response.response == "false" ? <h1>Path Not Found</h1> : null}
       <CanvasProvider width={rosRequest.boxwidth || 512} height={rosRequest.boxheight || 512} Request={rosRequest} setDrawObj={setDrawObj}>
         <Disc x={drawObj.alpha ? drawObj.alpha[0] : drawObj.alphax} y={drawObj.alpha ? drawObj.alpha[1] : drawObj.alphay} r={drawObj.r0} color={"#C4E4FF"} />

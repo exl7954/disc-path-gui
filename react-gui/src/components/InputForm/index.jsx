@@ -1,12 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./InputForm.css";
 import { Tooltip } from 'react-tooltip';
 import red_x from "../assets/red_x.png";
 
 
-export default function InputForm({rosRequest, setRosRequest, working, setWorking, setResponse}) {
+export default function InputForm({rosRequest, setRosRequest, working, setWorking, setResponse, externalChange, setExternalChange}) {
     const [invalidInput, setInvalidInput] = useState(false);
     const [errorMessage, setErrorMessage] = useState(null);
+
+    useEffect(() => {
+        if (Object.keys(externalChange).length != 0) {
+            for (const key in externalChange) {
+                // set text input to key value
+                if (key != "alpha" && key != "bta") {
+                    document.getElementsByName(key)[0].value = externalChange[key];
+                }
+            }
+            setRosRequest({...rosRequest, ...externalChange})
+            setExternalChange({});
+        }
+    }, [externalChange])
 
     function handleSubmit(e) {
         e.preventDefault();
