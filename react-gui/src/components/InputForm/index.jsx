@@ -12,7 +12,7 @@ export default function InputForm({rosRequest, setRosRequest, working, setWorkin
         if (Object.keys(externalChange).length != 0) {
             for (const key in externalChange) {
                 // set text input to key value
-                if (key != "alpha" && key != "bta") {
+                if (key != "alpha" && key != "bta" && key != "numpts" && key != "numpolygons") {
                     document.getElementsByName(key)[0].value = externalChange[key];
                 }
             }
