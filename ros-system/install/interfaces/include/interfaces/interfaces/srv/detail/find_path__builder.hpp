@@ -287,16 +287,112 @@ namespace srv
 namespace builder
 {
 
+class Init_FindPath_Response_mixbigger
+{
+public:
+  explicit Init_FindPath_Response_mixbigger(::interfaces::srv::FindPath_Response & msg)
+  : msg_(msg)
+  {}
+  ::interfaces::srv::FindPath_Response mixbigger(::interfaces::srv::FindPath_Response::_mixbigger_type arg)
+  {
+    msg_.mixbigger = std::move(arg);
+    return std::move(msg_);
+  }
+
+private:
+  ::interfaces::srv::FindPath_Response msg_;
+};
+
+class Init_FindPath_Response_mixsmaller
+{
+public:
+  explicit Init_FindPath_Response_mixsmaller(::interfaces::srv::FindPath_Response & msg)
+  : msg_(msg)
+  {}
+  Init_FindPath_Response_mixbigger mixsmaller(::interfaces::srv::FindPath_Response::_mixsmaller_type arg)
+  {
+    msg_.mixsmaller = std::move(arg);
+    return Init_FindPath_Response_mixbigger(msg_);
+  }
+
+private:
+  ::interfaces::srv::FindPath_Response msg_;
+};
+
+class Init_FindPath_Response_totalstuck
+{
+public:
+  explicit Init_FindPath_Response_totalstuck(::interfaces::srv::FindPath_Response & msg)
+  : msg_(msg)
+  {}
+  Init_FindPath_Response_mixsmaller totalstuck(::interfaces::srv::FindPath_Response::_totalstuck_type arg)
+  {
+    msg_.totalstuck = std::move(arg);
+    return Init_FindPath_Response_mixsmaller(msg_);
+  }
+
+private:
+  ::interfaces::srv::FindPath_Response msg_;
+};
+
+class Init_FindPath_Response_totalfree
+{
+public:
+  explicit Init_FindPath_Response_totalfree(::interfaces::srv::FindPath_Response & msg)
+  : msg_(msg)
+  {}
+  Init_FindPath_Response_totalstuck totalfree(::interfaces::srv::FindPath_Response::_totalfree_type arg)
+  {
+    msg_.totalfree = std::move(arg);
+    return Init_FindPath_Response_totalstuck(msg_);
+  }
+
+private:
+  ::interfaces::srv::FindPath_Response msg_;
+};
+
+class Init_FindPath_Response_expandcount
+{
+public:
+  explicit Init_FindPath_Response_expandcount(::interfaces::srv::FindPath_Response & msg)
+  : msg_(msg)
+  {}
+  Init_FindPath_Response_totalfree expandcount(::interfaces::srv::FindPath_Response::_expandcount_type arg)
+  {
+    msg_.expandcount = std::move(arg);
+    return Init_FindPath_Response_totalfree(msg_);
+  }
+
+private:
+  ::interfaces::srv::FindPath_Response msg_;
+};
+
+class Init_FindPath_Response_elapsedtime
+{
+public:
+  explicit Init_FindPath_Response_elapsedtime(::interfaces::srv::FindPath_Response & msg)
+  : msg_(msg)
+  {}
+  Init_FindPath_Response_expandcount elapsedtime(::interfaces::srv::FindPath_Response::_elapsedtime_type arg)
+  {
+    msg_.elapsedtime = std::move(arg);
+    return Init_FindPath_Response_expandcount(msg_);
+  }
+
+private:
+  ::interfaces::srv::FindPath_Response msg_;
+};
+
 class Init_FindPath_Response_boxes
 {
 public:
   explicit Init_FindPath_Response_boxes(::interfaces::srv::FindPath_Response & msg)
   : msg_(msg)
   {}
-  ::interfaces::srv::FindPath_Response boxes(::interfaces::srv::FindPath_Response::_boxes_type arg)
+  Init_FindPath_Response_elapsedtime boxes(::interfaces::srv::FindPath_Response::_boxes_type arg)
   {
     msg_.boxes = std::move(arg);
-    return std::move(msg_);
+    return Init_FindPath_Response_elapsedtime(msg_);
   }
 
 private:

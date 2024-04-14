@@ -390,6 +390,12 @@ struct FindPath_Response_
       this->response = "";
       this->path = "";
       this->boxes = "";
+      this->elapsedtime = 0.0;
+      this->expandcount = 0ll;
+      this->totalfree = 0ll;
+      this->totalstuck = 0ll;
+      this->mixsmaller = 0ll;
+      this->mixbigger = 0ll;
     }
   }
 
@@ -404,6 +410,12 @@ struct FindPath_Response_
       this->response = "";
       this->path = "";
       this->boxes = "";
+      this->elapsedtime = 0.0;
+      this->expandcount = 0ll;
+      this->totalfree = 0ll;
+      this->totalstuck = 0ll;
+      this->mixsmaller = 0ll;
+      this->mixbigger = 0ll;
     }
   }
 
@@ -417,6 +429,24 @@ struct FindPath_Response_
   using _boxes_type =
     std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>;
   _boxes_type boxes;
+  using _elapsedtime_type =
+    double;
+  _elapsedtime_type elapsedtime;
+  using _expandcount_type =
+    int64_t;
+  _expandcount_type expandcount;
+  using _totalfree_type =
+    int64_t;
+  _totalfree_type totalfree;
+  using _totalstuck_type =
+    int64_t;
+  _totalstuck_type totalstuck;
+  using _mixsmaller_type =
+    int64_t;
+  _mixsmaller_type mixsmaller;
+  using _mixbigger_type =
+    int64_t;
+  _mixbigger_type mixbigger;
 
   // setters for named parameter idiom
   Type & set__response(
@@ -435,6 +465,42 @@ struct FindPath_Response_
     const std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> & _arg)
   {
     this->boxes = _arg;
+    return *this;
+  }
+  Type & set__elapsedtime(
+    const double & _arg)
+  {
+    this->elapsedtime = _arg;
+    return *this;
+  }
+  Type & set__expandcount(
+    const int64_t & _arg)
+  {
+    this->expandcount = _arg;
+    return *this;
+  }
+  Type & set__totalfree(
+    const int64_t & _arg)
+  {
+    this->totalfree = _arg;
+    return *this;
+  }
+  Type & set__totalstuck(
+    const int64_t & _arg)
+  {
+    this->totalstuck = _arg;
+    return *this;
+  }
+  Type & set__mixsmaller(
+    const int64_t & _arg)
+  {
+    this->mixsmaller = _arg;
+    return *this;
+  }
+  Type & set__mixbigger(
+    const int64_t & _arg)
+  {
+    this->mixbigger = _arg;
     return *this;
   }
 
@@ -487,6 +553,24 @@ struct FindPath_Response_
       return false;
     }
     if (this->boxes != other.boxes) {
+      return false;
+    }
+    if (this->elapsedtime != other.elapsedtime) {
+      return false;
+    }
+    if (this->expandcount != other.expandcount) {
+      return false;
+    }
+    if (this->totalfree != other.totalfree) {
+      return false;
+    }
+    if (this->totalstuck != other.totalstuck) {
+      return false;
+    }
+    if (this->mixsmaller != other.mixsmaller) {
+      return false;
+    }
+    if (this->mixbigger != other.mixbigger) {
       return false;
     }
     return true;

@@ -549,6 +549,60 @@ bool interfaces__srv__find_path__response__convert_from_py(PyObject * _pymsg, vo
     Py_DECREF(encoded_field);
     Py_DECREF(field);
   }
+  {  // elapsedtime
+    PyObject * field = PyObject_GetAttrString(_pymsg, "elapsedtime");
+    if (!field) {
+      return false;
+    }
+    assert(PyFloat_Check(field));
+    ros_message->elapsedtime = PyFloat_AS_DOUBLE(field);
+    Py_DECREF(field);
+  }
+  {  // expandcount
+    PyObject * field = PyObject_GetAttrString(_pymsg, "expandcount");
+    if (!field) {
+      return false;
+    }
+    assert(PyLong_Check(field));
+    ros_message->expandcount = PyLong_AsLongLong(field);
+    Py_DECREF(field);
+  }
+  {  // totalfree
+    PyObject * field = PyObject_GetAttrString(_pymsg, "totalfree");
+    if (!field) {
+      return false;
+    }
+    assert(PyLong_Check(field));
+    ros_message->totalfree = PyLong_AsLongLong(field);
+    Py_DECREF(field);
+  }
+  {  // totalstuck
+    PyObject * field = PyObject_GetAttrString(_pymsg, "totalstuck");
+    if (!field) {
+      return false;
+    }
+    assert(PyLong_Check(field));
+    ros_message->totalstuck = PyLong_AsLongLong(field);
+    Py_DECREF(field);
+  }
+  {  // mixsmaller
+    PyObject * field = PyObject_GetAttrString(_pymsg, "mixsmaller");
+    if (!field) {
+      return false;
+    }
+    assert(PyLong_Check(field));
+    ros_message->mixsmaller = PyLong_AsLongLong(field);
+    Py_DECREF(field);
+  }
+  {  // mixbigger
+    PyObject * field = PyObject_GetAttrString(_pymsg, "mixbigger");
+    if (!field) {
+      return false;
+    }
+    assert(PyLong_Check(field));
+    ros_message->mixbigger = PyLong_AsLongLong(field);
+    Py_DECREF(field);
+  }
 
   return true;
 }
@@ -616,6 +670,72 @@ PyObject * interfaces__srv__find_path__response__convert_to_py(void * raw_ros_me
     }
     {
       int rc = PyObject_SetAttrString(_pymessage, "boxes", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // elapsedtime
+    PyObject * field = NULL;
+    field = PyFloat_FromDouble(ros_message->elapsedtime);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "elapsedtime", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // expandcount
+    PyObject * field = NULL;
+    field = PyLong_FromLongLong(ros_message->expandcount);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "expandcount", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // totalfree
+    PyObject * field = NULL;
+    field = PyLong_FromLongLong(ros_message->totalfree);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "totalfree", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // totalstuck
+    PyObject * field = NULL;
+    field = PyLong_FromLongLong(ros_message->totalstuck);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "totalstuck", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // mixsmaller
+    PyObject * field = NULL;
+    field = PyLong_FromLongLong(ros_message->mixsmaller);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "mixsmaller", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // mixbigger
+    PyObject * field = NULL;
+    field = PyLong_FromLongLong(ros_message->mixbigger);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "mixbigger", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

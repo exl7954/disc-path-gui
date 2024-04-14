@@ -58,6 +58,18 @@ module interfaces {
       string path;
 
       string boxes;
+
+      double elapsedtime;
+
+      int64 expandcount;
+
+      int64 totalfree;
+
+      int64 totalstuck;
+
+      int64 mixsmaller;
+
+      int64 mixbigger;
     };
   };
 };

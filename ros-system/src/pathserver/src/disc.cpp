@@ -387,6 +387,14 @@ void service_run(const std::shared_ptr<interfaces::srv::FindPath::Request> reque
 	stringstream responseBoxes;
 	treeTraverse(QT->pRoot, responseBoxes);
 	response->boxes = responseBoxes.str();
+
+	// return stats
+	response->elapsedtime = t.getElapsedTimeInMilliSec();
+	response->expandcount = ct;
+	response->totalfree = freeCount;
+	response->totalstuck = stuckCount;
+	response->mixsmaller = mixSmallCount;
+	response->mixbigger = mixCount - ct - mixSmallCount;
 }
 
 // MAIN PROGRAM: ========================================

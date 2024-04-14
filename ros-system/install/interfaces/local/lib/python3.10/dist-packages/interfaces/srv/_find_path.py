@@ -565,6 +565,9 @@ class FindPath_Request(metaclass=Metaclass_FindPath_Request):
 # import builtins
 
 # already imported above
+# import math
+
+# already imported above
 # import rosidl_parser.definition
 
 
@@ -616,18 +619,36 @@ class FindPath_Response(metaclass=Metaclass_FindPath_Response):
         '_response',
         '_path',
         '_boxes',
+        '_elapsedtime',
+        '_expandcount',
+        '_totalfree',
+        '_totalstuck',
+        '_mixsmaller',
+        '_mixbigger',
     ]
 
     _fields_and_field_types = {
         'response': 'string',
         'path': 'string',
         'boxes': 'string',
+        'elapsedtime': 'double',
+        'expandcount': 'int64',
+        'totalfree': 'int64',
+        'totalstuck': 'int64',
+        'mixsmaller': 'int64',
+        'mixbigger': 'int64',
     }
 
     SLOT_TYPES = (
         rosidl_parser.definition.UnboundedString(),  # noqa: E501
         rosidl_parser.definition.UnboundedString(),  # noqa: E501
         rosidl_parser.definition.UnboundedString(),  # noqa: E501
+        rosidl_parser.definition.BasicType('double'),  # noqa: E501
+        rosidl_parser.definition.BasicType('int64'),  # noqa: E501
+        rosidl_parser.definition.BasicType('int64'),  # noqa: E501
+        rosidl_parser.definition.BasicType('int64'),  # noqa: E501
+        rosidl_parser.definition.BasicType('int64'),  # noqa: E501
+        rosidl_parser.definition.BasicType('int64'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
@@ -637,6 +658,12 @@ class FindPath_Response(metaclass=Metaclass_FindPath_Response):
         self.response = kwargs.get('response', str())
         self.path = kwargs.get('path', str())
         self.boxes = kwargs.get('boxes', str())
+        self.elapsedtime = kwargs.get('elapsedtime', float())
+        self.expandcount = kwargs.get('expandcount', int())
+        self.totalfree = kwargs.get('totalfree', int())
+        self.totalstuck = kwargs.get('totalstuck', int())
+        self.mixsmaller = kwargs.get('mixsmaller', int())
+        self.mixbigger = kwargs.get('mixbigger', int())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -672,6 +699,18 @@ class FindPath_Response(metaclass=Metaclass_FindPath_Response):
         if self.path != other.path:
             return False
         if self.boxes != other.boxes:
+            return False
+        if self.elapsedtime != other.elapsedtime:
+            return False
+        if self.expandcount != other.expandcount:
+            return False
+        if self.totalfree != other.totalfree:
+            return False
+        if self.totalstuck != other.totalstuck:
+            return False
+        if self.mixsmaller != other.mixsmaller:
+            return False
+        if self.mixbigger != other.mixbigger:
             return False
         return True
 
@@ -718,6 +757,96 @@ class FindPath_Response(metaclass=Metaclass_FindPath_Response):
                 isinstance(value, str), \
                 "The 'boxes' field must be of type 'str'"
         self._boxes = value
+
+    @builtins.property
+    def elapsedtime(self):
+        """Message field 'elapsedtime'."""
+        return self._elapsedtime
+
+    @elapsedtime.setter
+    def elapsedtime(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, float), \
+                "The 'elapsedtime' field must be of type 'float'"
+            assert not (value < -1.7976931348623157e+308 or value > 1.7976931348623157e+308) or math.isinf(value), \
+                "The 'elapsedtime' field must be a double in [-1.7976931348623157e+308, 1.7976931348623157e+308]"
+        self._elapsedtime = value
+
+    @builtins.property
+    def expandcount(self):
+        """Message field 'expandcount'."""
+        return self._expandcount
+
+    @expandcount.setter
+    def expandcount(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, int), \
+                "The 'expandcount' field must be of type 'int'"
+            assert value >= -9223372036854775808 and value < 9223372036854775808, \
+                "The 'expandcount' field must be an integer in [-9223372036854775808, 9223372036854775807]"
+        self._expandcount = value
+
+    @builtins.property
+    def totalfree(self):
+        """Message field 'totalfree'."""
+        return self._totalfree
+
+    @totalfree.setter
+    def totalfree(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, int), \
+                "The 'totalfree' field must be of type 'int'"
+            assert value >= -9223372036854775808 and value < 9223372036854775808, \
+                "The 'totalfree' field must be an integer in [-9223372036854775808, 9223372036854775807]"
+        self._totalfree = value
+
+    @builtins.property
+    def totalstuck(self):
+        """Message field 'totalstuck'."""
+        return self._totalstuck
+
+    @totalstuck.setter
+    def totalstuck(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, int), \
+                "The 'totalstuck' field must be of type 'int'"
+            assert value >= -9223372036854775808 and value < 9223372036854775808, \
+                "The 'totalstuck' field must be an integer in [-9223372036854775808, 9223372036854775807]"
+        self._totalstuck = value
+
+    @builtins.property
+    def mixsmaller(self):
+        """Message field 'mixsmaller'."""
+        return self._mixsmaller
+
+    @mixsmaller.setter
+    def mixsmaller(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, int), \
+                "The 'mixsmaller' field must be of type 'int'"
+            assert value >= -9223372036854775808 and value < 9223372036854775808, \
+                "The 'mixsmaller' field must be an integer in [-9223372036854775808, 9223372036854775807]"
+        self._mixsmaller = value
+
+    @builtins.property
+    def mixbigger(self):
+        """Message field 'mixbigger'."""
+        return self._mixbigger
+
+    @mixbigger.setter
+    def mixbigger(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, int), \
+                "The 'mixbigger' field must be of type 'int'"
+            assert value >= -9223372036854775808 and value < 9223372036854775808, \
+                "The 'mixbigger' field must be an integer in [-9223372036854775808, 9223372036854775807]"
+        self._mixbigger = value
 
 
 class Metaclass_FindPath(type):

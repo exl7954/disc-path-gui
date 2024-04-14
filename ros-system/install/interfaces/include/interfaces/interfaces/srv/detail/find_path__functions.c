@@ -441,6 +441,12 @@ interfaces__srv__FindPath_Response__init(interfaces__srv__FindPath_Response * ms
     interfaces__srv__FindPath_Response__fini(msg);
     return false;
   }
+  // elapsedtime
+  // expandcount
+  // totalfree
+  // totalstuck
+  // mixsmaller
+  // mixbigger
   return true;
 }
 
@@ -456,6 +462,12 @@ interfaces__srv__FindPath_Response__fini(interfaces__srv__FindPath_Response * ms
   rosidl_runtime_c__String__fini(&msg->path);
   // boxes
   rosidl_runtime_c__String__fini(&msg->boxes);
+  // elapsedtime
+  // expandcount
+  // totalfree
+  // totalstuck
+  // mixsmaller
+  // mixbigger
 }
 
 bool
@@ -480,6 +492,30 @@ interfaces__srv__FindPath_Response__are_equal(const interfaces__srv__FindPath_Re
   if (!rosidl_runtime_c__String__are_equal(
       &(lhs->boxes), &(rhs->boxes)))
   {
+    return false;
+  }
+  // elapsedtime
+  if (lhs->elapsedtime != rhs->elapsedtime) {
+    return false;
+  }
+  // expandcount
+  if (lhs->expandcount != rhs->expandcount) {
+    return false;
+  }
+  // totalfree
+  if (lhs->totalfree != rhs->totalfree) {
+    return false;
+  }
+  // totalstuck
+  if (lhs->totalstuck != rhs->totalstuck) {
+    return false;
+  }
+  // mixsmaller
+  if (lhs->mixsmaller != rhs->mixsmaller) {
+    return false;
+  }
+  // mixbigger
+  if (lhs->mixbigger != rhs->mixbigger) {
     return false;
   }
   return true;
@@ -511,6 +547,18 @@ interfaces__srv__FindPath_Response__copy(
   {
     return false;
   }
+  // elapsedtime
+  output->elapsedtime = input->elapsedtime;
+  // expandcount
+  output->expandcount = input->expandcount;
+  // totalfree
+  output->totalfree = input->totalfree;
+  // totalstuck
+  output->totalstuck = input->totalstuck;
+  // mixsmaller
+  output->mixsmaller = input->mixsmaller;
+  // mixbigger
+  output->mixbigger = input->mixbigger;
   return true;
 }
 

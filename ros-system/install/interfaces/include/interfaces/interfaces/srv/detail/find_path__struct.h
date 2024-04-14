@@ -68,6 +68,12 @@ typedef struct interfaces__srv__FindPath_Response
   rosidl_runtime_c__String response;
   rosidl_runtime_c__String path;
   rosidl_runtime_c__String boxes;
+  double elapsedtime;
+  int64_t expandcount;
+  int64_t totalfree;
+  int64_t totalstuck;
+  int64_t mixsmaller;
+  int64_t mixbigger;
 } interfaces__srv__FindPath_Response;
 
 // Struct for a sequence of interfaces__srv__FindPath_Response.

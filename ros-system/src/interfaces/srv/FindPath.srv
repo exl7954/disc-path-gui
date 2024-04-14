@@ -17,3 +17,9 @@ string polygons "1,4,3,2,1|5,9,8,7,6,5|10,12,11,10"
 string response
 string path
 string boxes
+float64 elapsedtime
+int64 expandcount
+int64 totalfree
+int64 totalstuck
+int64 mixsmaller
+int64 mixbigger
