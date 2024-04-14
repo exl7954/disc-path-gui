@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { CanvasProvider } from "./components/CanvasProvider";
 import InputForm from "./components/InputForm";
 import { generateBox, generatePolygon, readPolygon } from "./components/methods";
@@ -54,7 +54,7 @@ function App() {
     }
   }, [working])
 
-
+  const containerRef = useRef(null);
   return (
     <>
       <InputForm rosRequest={rosRequest} setRosRequest={setRosRequest} 
@@ -63,7 +63,7 @@ function App() {
                 externalChange={externalChange} setExternalChange={setExternalChange} />
       <FileProcessor rosRequest={rosRequest} setRosRequest={setRosRequest} setExternalChange={setExternalChange} />
       {response.response == "false" ? <h1>Path Not Found</h1> : null}
-      <div className="container">
+      <div className="container" id="container" ref={containerRef}>
         <CanvasProvider width={rosRequest.boxwidth || 512} height={rosRequest.boxheight || 512} Request={rosRequest} setDrawObj={setDrawObj}>
           <Disc x={drawObj.alpha ? drawObj.alpha[0] : drawObj.alphax} y={drawObj.alpha ? drawObj.alpha[1] : drawObj.alphay} r={drawObj.r0} color={"#C4E4FF"} />
           <Disc x={drawObj.bta ? drawObj.bta[0] : drawObj.betax} y={drawObj.bta ? drawObj.bta[1] : drawObj.betay} r={drawObj.r0} color={"pink"} />
@@ -72,7 +72,7 @@ function App() {
           {response.boxes ? generateBox(response.boxes) : null}
         </CanvasProvider>
         
-        <OutputStats rosRequest={rosRequest} response={response} />
+        <OutputStats rosRequest={rosRequest} response={response} containerRef={containerRef} />
       </div>
     </>
   )

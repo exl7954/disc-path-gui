@@ -1,16 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './OutputStats.css';
 
-export default function OutputStats({rosRequest, response}) {
+export default function OutputStats({rosRequest, response, containerRef}) {
     const [isOpen, setIsOpen] = useState(false);
+    const [leftmargin, setLeftMargin] = useState(0);
 
     function toggle() {
         setIsOpen(!isOpen);
     }
 
+    useEffect(() => {
+        if (containerRef.current) {
+            console.log(containerRef.current.clientWidth);
+            let boxOffset = !rosRequest.boxwidth ? 256 : rosRequest.boxwidth / 2;
+            setLeftMargin(containerRef.current.clientWidth / 2 + boxOffset + 10);
+        }
+    }, [containerRef, rosRequest]);
+
     return (
         <div className={`output-stats ${isOpen && response.elapsedtime != undefined ? 'expanded' : ''} ${response.elapsedtime == undefined ? 'disabled' : ''}`}
-            style={{ marginLeft: rosRequest.boxwidth == undefined && rosRequest.boxwidth != '' ? '565px' : `${parseInt(rosRequest.boxwidth) + 53}px` }}
+            style={{ marginLeft: leftmargin }}
         >
             <button className="toggle" disabled={response.elapsedtime == undefined ? true : false} onClick={toggle}>
 
