@@ -42,7 +42,7 @@ export default function FileProcessor({rosRequest, setRosRequest, setExternalCha
                     for (let i = numpts + 2; i < lines.length; i++) {
                         // if last character is '\' then next line is continuation
                         if (lines[i].endsWith("\\")) {
-                            polygons += lines[i].slice(0, -1).replace(" ", ",");
+                            polygons += lines[i].slice(0, -1).replaceAll(" ", ",");
                         } else {
                             polygons += lines[i].replaceAll(" ", ",") + "|";
                         }

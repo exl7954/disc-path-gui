@@ -103,7 +103,7 @@ export default function InputForm({rosRequest, setRosRequest, working, setWorkin
         }
 
         // check points and polygons
-        const re = /[^\d,|]/
+        const re = /[^\d,|.]/
         
         if (String(formJson.pts).search(re) != -1) {
             return "Invalid Points";
