@@ -17,6 +17,7 @@ export default function InputForm({rosRequest, setRosRequest, working, setWorkin
                 }
             }
             setRosRequest({...rosRequest, ...externalChange})
+            setResponse({});
             setExternalChange({});
         }
     }, [externalChange])
