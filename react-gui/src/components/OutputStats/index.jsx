@@ -10,15 +10,31 @@ export default function OutputStats({rosRequest, response, containerRef}) {
     }
 
     useEffect(() => {
-        if (containerRef.current) {
-            console.log(containerRef.current.clientWidth);
-            let boxOffset = !rosRequest.boxwidth ? 256 : rosRequest.boxwidth / 2;
-            setLeftMargin(containerRef.current.clientWidth / 2 + boxOffset + 10);
+        const handleResize = () => {
+            if (containerRef.current) {
+                let boxOffset = !rosRequest.boxwidth ? 256 : rosRequest.boxwidth / 2;
+                setLeftMargin(containerRef.current.clientWidth / 2 + boxOffset + 10);
+            }
+        };
+
+        // Run on mount and on resize
+        handleResize(); // Set initial values
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup function to remove the event listener
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [rosRequest, containerRef]);
+
+    useEffect(() => {
+        if (!response.elapsedtime) {
+            setIsOpen(false);
         }
-    }, [containerRef, rosRequest]);
+    }, [response]);
 
     return (
-        <div className={`output-stats ${isOpen && response.elapsedtime != undefined ? 'expanded' : ''} ${response.elapsedtime == undefined ? 'disabled' : ''}`}
+        <div className={`output-stats ${isOpen ? 'expanded' : ''} ${response.elapsedtime == undefined ? 'disabled' : ''}`}
             style={{ marginLeft: leftmargin }}
         >
             <button className="toggle" disabled={response.elapsedtime == undefined ? true : false} onClick={toggle}>
