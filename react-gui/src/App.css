@@ -8,3 +8,15 @@ body {
   text-align: center;
 }
 
+.container {
+  text-align: center;
+}
+
+.canvas-container {
+  padding-bottom: 0px;
+}
+
+.output-stats {
+  display: inline-block;
+  margin-left: 565px;
+}

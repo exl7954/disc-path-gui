@@ -6,6 +6,7 @@ import "./App.css";
 import Disc from "./components/Disc";
 import Path from "./components/Path";
 import FileProcessor from "./components/FileProcessor";
+import OutputStats from "./components/OutputStats";
 
 
 
@@ -62,14 +63,17 @@ function App() {
                 externalChange={externalChange} setExternalChange={setExternalChange} />
       <FileProcessor rosRequest={rosRequest} setRosRequest={setRosRequest} setExternalChange={setExternalChange} />
       {response.response == "false" ? <h1>Path Not Found</h1> : null}
-      <CanvasProvider width={rosRequest.boxwidth || 512} height={rosRequest.boxheight || 512} Request={rosRequest} setDrawObj={setDrawObj}>
-        <Disc x={drawObj.alpha ? drawObj.alpha[0] : drawObj.alphax} y={drawObj.alpha ? drawObj.alpha[1] : drawObj.alphay} r={drawObj.r0} color={"#C4E4FF"} />
-        <Disc x={drawObj.bta ? drawObj.bta[0] : drawObj.betax} y={drawObj.bta ? drawObj.bta[1] : drawObj.betay} r={drawObj.r0} color={"pink"} />
-        <Path response={response} />
-        {generatePolygon(readPolygon(drawObj))}
-        {response.boxes ? generateBox(response.boxes) : null}
-      </CanvasProvider>
-      
+      <div className="container">
+        <CanvasProvider width={rosRequest.boxwidth || 512} height={rosRequest.boxheight || 512} Request={rosRequest} setDrawObj={setDrawObj}>
+          <Disc x={drawObj.alpha ? drawObj.alpha[0] : drawObj.alphax} y={drawObj.alpha ? drawObj.alpha[1] : drawObj.alphay} r={drawObj.r0} color={"#C4E4FF"} />
+          <Disc x={drawObj.bta ? drawObj.bta[0] : drawObj.betax} y={drawObj.bta ? drawObj.bta[1] : drawObj.betay} r={drawObj.r0} color={"pink"} />
+          <Path response={response} />
+          {generatePolygon(readPolygon(drawObj))}
+          {response.boxes ? generateBox(response.boxes) : null}
+        </CanvasProvider>
+        
+        <OutputStats rosRequest={rosRequest} response={response} />
+      </div>
     </>
   )
 };
