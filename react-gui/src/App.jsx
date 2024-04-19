@@ -53,6 +53,11 @@ function App() {
       });
     }
   }, [working])
+  const options = [
+    'one', 'two', 'three'
+  ];
+  const defaultOption = options[0];
+  
 
   const containerRef = useRef(null);
   return (
@@ -61,8 +66,7 @@ function App() {
                 working={working} setWorking={setWorking} 
                 setResponse={setResponse} 
                 externalChange={externalChange} setExternalChange={setExternalChange} />
-      <FileProcessor rosRequest={rosRequest} setRosRequest={setRosRequest} setExternalChange={setExternalChange} />
-      {response.response == "false" ? <h1>Path Not Found</h1> : null}
+      <FileProcessor rosRequest={rosRequest} setExternalChange={setExternalChange} />
       <div className="container" id="container" ref={containerRef}>
         <CanvasProvider width={rosRequest.boxwidth || 512} height={rosRequest.boxheight || 512} Request={rosRequest} setDrawObj={setDrawObj}>
           <Disc x={drawObj.alpha ? drawObj.alpha[0] : drawObj.alphax} y={drawObj.alpha ? drawObj.alpha[1] : drawObj.alphay} r={drawObj.r0} color={"#C4E4FF"} />
@@ -74,6 +78,7 @@ function App() {
         
         <OutputStats rosRequest={rosRequest} response={response} containerRef={containerRef} />
       </div>
+      
     </>
   )
 };

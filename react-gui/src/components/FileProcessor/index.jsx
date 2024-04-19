@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import './FileProcessor.css';
 
-export default function FileProcessor({rosRequest, setRosRequest, setExternalChange}) {
+export default function FileProcessor({rosRequest, setExternalChange}) {
     const fileInputRef = useRef();
 
     function handleUpload(event) {

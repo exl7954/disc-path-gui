@@ -51,6 +51,7 @@ export default function OutputStats({rosRequest, response, containerRef}) {
 
             </button>
             <div className="output-stats-content" id="container-content" style={{ maxHeight: isOpen ? `${document.getElementById('container-content').scrollHeight}px` : '0' }}>
+                <p>Path Found: {response.response == "true" ? 'Yes' : 'No'}</p>
                 <p>Elapsed Time: {response.elapsedtime}</p>
                 <p>Times Expanded: {response.expandcount}</p>
                 <p>Total Free Boxes: {response.totalfree}</p>
