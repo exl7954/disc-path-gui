@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import './FileProcessor.css';
 
-export default function FileProcessor({rosRequest, setExternalChange}) {
+export default function FileProcessor({rosRequest, setRosRequest, setExternalChange}) {
     const fileInputRef = useRef();
 
     function handleUpload(event) {
@@ -14,6 +14,7 @@ export default function FileProcessor({rosRequest, setExternalChange}) {
                 try {
                     const request = JSON.parse(content);
                     setExternalChange(request);
+                    setRosRequest(request);
                 } catch (e) {
                     console.error(e);
                     event.target.value = '';
@@ -49,6 +50,7 @@ export default function FileProcessor({rosRequest, setExternalChange}) {
                     }
                     polygons = polygons.slice(0, -1);
                     setExternalChange({numpts: numpts, pts: pts, numpolygons: numpolygons, polygons: polygons})
+                    setRosRequest({numpts: numpts, pts: pts, numpolygons: numpolygons, polygons: polygons});
                 } catch(e) {
                     console.error("INVALID TXT FORMAT: ", e);
                     event.target.value = '';
