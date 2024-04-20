@@ -668,8 +668,12 @@ void parseFromInput(Box* b, int nPt, string points, int nPolygons, string polygo
 				ptSet.insert(pt);
 				if (ptVec.size() > 1)
 				{
-					Wall* w = new Wall(ptVec[ptVec.size()-2], ptVec[ptVec.size()-1]);
-					b->addWall(w);
+					// only add wall if two corners are different
+					if (ptVec[ptVec.size()-2]->x != ptVec[ptVec.size()-1]->x && ptVec[ptVec.size()-2]->y != ptVec[ptVec.size()-1]->y)
+					{
+						Wall* w = new Wall(ptVec[ptVec.size()-2], ptVec[ptVec.size()-1]);
+						b->addWall(w);
+					}
 				}				
 			}
 			//new pt already appeared, a loop is formed. should only happen on first and last pt
