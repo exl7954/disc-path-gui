@@ -25,30 +25,50 @@ export default function FileProcessor({rosRequest, setRosRequest, setExternalCha
                 // read lines from txt
                 let lines = content.split("\n");
                 // trim lines, remove leading tabs, and ignore empty lines and # lines
-                lines = lines.map(line => line.trim())
+                let data = lines.map(line => line.trim())
                              .map(line => line.replace(/^\t+/, ""))
-                             .filter(line => line.length > 0 && !line.startsWith("#"));
-
-                // first line is numpts
+                             .filter(line => line.length > 0 && !line.startsWith("#"))
+                             .join("\n");
+                console.log(data);
+                
                 try {
-                    let numpts = parseInt(lines[0]);
-                    let pts = "";
-                    for (let i = 1; i <= numpts; i++) {
-                        pts += lines[i].replace(" ", ",") + "|";
-                    }
-                    pts = pts.slice(0, -1);
+                    let re = /(\d+)(\.\d+)?/g; // match groups of digits
+                    let digitGroups = [...data.matchAll(re)];
+                    console.log(digitGroups);
+                    let numpts = parseInt(digitGroups[0][0]); // first digit group is numpts
 
-                    let numpolygons = parseInt(lines[numpts + 1]);
-                    let polygons = "";
-                    for (let i = numpts + 2; i < lines.length; i++) {
-                        // if last character is '\' then next line is continuation
-                        if (lines[i].endsWith("\\")) {
-                            polygons += lines[i].slice(0, -1).replaceAll(" ", ",");
+                    // populate pts
+                    let pts = "";
+                    for (let i = 0; i < numpts*2; i++) {
+                        pts += digitGroups[i + 1][0];
+                        if (i % 2 == 0) {
+                            pts += ",";
                         } else {
-                            polygons += lines[i].replaceAll(" ", ",") + "|";
+                            pts += "|";
                         }
                     }
-                    polygons = polygons.slice(0, -1);
+                    pts = pts.slice(0, -1); // remove trailing "|"
+
+                    // populate polygons
+                    let numpolygons = parseInt(digitGroups[numpts*2 + 1][0]);
+                    let index = numpts*2 + 2;
+                    let polygons = "";
+                    for (let i = 0; i < numpolygons; i++) { // for each polygon
+                        let firstPt = digitGroups[index][0];
+                        polygons += firstPt + ",";
+                        for (let j = index + 1; j < digitGroups.length; j++) { // for each point in polygon
+                            polygons += digitGroups[j][0];
+                            if (digitGroups[j][0] == firstPt) {
+                                index = j + 1;
+                                polygons += "|";
+                                break;
+                            } else {
+                                polygons += ",";
+                            }
+                        }
+                    }
+                    polygons = polygons.slice(0, -1); // remove trailing "|"
+                    
                     setExternalChange({numpts: numpts, pts: pts, numpolygons: numpolygons, polygons: polygons})
                     setRosRequest({numpts: numpts, pts: pts, numpolygons: numpolygons, polygons: polygons});
                 } catch(e) {
