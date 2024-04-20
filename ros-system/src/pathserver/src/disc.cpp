@@ -651,6 +651,9 @@ void parseFromInput(Box* b, int nPt, string points, int nPolygons, string polygo
 
 		vector<Corner*> ptVec;
 		set<int> ptSet;
+		// create a set of [x,y] arrays
+		set<vector<double>> xySet;
+
 		while (!q.empty())
 		{
 			int pt;
@@ -660,21 +663,25 @@ void parseFromInput(Box* b, int nPt, string points, int nPolygons, string polygo
 			pt -= 1; //1 based array
 			if (ptSet.find(pt) == ptSet.end())
 			{
-				ptVec.push_back(new Corner(pts[pt*2]*scale+deltaX,
+				// only add new pt if its x and y have not been seen
+				vector<double> xy = {pts[pt*2], pts[pt*2+1]};
+				if (xySet.find(xy) == xySet.end()) {
+					xySet.insert(xy);
+					ptVec.push_back(new Corner(pts[pt*2]*scale+deltaX,
 					    	pts[pt*2+1]*scale+deltaY));
 
 
-				b->addCorner(ptVec.back());
-				ptSet.insert(pt);
-				if (ptVec.size() > 1)
-				{
-					// only add wall if two corners are different
-					if (ptVec[ptVec.size()-2]->x != ptVec[ptVec.size()-1]->x && ptVec[ptVec.size()-2]->y != ptVec[ptVec.size()-1]->y)
+					b->addCorner(ptVec.back());
+					ptSet.insert(pt);
+					if (ptVec.size() > 1)
 					{
+						
 						Wall* w = new Wall(ptVec[ptVec.size()-2], ptVec[ptVec.size()-1]);
 						b->addWall(w);
+						
 					}
-				}				
+				}
+							
 			}
 			//new pt already appeared, a loop is formed. should only happen on first and last pt
 			else
