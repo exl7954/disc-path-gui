@@ -244,7 +244,7 @@ export default function InputForm({rosRequest, setRosRequest, working, setWorkin
                     <label>{props.label}</label>
                     {"tooltipId" in props ? <img src="https://icons.veryicon.com/png/o/miscellaneous/official-icon-of-flying-pig/question-mark-is-small.png" alt="info" data-tooltip-id={props.tooltipId} data-tooltip-content={props.tooltipContent}></img> : null}
                 </div>
-                <input name={props.name} type={props.inputType} autoComplete="off" onChange={handleInputChange} />
+                <input name={props.name} type={props.inputType} step="any" autoComplete="off" onChange={handleInputChange} />
                 <Tooltip id={props.tooltipId} place="top" type="dark" effect="solid" />
             </div>
         );
