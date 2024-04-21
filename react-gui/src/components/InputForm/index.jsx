@@ -15,8 +15,15 @@ export default function InputForm({rosRequest, setRosRequest, working, setWorkin
                 if (key != "alpha" && key != "bta" && key != "numpts" && key != "numpolygons") {
                     document.getElementsByName(key)[0].value = externalChange[key];
                 }
+                if (key == "alpha") {
+                    document.getElementsByName("alphax")[0].value = externalChange["alpha"][0];
+                    document.getElementsByName("alphay")[0].value = externalChange["alpha"][1];
+                }
+                if (key == "bta") {
+                    document.getElementsByName("betax")[0].value = externalChange["bta"][0];
+                    document.getElementsByName("betay")[0].value = externalChange["bta"][1];
+                }
             }
-            setRosRequest({...rosRequest, ...externalChange})
             setResponse({});
             setExternalChange({});
         }
@@ -237,7 +244,7 @@ export default function InputForm({rosRequest, setRosRequest, working, setWorkin
                     <label>{props.label}</label>
                     {"tooltipId" in props ? <img src="https://icons.veryicon.com/png/o/miscellaneous/official-icon-of-flying-pig/question-mark-is-small.png" alt="info" data-tooltip-id={props.tooltipId} data-tooltip-content={props.tooltipContent}></img> : null}
                 </div>
-                <input name={props.name} type={props.inputType} autoComplete="off" onChange={handleInputChange} />
+                <input name={props.name} type={props.inputType} step="any" autoComplete="off" onChange={handleInputChange} />
                 <Tooltip id={props.tooltipId} place="top" type="dark" effect="solid" />
             </div>
         );
