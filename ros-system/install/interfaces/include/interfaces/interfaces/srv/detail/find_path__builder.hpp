@@ -383,16 +383,32 @@ private:
   ::interfaces::srv::FindPath_Response msg_;
 };
 
+class Init_FindPath_Response_boxtimeline
+{
+public:
+  explicit Init_FindPath_Response_boxtimeline(::interfaces::srv::FindPath_Response & msg)
+  : msg_(msg)
+  {}
+  Init_FindPath_Response_elapsedtime boxtimeline(::interfaces::srv::FindPath_Response::_boxtimeline_type arg)
+  {
+    msg_.boxtimeline = std::move(arg);
+    return Init_FindPath_Response_elapsedtime(msg_);
+  }
+
+private:
+  ::interfaces::srv::FindPath_Response msg_;
+};
+
 class Init_FindPath_Response_boxes
 {
 public:
   explicit Init_FindPath_Response_boxes(::interfaces::srv::FindPath_Response & msg)
   : msg_(msg)
   {}
-  Init_FindPath_Response_elapsedtime boxes(::interfaces::srv::FindPath_Response::_boxes_type arg)
+  Init_FindPath_Response_boxtimeline boxes(::interfaces::srv::FindPath_Response::_boxes_type arg)
   {
     msg_.boxes = std::move(arg);
-    return Init_FindPath_Response_elapsedtime(msg_);
+    return Init_FindPath_Response_boxtimeline(msg_);
   }
 
 private:

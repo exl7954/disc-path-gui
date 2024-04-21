@@ -9,11 +9,15 @@
 #include "Corner.h"
 #include <vector>
 #include <list>
+#include <sstream>
+#include <set>
 
 class Set;
 class Box;
 
 using namespace std;
+extern stringstream boxTimeline;
+extern set<string> seenBoxes;
 
 class BoxIter
 {
@@ -93,6 +97,8 @@ public:
 		priority = Box::counter; 
 	}
 	
+	// Eric 2024
+	// whenever box status is updated, add to timeline with new status if not already in set
 	void updateStatus()
 	{/*
 		if (status != UNKNOWN)
@@ -108,6 +114,12 @@ public:
 			if (c->distance(this->x, this->y) <= innerDomain)
 			{
 				status = STUCK;
+				string newBox = to_string(this->x) + "," + to_string(this->y) + "!" + to_string(this->width) + "," + to_string(this->height) + "!" + to_string(this->status) + "|";
+				if (seenBoxes.find(newBox) == seenBoxes.end())
+				{
+					boxTimeline << newBox;
+					seenBoxes.insert(newBox);
+				}
 				return;
 			}
 
@@ -130,6 +142,12 @@ public:
 			if (distWall < innerDomain)
 			{
 				status = STUCK;
+				string newBox = to_string(this->x) + "," + to_string(this->y) + "!" + to_string(this->width) + "," + to_string(this->height) + "!" + to_string(this->status) + "|";
+				if (seenBoxes.find(newBox) == seenBoxes.end())
+				{
+					boxTimeline << newBox;
+					seenBoxes.insert(newBox);
+				}
 				return;				
 			} 
 			
@@ -152,10 +170,22 @@ public:
 			if (!pParent)
 			{
 				status = MIXED;
+				string newBox = to_string(this->x) + "," + to_string(this->y) + "!" + to_string(this->width) + "," + to_string(this->height) + "!" + to_string(this->status) + "|";
+				if (seenBoxes.find(newBox) == seenBoxes.end())
+				{
+					boxTimeline << newBox;
+					seenBoxes.insert(newBox);
+				}
 			} 
 			else
 			{
 				status = pParent->checkChildStatus(this->x, this->y);
+				string newBox = to_string(this->x) + "," + to_string(this->y) + "!" + to_string(this->width) + "," + to_string(this->height) + "!" + to_string(this->status) + "|";
+				if (seenBoxes.find(newBox) == seenBoxes.end())
+				{
+					boxTimeline << newBox;
+					seenBoxes.insert(newBox);
+				}
 			}			
 		}
 	}
@@ -166,7 +196,6 @@ public:
 	{
 		//assert(walls.size());
 
-		// warning maybe remove DOUBLE_MAX
 		double mindistW = std::numeric_limits<int>::max();
 		Wall* nearestWall = NULL;
 
@@ -282,6 +311,16 @@ public:
 		for (int i = 0; i < 4; ++i)
 		{
 			children[i]->depth = this->depth + 1;
+			// add to boxTimeline
+			// x,y!width,height!status|
+			string newBox = to_string(children[i]->x) + "," + to_string(children[i]->y) + "!" + to_string(children[i]->width) + "," + to_string(children[i]->height) + "!" + to_string(children[i]->status) + "|";
+			// add to boxTimeline if not in set
+			if (seenBoxes.find(newBox) == seenBoxes.end())
+			{
+				boxTimeline << newBox;
+				seenBoxes.insert(newBox);
+			}
+
 		}
 
 		for (int i = 0; i < 4; ++i)

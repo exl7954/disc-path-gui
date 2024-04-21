@@ -59,6 +59,8 @@ module interfaces {
 
       string boxes;
 
+      string boxtimeline;
+
       double elapsedtime;
 
       int64 expandcount;
