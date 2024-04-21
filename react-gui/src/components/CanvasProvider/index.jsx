@@ -7,7 +7,7 @@ const CanvasLowerContext = createContext();
 export const useCanvas = () => useContext(CanvasContext);
 export const useCanvasLower = () => useContext(CanvasLowerContext);
 
-export const CanvasProvider = ({ width, height, Request, setDrawObj, children }) => {
+export const CanvasProvider = ({ width, height, Request, setDrawObj, stopPoint, children }) => {
     const canvasRef = useRef(null);
     const draw = (drawFunction) => {
         const canvas = canvasRef.current;
@@ -21,6 +21,14 @@ export const CanvasProvider = ({ width, height, Request, setDrawObj, children })
         const lowerCtx = lowerCanvas.getContext("2d");
         drawFunction(lowerCtx);
     };
+
+    useEffect(() => {
+        if (stopPoint == 0) {
+            const lowerCanvas = lowerRef.current;
+            const lowerCtx = lowerCanvas.getContext("2d");
+            lowerCtx.clearRect(0, 0, width, height);
+        }
+    }, [stopPoint]);
 
     useEffect(() => {
         const canvas = canvasRef.current;

@@ -7,6 +7,7 @@ import Disc from "./components/Disc";
 import Path from "./components/Path";
 import FileProcessor from "./components/FileProcessor";
 import OutputStats from "./components/OutputStats";
+import TimelineSlider from "./components/TimelineSlider";
 
 
 
@@ -18,6 +19,7 @@ function App() {
   const [working, setWorking] = useState(false); // true if waiting for response from ROS
   const [response, setResponse] = useState({}); // response from ROS
   const [externalChange, setExternalChange] = useState({}); // request object when imported from file
+  const [stopPoint, setStopPoint] = useState(-1);
 
   useEffect(() => {
     if (working) {
@@ -45,7 +47,7 @@ function App() {
       console.log("in effect");
       let request = new ROSLIB.ServiceRequest(rosRequest);
       client.callService(request, function (result) {
-        console.log('Result for service call on ' + client.name + ': ' + JSON.stringify(result));
+        console.log(result);
         setResponse(result);
         setWorking(false);
         setConnection("closed");
@@ -68,12 +70,13 @@ function App() {
                 externalChange={externalChange} setExternalChange={setExternalChange} />
       <FileProcessor rosRequest={rosRequest} setRosRequest={setRosRequest} setExternalChange={setExternalChange} />
       <div className="container" id="container" ref={containerRef}>
-        <CanvasProvider width={rosRequest.boxwidth || 512} height={rosRequest.boxheight || 512} Request={rosRequest} setDrawObj={setDrawObj}>
+        <CanvasProvider width={rosRequest.boxwidth || 512} height={rosRequest.boxheight || 512} Request={rosRequest} setDrawObj={setDrawObj} stopPoint={stopPoint} >
           <Disc x={drawObj.alpha ? drawObj.alpha[0] : drawObj.alphax} y={drawObj.alpha ? drawObj.alpha[1] : drawObj.alphay} r={drawObj.r0} color={"#C4E4FF"} />
           <Disc x={drawObj.bta ? drawObj.bta[0] : drawObj.betax} y={drawObj.bta ? drawObj.bta[1] : drawObj.betay} r={drawObj.r0} color={"pink"} />
           <Path response={response} />
           {generatePolygon(readPolygon(drawObj))}
-          {response.boxes ? generateBox(response.boxes) : null}
+          {response.boxes ? generateBox(response.boxtimeline, stopPoint) : null}
+          <TimelineSlider setStopPoint={setStopPoint} stopPoint={stopPoint} response={response} containerRef={containerRef} rosRequest={rosRequest} />
         </CanvasProvider>
         
         <OutputStats rosRequest={rosRequest} response={response} containerRef={containerRef} />

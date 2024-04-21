@@ -241,7 +241,7 @@ export default function InputForm({rosRequest, setRosRequest, working, setWorkin
         return (
             <div className="text-input" id={props.name}>
                 <div className="input-label">
-                    <label>{props.label}</label>
+                    <label style={"style" in props ? props["style"] : {}}>{props.label}</label>
                     {"tooltipId" in props ? <img src="https://icons.veryicon.com/png/o/miscellaneous/official-icon-of-flying-pig/question-mark-is-small.png" alt="info" data-tooltip-id={props.tooltipId} data-tooltip-content={props.tooltipContent}></img> : null}
                 </div>
                 <input name={props.name} type={props.inputType} step="any" autoComplete="off" onChange={handleInputChange} />
@@ -256,10 +256,10 @@ export default function InputForm({rosRequest, setRosRequest, working, setWorkin
             <form onSubmit={handleSubmit}>
             <fieldset disabled={working}>
             <div className="disk-input flex-child">
-                {TextInput({name: "alphax", label: "Alpha X", inputType: "number", tooltipId: "alphax-tooltip", tooltipContent: "Starting Coordinates"})}
-                {TextInput({name: "alphay", label: "Alpha Y", inputType: "number"})}
-                {TextInput({name: "betax", label: "Beta X", inputType: "number", tooltipId: "betax-tooltip", tooltipContent: "Ending Coordinates"})}
-                {TextInput({name: "betay", label: "Beta Y", inputType: "number"})}
+                {TextInput({name: "alphax", label: "Alpha X", inputType: "number", tooltipId: "alphax-tooltip", tooltipContent: "Starting Coordinates", style: {"color": "#72a7d4"}})}
+                {TextInput({name: "alphay", label: "Alpha Y", inputType: "number", style: {"color": "#72a7d4"}})}
+                {TextInput({name: "betax", label: "Beta X", inputType: "number", tooltipId: "betax-tooltip", tooltipContent: "Ending Coordinates", style: {"color": "#b36d79"}})}
+                {TextInput({name: "betay", label: "Beta Y", inputType: "number", style: {"color": "#b36d79"}})}
                 {TextInput({name: "epsilon", label: "Epsilon", inputType: "number", tooltipId: "epsilon-tooltip", tooltipContent: "Minimum Box Size for Subdivision"})}
                 {TextInput({name: "r0", label: "Radius", inputType: "number"})}
             </div>
@@ -267,7 +267,7 @@ export default function InputForm({rosRequest, setRosRequest, working, setWorkin
                 {TextInput({name: "boxwidth", label: "Box Width", inputType: "number"})}
                 {TextInput({name: "boxheight", label: "Box Height", inputType: "number"})}
                 {TextInput({name: "pts", label: "Points", inputType: "text", tooltipId: "points-tooltip", tooltipContent: "Points should be in the format: x1,y1|x2,y2|x3,y3..."})}
-                {TextInput({name: "polygons", label: "Polygons", inputType: "text", tooltipId: "polygons-tooltip", tooltipContent: "Polygons should be in the format: v1,v2,v3|v1,v2,v3,v4|..."})}
+                {TextInput({name: "polygons", label: "Polygons", inputType: "text", tooltipId: "polygons-tooltip", tooltipContent: "Polygons should be in the format: v1,v2,v3|v1,v2,v3,v4|... (e.g. 1,2,3,1 is a polygon made up of points 1, 2, and 3)"})}
                 {TextInput({name: "seed", label: "Random Seed", inputType: "number"})}
                 <div className="text-input">
                     <label>QType</label>

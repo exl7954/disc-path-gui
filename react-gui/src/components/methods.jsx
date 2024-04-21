@@ -8,8 +8,11 @@ export function parseBox(box) {
     return boxes
 }
 
-export function generateBox(input) {
+export function generateBox(input, stopPoint) {
     input = parseBox(input);
+    if (stopPoint !== -1) {
+        input = input.slice(0, Math.min(stopPoint, input.length));
+    }
     let i = 0;
     let result = input.map(([x, y, width, height, color]) => {
         let box_color = "grey"
