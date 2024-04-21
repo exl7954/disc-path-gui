@@ -417,6 +417,7 @@ interfaces__srv__FindPath_Request__Sequence__copy(
 // Member `response`
 // Member `path`
 // Member `boxes`
+// Member `boxtimeline`
 // already included above
 // #include "rosidl_runtime_c/string_functions.h"
 
@@ -441,6 +442,11 @@ interfaces__srv__FindPath_Response__init(interfaces__srv__FindPath_Response * ms
     interfaces__srv__FindPath_Response__fini(msg);
     return false;
   }
+  // boxtimeline
+  if (!rosidl_runtime_c__String__init(&msg->boxtimeline)) {
+    interfaces__srv__FindPath_Response__fini(msg);
+    return false;
+  }
   // elapsedtime
   // expandcount
   // totalfree
@@ -462,6 +468,8 @@ interfaces__srv__FindPath_Response__fini(interfaces__srv__FindPath_Response * ms
   rosidl_runtime_c__String__fini(&msg->path);
   // boxes
   rosidl_runtime_c__String__fini(&msg->boxes);
+  // boxtimeline
+  rosidl_runtime_c__String__fini(&msg->boxtimeline);
   // elapsedtime
   // expandcount
   // totalfree
@@ -491,6 +499,12 @@ interfaces__srv__FindPath_Response__are_equal(const interfaces__srv__FindPath_Re
   // boxes
   if (!rosidl_runtime_c__String__are_equal(
       &(lhs->boxes), &(rhs->boxes)))
+  {
+    return false;
+  }
+  // boxtimeline
+  if (!rosidl_runtime_c__String__are_equal(
+      &(lhs->boxtimeline), &(rhs->boxtimeline)))
   {
     return false;
   }
@@ -544,6 +558,12 @@ interfaces__srv__FindPath_Response__copy(
   // boxes
   if (!rosidl_runtime_c__String__copy(
       &(input->boxes), &(output->boxes)))
+  {
+    return false;
+  }
+  // boxtimeline
+  if (!rosidl_runtime_c__String__copy(
+      &(input->boxtimeline), &(output->boxtimeline)))
   {
     return false;
   }

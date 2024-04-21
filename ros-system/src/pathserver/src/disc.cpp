@@ -67,6 +67,7 @@
 using namespace std;
 
 QuadTree* QT;
+string boxTimeline;
 
 // GLOBAL INPUT Parameters ========================================
 //
@@ -267,6 +268,8 @@ void service_run(const std::shared_ptr<interfaces::srv::FindPath::Request> reque
 	cout << request->pts << endl;
 	cout << request->polygons << endl;
 
+	boxTimeline = "";
+
 	Timer t;
 	t.start();
 
@@ -383,6 +386,10 @@ void service_run(const std::shared_ptr<interfaces::srv::FindPath::Request> reque
 		cout << endl;
 		response->path = responsePath.str();
 	}
+	// return timeline
+	cout << boxTimeline << endl;
+	response->boxtimeline = boxTimeline;
+
 	// return boxes
 	stringstream responseBoxes;
 	treeTraverse(QT->pRoot, responseBoxes);

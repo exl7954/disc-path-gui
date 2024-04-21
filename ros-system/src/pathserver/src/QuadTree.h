@@ -15,6 +15,7 @@
 #include "UnionFind.h"
 #include "PriorityQueue.h"
 
+// extern std::string boxTimeline;
 extern int freeCount;
 extern int stuckCount;
 extern int mixCount;
@@ -125,6 +126,9 @@ public:
 		{
 			b->pChildren[i]->updateStatus();
 			insertNode(b->pChildren[i]);
+
+			// add to boxTimeline
+			// boxTimeline += std::to_string(b->pChildren[i]->x) + "," + std::to_string(b->pChildren[i]->y) + "|";
 		}
 
 		return true;

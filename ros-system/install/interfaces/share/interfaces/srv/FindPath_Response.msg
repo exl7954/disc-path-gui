@@ -2,6 +2,7 @@
 string response
 string path
 string boxes
+string boxtimeline
 float64 elapsedtime
 int64 expandcount
 int64 totalfree

@@ -418,6 +418,13 @@ inline void to_flow_style_yaml(
     out << ", ";
   }
 
+  // member: boxtimeline
+  {
+    out << "boxtimeline: ";
+    rosidl_generator_traits::value_to_yaml(msg.boxtimeline, out);
+    out << ", ";
+  }
+
   // member: elapsedtime
   {
     out << "elapsedtime: ";
@@ -492,6 +499,16 @@ inline void to_block_style_yaml(
     }
     out << "boxes: ";
     rosidl_generator_traits::value_to_yaml(msg.boxes, out);
+    out << "\n";
+  }
+
+  // member: boxtimeline
+  {
+    if (indentation > 0) {
+      out << std::string(indentation, ' ');
+    }
+    out << "boxtimeline: ";
+    rosidl_generator_traits::value_to_yaml(msg.boxtimeline, out);
     out << "\n";
   }
 

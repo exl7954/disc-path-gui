@@ -390,6 +390,7 @@ struct FindPath_Response_
       this->response = "";
       this->path = "";
       this->boxes = "";
+      this->boxtimeline = "";
       this->elapsedtime = 0.0;
       this->expandcount = 0ll;
       this->totalfree = 0ll;
@@ -402,7 +403,8 @@ struct FindPath_Response_
   explicit FindPath_Response_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
   : response(_alloc),
     path(_alloc),
-    boxes(_alloc)
+    boxes(_alloc),
+    boxtimeline(_alloc)
   {
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
@@ -410,6 +412,7 @@ struct FindPath_Response_
       this->response = "";
       this->path = "";
       this->boxes = "";
+      this->boxtimeline = "";
       this->elapsedtime = 0.0;
       this->expandcount = 0ll;
       this->totalfree = 0ll;
@@ -429,6 +432,9 @@ struct FindPath_Response_
   using _boxes_type =
     std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>;
   _boxes_type boxes;
+  using _boxtimeline_type =
+    std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>;
+  _boxtimeline_type boxtimeline;
   using _elapsedtime_type =
     double;
   _elapsedtime_type elapsedtime;
@@ -465,6 +471,12 @@ struct FindPath_Response_
     const std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> & _arg)
   {
     this->boxes = _arg;
+    return *this;
+  }
+  Type & set__boxtimeline(
+    const std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> & _arg)
+  {
+    this->boxtimeline = _arg;
     return *this;
   }
   Type & set__elapsedtime(
@@ -553,6 +565,9 @@ struct FindPath_Response_
       return false;
     }
     if (this->boxes != other.boxes) {
+      return false;
+    }
+    if (this->boxtimeline != other.boxtimeline) {
       return false;
     }
     if (this->elapsedtime != other.elapsedtime) {

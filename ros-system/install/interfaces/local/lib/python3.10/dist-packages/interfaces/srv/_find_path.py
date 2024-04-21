@@ -619,6 +619,7 @@ class FindPath_Response(metaclass=Metaclass_FindPath_Response):
         '_response',
         '_path',
         '_boxes',
+        '_boxtimeline',
         '_elapsedtime',
         '_expandcount',
         '_totalfree',
@@ -631,6 +632,7 @@ class FindPath_Response(metaclass=Metaclass_FindPath_Response):
         'response': 'string',
         'path': 'string',
         'boxes': 'string',
+        'boxtimeline': 'string',
         'elapsedtime': 'double',
         'expandcount': 'int64',
         'totalfree': 'int64',
@@ -640,6 +642,7 @@ class FindPath_Response(metaclass=Metaclass_FindPath_Response):
     }
 
     SLOT_TYPES = (
+        rosidl_parser.definition.UnboundedString(),  # noqa: E501
         rosidl_parser.definition.UnboundedString(),  # noqa: E501
         rosidl_parser.definition.UnboundedString(),  # noqa: E501
         rosidl_parser.definition.UnboundedString(),  # noqa: E501
@@ -658,6 +661,7 @@ class FindPath_Response(metaclass=Metaclass_FindPath_Response):
         self.response = kwargs.get('response', str())
         self.path = kwargs.get('path', str())
         self.boxes = kwargs.get('boxes', str())
+        self.boxtimeline = kwargs.get('boxtimeline', str())
         self.elapsedtime = kwargs.get('elapsedtime', float())
         self.expandcount = kwargs.get('expandcount', int())
         self.totalfree = kwargs.get('totalfree', int())
@@ -699,6 +703,8 @@ class FindPath_Response(metaclass=Metaclass_FindPath_Response):
         if self.path != other.path:
             return False
         if self.boxes != other.boxes:
+            return False
+        if self.boxtimeline != other.boxtimeline:
             return False
         if self.elapsedtime != other.elapsedtime:
             return False
@@ -757,6 +763,19 @@ class FindPath_Response(metaclass=Metaclass_FindPath_Response):
                 isinstance(value, str), \
                 "The 'boxes' field must be of type 'str'"
         self._boxes = value
+
+    @builtins.property
+    def boxtimeline(self):
+        """Message field 'boxtimeline'."""
+        return self._boxtimeline
+
+    @boxtimeline.setter
+    def boxtimeline(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, str), \
+                "The 'boxtimeline' field must be of type 'str'"
+        self._boxtimeline = value
 
     @builtins.property
     def elapsedtime(self):

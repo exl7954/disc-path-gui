@@ -14,6 +14,7 @@ class Set;
 class Box;
 
 using namespace std;
+extern string boxTimeline;
 
 class BoxIter
 {
@@ -282,6 +283,8 @@ public:
 		for (int i = 0; i < 4; ++i)
 		{
 			children[i]->depth = this->depth + 1;
+			// add to boxTimeline
+			boxTimeline += std::to_string(children[i]->x) + "," + std::to_string(children[i]->y) + "|";
 		}
 
 		for (int i = 0; i < 4; ++i)

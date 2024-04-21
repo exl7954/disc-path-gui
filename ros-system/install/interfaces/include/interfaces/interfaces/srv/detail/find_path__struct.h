@@ -59,6 +59,7 @@ typedef struct interfaces__srv__FindPath_Request__Sequence
 // Member 'response'
 // Member 'path'
 // Member 'boxes'
+// Member 'boxtimeline'
 // already included above
 // #include "rosidl_runtime_c/string.h"
 
@@ -68,6 +69,7 @@ typedef struct interfaces__srv__FindPath_Response
   rosidl_runtime_c__String response;
   rosidl_runtime_c__String path;
   rosidl_runtime_c__String boxes;
+  rosidl_runtime_c__String boxtimeline;
   double elapsedtime;
   int64_t expandcount;
   int64_t totalfree;
